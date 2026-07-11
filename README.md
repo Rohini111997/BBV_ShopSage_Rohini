@@ -102,9 +102,6 @@ See [docs/team.md](docs/team.md) for:
 
 ---
 
-
----
-
 ## Questions?
 
 Refer to [docs/team.md](docs/team.md) for team member contacts by role, or raise an issue on GitHub.
