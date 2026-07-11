@@ -100,7 +100,7 @@ You can now interact with ShopSage in the browser and test its capabilities.
 
 This repo contains:
 
-- **`docs/requirements.md`** — Installation guide and prerequisites for running ShopSage
+- **`docs/requirements.txt`** — Installation guide and prerequisites for running ShopSage
 - **`docs/team.md`** — Team roles, agreed tech stack, and member sign-offs on requirements.
 - **`src/`** — Source code (RAG pipeline, tools, guardrails, UI, memory manager)
 - **`data/`** — Sample product catalog, inventory, and order data
