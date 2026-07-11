@@ -59,24 +59,40 @@ ShopSage refuses to recommend age-restricted or unsafe items, even if they match
 
 ## How to Use This Repo
 
-### 1. Read Requirements First
-Before writing any code, the entire team reads **`docs/requirements.md`** in full. This covers the user persona, objective, sample queries, constraints, and guardrail rules.
+## How to Use This Repo
 
-### 2. Work Through Tasks Weekly
-Follow **`docs/tasks.md`** week by week:
-- Each task has a **Definition of Done** (what "complete" means)
-- Collect **evidence of completion** (logs, screenshots, reports, code commits)
-- The team verifies progress using the listed evidence
+### 1. Install All Prerequisites
+Before running any code, install the required dependencies:
 
-### 3. Hit the Weekly Demo Goal
-Each week has a **Demo Goal** — a minimum working feature to demo to instructors/cohort:
-- **Week 1:** A live Gradio chat UI that answers a product-search request with a RAG-grounded shortlist; no tools, memory, or guardrails yet
-- **Week 2:** Add tools (inventory, order tracking) and conversational memory
-- **Week 3:** Add guardrails (out-of-stock prevention, age safety, budget respect)
-- **Week 4:** Add observability (LangSmith tracing) and evals; optional stretch goals
+```bash
+pip install -r requirements.txt
+```
 
-### 4. Optional Stretch Goals
-If the team finishes early, stretch goals add depth (e.g., hybrid search, advanced caching, production deployment).
+This installs:
+- LangChain + Groq integration
+- ChromaDB for vector storage
+- Gradio for the UI
+- HuggingFace embeddings
+- LangSmith for observability
+- And all other dependencies
+
+### 2. Understand the Function
+Read the documentation to understand what ShopSage does:
+
+- **`docs/team.md`** — Team roles and agreed tech stack
+- **`README.md`** (this file) — Core capabilities and architecture overview
+
+
+### 3. Run the Python Code
+Once dependencies are installed and you understand the function, run the app:
+
+```bash
+python src/app.py
+```
+
+The Gradio UI opens at `http://127.0.0.1:7860`
+
+You can now interact with ShopSage in the browser and test its capabilities.
 
 ---
 
@@ -84,8 +100,7 @@ If the team finishes early, stretch goals add depth (e.g., hybrid search, advanc
 
 This repo contains:
 
-- **`docs/requirements.md`** — User persona and objective, sample queries with expected answers, constraints, and guardrail requirements (~1 page)
-- **`docs/tasks.md`** — A 32-task, 4-week plan (Gradio UI from Week 1, tools/MCP/memory, guardrails/caching, evals/observability). Each task includes a Definition of Done and evidence of completion, plus a weekly Demo Goal and optional Stretch Goals.
+- **`docs/requirements.md`** — Installation guide and prerequisites for running ShopSage
 - **`docs/team.md`** — Team roles, agreed tech stack, and member sign-offs on requirements.
 - **`src/`** — Source code (RAG pipeline, tools, guardrails, UI, memory manager)
 - **`data/`** — Sample product catalog, inventory, and order data
