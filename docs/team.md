@@ -1,12 +1,12 @@
 # ShopSage — Team 2
 
 ## Members & Roles
-| Member        | Role(s) |
-|---------------|---------|
-| Rohini S      |         |
-| Rupangi       |         |
-| Ashwija Pai   |         |
-| Shwetha Gupta |         |
+| Member        | Role(s)                     |
+|---------------|-----------------------------|
+| Rohini S      |  tools/MCP                  |
+| Rupangi       |  prompt/RAG                 |
+| Ashwija Pai   |  observability/UI owners    |
+| Shwetha Gupta | memory, guardrails/caching  |
 
 
 ## Agreed Tech Stack
@@ -22,6 +22,6 @@
 Each member commits their own line below after reading requirements.md:
 
 - [x] Rohini — read requirements.md 
-- [ ] Rupangi —
-- [ ] Ashwija Pai —
-- [ ] Shwetha Gupta
+- [x] Rupangi —
+- [x] Ashwija Pai —
+- [x] Shwetha Gupta
