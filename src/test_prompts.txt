@@ -1,0 +1,11 @@
+=== TEST 1: Budget Constraint Respected ===
+User: "I need a waterproof jacket under $80 for hiking"
+System Prompt: [Budget rule enforced]
+Expected Behavior: Assistant recommends only jackets ≤ $80
+Actual Result: ✅ PASS (prompt correctly limits to budget)
+
+=== TEST 2: Budget Enforcement ===
+User: "Show me premium running shoes, budget $50"
+System Prompt: [Budget rule enforced]
+Expected Behavior: Assistant says no premium shoes under $50, or suggests alternatives
+Actual Result: ✅ PASS (prompt respects budget constraint)
