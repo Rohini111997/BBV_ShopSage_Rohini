@@ -1,0 +1,151 @@
+GuestId,ProductId,Review,Rating
+G022,P028,Excellent quality,5
+G042,P002,Average product,3
+G018,P004,Highly recommended,5
+G026,P026,Could be better,2
+G047,P026,Could be better,2
+G014,P013,Average product,3
+G022,P011,Could be better,2
+G011,P021,Good value,4
+G025,P013,Average product,3
+G010,P026,Good value,4
+G038,P027,Could be better,2
+G004,P016,Excellent quality,5
+G021,P004,Average product,3
+G030,P019,Excellent quality,5
+G050,P023,Good value,4
+G040,P016,Average product,3
+G006,P015,Average product,3
+G045,P020,Could be better,2
+G022,P022,Average product,3
+G011,P005,Good value,4
+G043,P016,Good value,4
+G031,P014,Average product,3
+G042,P028,Highly recommended,5
+G012,P030,Could be better,2
+G029,P028,Average product,3
+G028,P005,Highly recommended,5
+G007,P013,Could be better,2
+G050,P015,Excellent quality,5
+G024,P028,Highly recommended,5
+G011,P028,Average product,3
+G014,P020,Could be better,2
+G004,P028,Average product,3
+G027,P024,Excellent quality,5
+G027,P014,Could be better,2
+G041,P009,Could be better,2
+G047,P020,Good value,4
+G019,P028,Could be better,2
+G012,P001,Average product,3
+G039,P029,Excellent quality,5
+G017,P010,Average product,3
+G030,P021,Could be better,2
+G039,P025,Could be better,2
+G039,P023,Good value,4
+G027,P023,Average product,3
+G032,P003,Good value,4
+G028,P011,Highly recommended,5
+G006,P029,Could be better,2
+G012,P004,Excellent quality,5
+G039,P017,Could be better,2
+G046,P022,Highly recommended,5
+G046,P022,Good value,4
+G050,P022,Average product,3
+G029,P017,Good value,4
+G010,P004,Highly recommended,5
+G042,P020,Average product,3
+G030,P023,Excellent quality,5
+G013,P027,Could be better,2
+G022,P025,Highly recommended,5
+G012,P023,Average product,3
+G028,P018,Good value,4
+G016,P008,Highly recommended,5
+G014,P026,Excellent quality,5
+G025,P003,Excellent quality,5
+G003,P023,Average product,3
+G023,P011,Excellent quality,5
+G012,P020,Could be better,2
+G010,P010,Average product,3
+G025,P012,Excellent quality,5
+G010,P014,Could be better,2
+G036,P007,Highly recommended,5
+G013,P007,Average product,3
+G013,P006,Could be better,2
+G007,P028,Average product,3
+G001,P030,Excellent quality,5
+G031,P021,Excellent quality,5
+G015,P012,Could be better,2
+G009,P028,Excellent quality,5
+G037,P002,Highly recommended,5
+G028,P018,Good value,4
+G002,P017,Good value,4
+G027,P011,Average product,3
+G016,P015,Good value,4
+G001,P018,Highly recommended,5
+G001,P014,Excellent quality,5
+G015,P023,Average product,3
+G027,P015,Average product,3
+G036,P025,Good value,4
+G036,P013,Highly recommended,5
+G034,P010,Could be better,2
+G042,P012,Could be better,2
+G018,P013,Highly recommended,5
+G022,P004,Excellent quality,5
+G032,P026,Highly recommended,5
+G039,P008,Could be better,2
+G023,P001,Good value,4
+G021,P015,Average product,3
+G048,P024,Excellent quality,5
+G010,P026,Highly recommended,5
+G019,P022,Average product,3
+G033,P007,Excellent quality,5
+G015,P015,Could be better,2
+G019,P001,Could be better,2
+G029,P025,Excellent quality,5
+G019,P025,Could be better,2
+G002,P015,Highly recommended,5
+G030,P015,Good value,4
+G044,P024,Average product,3
+G011,P004,Good value,4
+G048,P025,Good value,4
+G018,P013,Could be better,2
+G011,P022,Highly recommended,5
+G011,P012,Excellent quality,5
+G042,P001,Highly recommended,5
+G028,P024,Highly recommended,5
+G004,P004,Good value,4
+G029,P028,Average product,3
+G045,P009,Could be better,2
+G032,P013,Excellent quality,5
+G006,P011,Could be better,2
+G006,P013,Could be better,2
+G029,P021,Good value,4
+G028,P010,Highly recommended,5
+G049,P018,Highly recommended,5
+G013,P014,Good value,4
+G002,P021,Good value,4
+G020,P014,Good value,4
+G042,P009,Excellent quality,5
+G010,P029,Average product,3
+G038,P029,Average product,3
+G031,P005,Excellent quality,5
+G034,P028,Excellent quality,5
+G046,P023,Good value,4
+G017,P003,Could be better,2
+G014,P005,Could be better,2
+G013,P017,Highly recommended,5
+G019,P006,Excellent quality,5
+G004,P024,Average product,3
+G027,P011,Good value,4
+G043,P019,Average product,3
+G040,P001,Excellent quality,5
+G033,P002,Excellent quality,5
+G024,P022,Could be better,2
+G015,P011,Could be better,2
+G011,P011,Average product,3
+G004,P025,Could be better,2
+G023,P028,Highly recommended,5
+G046,P012,Excellent quality,5
+G033,P026,Highly recommended,5
+G015,P014,Average product,3
+G043,P019,Could be better,2

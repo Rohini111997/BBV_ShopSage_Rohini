@@ -1,0 +1,101 @@
+GuestId,PreferenceId,PreferenceName,PreferenceDesc
+G001,PR001,Luxury,Premium brands
+G001,PR002,Sportswear,Interested in sports apparel
+G002,PR003,Luxury,Premium brands
+G002,PR004,Accessories,Likes accessories
+G003,PR005,Casual Wear,Prefers casual clothing
+G003,PR006,Casual Wear,Prefers casual clothing
+G004,PR007,Sportswear,Interested in sports apparel
+G004,PR008,Accessories,Likes accessories
+G005,PR009,Winter,Winter collection
+G005,PR010,Luxury,Premium brands
+G006,PR011,Winter,Winter collection
+G006,PR012,Casual Wear,Prefers casual clothing
+G007,PR013,Sportswear,Interested in sports apparel
+G007,PR014,Casual Wear,Prefers casual clothing
+G008,PR015,Luxury,Premium brands
+G008,PR016,Winter,Winter collection
+G009,PR017,Casual Wear,Prefers casual clothing
+G009,PR018,Sportswear,Interested in sports apparel
+G010,PR019,Sportswear,Interested in sports apparel
+G010,PR020,Formal Wear,Office attire
+G011,PR021,Formal Wear,Office attire
+G011,PR022,Casual Wear,Prefers casual clothing
+G012,PR023,Luxury,Premium brands
+G012,PR024,Accessories,Likes accessories
+G013,PR025,Accessories,Likes accessories
+G013,PR026,Formal Wear,Office attire
+G014,PR027,Casual Wear,Prefers casual clothing
+G014,PR028,Formal Wear,Office attire
+G015,PR029,Casual Wear,Prefers casual clothing
+G015,PR030,Luxury,Premium brands
+G016,PR031,Accessories,Likes accessories
+G016,PR032,Accessories,Likes accessories
+G017,PR033,Sportswear,Interested in sports apparel
+G017,PR034,Formal Wear,Office attire
+G018,PR035,Accessories,Likes accessories
+G018,PR036,Formal Wear,Office attire
+G019,PR037,Accessories,Likes accessories
+G019,PR038,Winter,Winter collection
+G020,PR039,Luxury,Premium brands
+G020,PR040,Winter,Winter collection
+G021,PR041,Casual Wear,Prefers casual clothing
+G021,PR042,Casual Wear,Prefers casual clothing
+G022,PR043,Winter,Winter collection
+G022,PR044,Sportswear,Interested in sports apparel
+G023,PR045,Casual Wear,Prefers casual clothing
+G023,PR046,Casual Wear,Prefers casual clothing
+G024,PR047,Casual Wear,Prefers casual clothing
+G024,PR048,Accessories,Likes accessories
+G025,PR049,Accessories,Likes accessories
+G025,PR050,Formal Wear,Office attire
+G026,PR051,Accessories,Likes accessories
+G026,PR052,Luxury,Premium brands
+G027,PR053,Luxury,Premium brands
+G027,PR054,Formal Wear,Office attire
+G028,PR055,Sportswear,Interested in sports apparel
+G028,PR056,Sportswear,Interested in sports apparel
+G029,PR057,Sportswear,Interested in sports apparel
+G029,PR058,Luxury,Premium brands
+G030,PR059,Formal Wear,Office attire
+G030,PR060,Sportswear,Interested in sports apparel
+G031,PR061,Accessories,Likes accessories
+G031,PR062,Sportswear,Interested in sports apparel
+G032,PR063,Winter,Winter collection
+G032,PR064,Winter,Winter collection
+G033,PR065,Formal Wear,Office attire
+G033,PR066,Sportswear,Interested in sports apparel
+G034,PR067,Sportswear,Interested in sports apparel
+G034,PR068,Casual Wear,Prefers casual clothing
+G035,PR069,Casual Wear,Prefers casual clothing
+G035,PR070,Formal Wear,Office attire
+G036,PR071,Formal Wear,Office attire
+G036,PR072,Casual Wear,Prefers casual clothing
+G037,PR073,Casual Wear,Prefers casual clothing
+G037,PR074,Accessories,Likes accessories
+G038,PR075,Luxury,Premium brands
+G038,PR076,Winter,Winter collection
+G039,PR077,Luxury,Premium brands
+G039,PR078,Formal Wear,Office attire
+G040,PR079,Sportswear,Interested in sports apparel
+G040,PR080,Formal Wear,Office attire
+G041,PR081,Sportswear,Interested in sports apparel
+G041,PR082,Casual Wear,Prefers casual clothing
+G042,PR083,Casual Wear,Prefers casual clothing
+G042,PR084,Sportswear,Interested in sports apparel
+G043,PR085,Formal Wear,Office attire
+G043,PR086,Luxury,Premium brands
+G044,PR087,Accessories,Likes accessories
+G044,PR088,Luxury,Premium brands
+G045,PR089,Accessories,Likes accessories
+G045,PR090,Luxury,Premium brands
+G046,PR091,Casual Wear,Prefers casual clothing
+G046,PR092,Formal Wear,Office attire
+G047,PR093,Formal Wear,Office attire
+G047,PR094,Winter,Winter collection
+G048,PR095,Casual Wear,Prefers casual clothing
+G048,PR096,Formal Wear,Office attire
+G049,PR097,Casual Wear,Prefers casual clothing
+G049,PR098,Winter,Winter collection
+G050,PR099,Luxury,Premium brands
+G050,PR100,Luxury,Premium brands

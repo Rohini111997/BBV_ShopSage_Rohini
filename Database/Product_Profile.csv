@@ -1,0 +1,31 @@
+ProductId,Cost,Retail,Description,Size,Colour,ProductStatus
+P001,2035,3018,Backpack,8,Blue,Discontinued
+P002,730,2775,Wallet,34,Navy,Active
+P003,870,2193,Chinos,Free,Maroon,Discontinued
+P004,3931,4674,Winter Jacket,Free,Blue,Active
+P005,4555,7057,Sunglasses,XL,Green,Active
+P006,1184,3533,Chinos,30,Brown,Discontinued
+P007,3921,6577,Slim Jeans,XS,Blue,Discontinued
+P008,3254,4167,Polo T-Shirt,XL,Red,Active
+P009,4622,7588,Winter Jacket,9,Grey,Active
+P010,4873,7601,Polo T-Shirt,XL,Grey,Active
+P011,932,1339,Winter Jacket,34,Brown,Discontinued
+P012,2012,4497,Slim Jeans,M,Green,Active
+P013,4739,5616,Sweatshirt,M,Green,Active
+P014,1678,3943,Wallet,30,Blue,Discontinued
+P015,4418,5216,Polo T-Shirt,L,Blue,Discontinued
+P016,4778,6493,Sunglasses,8,Brown,Active
+P017,2069,2385,Sunglasses,10,Green,Active
+P018,3749,4315,Casual Shirt,10,Red,Discontinued
+P019,4757,7469,Slim Jeans,S,Grey,Discontinued
+P020,3455,4705,Formal Shirt,S,Blue,Active
+P021,2519,4897,Sports Cap,8,Black,Active
+P022,2691,4846,Watch,30,Grey,Discontinued
+P023,3941,5570,Sports Cap,32,Maroon,Active
+P024,4828,6611,Sneakers,8,Brown,Active
+P025,1979,3487,Socks Pack,30,White,Discontinued
+P026,4716,5086,Formal Shirt,32,Grey,Discontinued
+P027,4541,6093,Belt,34,Navy,Active
+P028,3848,4961,Sports Cap,10,Green,Active
+P029,4051,6393,Belt,8,White,Active
+P030,980,3506,Watch,XS,Brown,Active
