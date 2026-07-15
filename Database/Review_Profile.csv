@@ -1,151 +1,251 @@
-GuestId,ProductId,Review,Rating
-G022,P028,Excellent quality,5
-G042,P002,Average product,3
-G018,P004,Highly recommended,5
-G026,P026,Could be better,2
-G047,P026,Could be better,2
-G014,P013,Average product,3
-G022,P011,Could be better,2
-G011,P021,Good value,4
-G025,P013,Average product,3
-G010,P026,Good value,4
-G038,P027,Could be better,2
-G004,P016,Excellent quality,5
-G021,P004,Average product,3
-G030,P019,Excellent quality,5
-G050,P023,Good value,4
-G040,P016,Average product,3
-G006,P015,Average product,3
-G045,P020,Could be better,2
-G022,P022,Average product,3
-G011,P005,Good value,4
-G043,P016,Good value,4
-G031,P014,Average product,3
-G042,P028,Highly recommended,5
-G012,P030,Could be better,2
-G029,P028,Average product,3
-G028,P005,Highly recommended,5
-G007,P013,Could be better,2
-G050,P015,Excellent quality,5
-G024,P028,Highly recommended,5
-G011,P028,Average product,3
-G014,P020,Could be better,2
-G004,P028,Average product,3
-G027,P024,Excellent quality,5
-G027,P014,Could be better,2
-G041,P009,Could be better,2
-G047,P020,Good value,4
-G019,P028,Could be better,2
-G012,P001,Average product,3
-G039,P029,Excellent quality,5
-G017,P010,Average product,3
-G030,P021,Could be better,2
-G039,P025,Could be better,2
-G039,P023,Good value,4
-G027,P023,Average product,3
-G032,P003,Good value,4
-G028,P011,Highly recommended,5
-G006,P029,Could be better,2
-G012,P004,Excellent quality,5
-G039,P017,Could be better,2
-G046,P022,Highly recommended,5
-G046,P022,Good value,4
-G050,P022,Average product,3
-G029,P017,Good value,4
-G010,P004,Highly recommended,5
-G042,P020,Average product,3
-G030,P023,Excellent quality,5
-G013,P027,Could be better,2
-G022,P025,Highly recommended,5
-G012,P023,Average product,3
-G028,P018,Good value,4
-G016,P008,Highly recommended,5
-G014,P026,Excellent quality,5
-G025,P003,Excellent quality,5
-G003,P023,Average product,3
-G023,P011,Excellent quality,5
-G012,P020,Could be better,2
-G010,P010,Average product,3
-G025,P012,Excellent quality,5
-G010,P014,Could be better,2
-G036,P007,Highly recommended,5
-G013,P007,Average product,3
-G013,P006,Could be better,2
-G007,P028,Average product,3
-G001,P030,Excellent quality,5
-G031,P021,Excellent quality,5
-G015,P012,Could be better,2
-G009,P028,Excellent quality,5
-G037,P002,Highly recommended,5
-G028,P018,Good value,4
-G002,P017,Good value,4
-G027,P011,Average product,3
-G016,P015,Good value,4
-G001,P018,Highly recommended,5
-G001,P014,Excellent quality,5
-G015,P023,Average product,3
-G027,P015,Average product,3
-G036,P025,Good value,4
-G036,P013,Highly recommended,5
-G034,P010,Could be better,2
-G042,P012,Could be better,2
-G018,P013,Highly recommended,5
-G022,P004,Excellent quality,5
-G032,P026,Highly recommended,5
-G039,P008,Could be better,2
-G023,P001,Good value,4
-G021,P015,Average product,3
-G048,P024,Excellent quality,5
-G010,P026,Highly recommended,5
-G019,P022,Average product,3
-G033,P007,Excellent quality,5
-G015,P015,Could be better,2
-G019,P001,Could be better,2
-G029,P025,Excellent quality,5
-G019,P025,Could be better,2
-G002,P015,Highly recommended,5
-G030,P015,Good value,4
-G044,P024,Average product,3
-G011,P004,Good value,4
-G048,P025,Good value,4
-G018,P013,Could be better,2
-G011,P022,Highly recommended,5
-G011,P012,Excellent quality,5
-G042,P001,Highly recommended,5
-G028,P024,Highly recommended,5
-G004,P004,Good value,4
-G029,P028,Average product,3
-G045,P009,Could be better,2
-G032,P013,Excellent quality,5
-G006,P011,Could be better,2
-G006,P013,Could be better,2
-G029,P021,Good value,4
-G028,P010,Highly recommended,5
-G049,P018,Highly recommended,5
-G013,P014,Good value,4
-G002,P021,Good value,4
-G020,P014,Good value,4
-G042,P009,Excellent quality,5
-G010,P029,Average product,3
-G038,P029,Average product,3
-G031,P005,Excellent quality,5
-G034,P028,Excellent quality,5
-G046,P023,Good value,4
-G017,P003,Could be better,2
-G014,P005,Could be better,2
-G013,P017,Highly recommended,5
-G019,P006,Excellent quality,5
-G004,P024,Average product,3
-G027,P011,Good value,4
-G043,P019,Average product,3
-G040,P001,Excellent quality,5
-G033,P002,Excellent quality,5
-G024,P022,Could be better,2
-G015,P011,Could be better,2
-G011,P011,Average product,3
-G004,P025,Could be better,2
-G023,P028,Highly recommended,5
-G046,P012,Excellent quality,5
-G033,P026,Highly recommended,5
-G015,P014,Average product,3
-G043,P019,Could be better,2
+﻿GuestId,ProductId,Review,Rating
+G041,P017,"Average product, acceptable for the price.",3
+G036,P054,Good value for money.,4
+G071,P048,Looks good and feels durable.,4
+G078,P044,"Loved it, exactly as expected.",5
+G004,P051,Not as good as the photos suggested.,2
+G039,P024,"Loved it, exactly as expected.",5
+G066,P040,Great quality and very comfortable.,5
+G038,P020,Good value for money.,4
+G064,P050,Good value for money.,4
+G064,P042,Good value for money.,4
+G068,P016,Fit was slightly off and finish was average.,2
+G047,P030,Poor stitching and disappointing quality.,1
+G050,P049,Not as good as the photos suggested.,2
+G054,P015,Looks good and feels durable.,4
+G023,P006,"Average product, acceptable for the price.",3
+G003,P055,Good value for money.,4
+G034,P028,Excellent fit and premium feel.,5
+G051,P031,Looks good and feels durable.,4
+G095,P032,Nice fabric and decent fit.,4
+G055,P021,"Average product, acceptable for the price.",3
+G083,P026,Looks good and feels durable.,4
+G020,P027,Great quality and very comfortable.,5
+G011,P057,Good value for money.,4
+G020,P008,Nice fabric and decent fit.,4
+G076,P037,Looks good and feels durable.,4
+G090,P015,Nice fabric and decent fit.,4
+G093,P012,Good value for money.,4
+G008,P034,Great quality and very comfortable.,5
+G015,P007,Looks good and feels durable.,4
+G008,P021,"Loved it, exactly as expected.",5
+G086,P007,"Average product, acceptable for the price.",3
+G002,P056,Mixed experience but usable.,3
+G002,P007,Great quality and very comfortable.,5
+G067,P041,Looks good and feels durable.,4
+G034,P005,Excellent fit and premium feel.,5
+G009,P051,"Okay quality, can be improved.",3
+G099,P019,Fit was slightly off and finish was average.,2
+G043,P042,"Okay quality, can be improved.",3
+G068,P042,"Loved it, exactly as expected.",5
+G074,P053,Nice fabric and decent fit.,4
+G059,P001,Good value for money.,4
+G064,P042,Fit was slightly off and finish was average.,2
+G048,P025,Excellent fit and premium feel.,5
+G074,P002,"Average product, acceptable for the price.",3
+G030,P047,"Average product, acceptable for the price.",3
+G006,P002,Fit was slightly off and finish was average.,2
+G032,P026,Great quality and very comfortable.,5
+G050,P005,Fit was slightly off and finish was average.,2
+G005,P044,Looks good and feels durable.,4
+G100,P037,"Average product, acceptable for the price.",3
+G042,P043,"Loved it, exactly as expected.",5
+G041,P029,Excellent fit and premium feel.,5
+G074,P001,Looks good and feels durable.,4
+G089,P007,Fit was slightly off and finish was average.,2
+G029,P043,"Average product, acceptable for the price.",3
+G052,P039,Great quality and very comfortable.,5
+G037,P033,"Okay quality, can be improved.",3
+G042,P016,Great quality and very comfortable.,5
+G002,P009,Nice fabric and decent fit.,4
+G073,P034,Mixed experience but usable.,3
+G080,P056,Great quality and very comfortable.,5
+G076,P060,Poor stitching and disappointing quality.,1
+G099,P019,Fit was slightly off and finish was average.,2
+G020,P018,Great quality and very comfortable.,5
+G004,P029,Great quality and very comfortable.,5
+G082,P029,Fit was slightly off and finish was average.,2
+G043,P042,"Loved it, exactly as expected.",5
+G049,P004,Not as good as the photos suggested.,2
+G040,P037,"Loved it, exactly as expected.",5
+G031,P004,Good value for money.,4
+G019,P012,"Average product, acceptable for the price.",3
+G006,P002,Not as good as the photos suggested.,2
+G053,P034,"Okay quality, can be improved.",3
+G059,P012,Poor stitching and disappointing quality.,1
+G075,P042,Excellent fit and premium feel.,5
+G083,P021,"Average product, acceptable for the price.",3
+G076,P012,Nice fabric and decent fit.,4
+G087,P017,Poor stitching and disappointing quality.,1
+G038,P047,Great quality and very comfortable.,5
+G051,P060,Mixed experience but usable.,3
+G042,P016,Great quality and very comfortable.,5
+G030,P030,Excellent fit and premium feel.,5
+G018,P049,Mixed experience but usable.,3
+G014,P028,Excellent fit and premium feel.,5
+G058,P019,Nice fabric and decent fit.,4
+G016,P026,Good value for money.,4
+G058,P055,Great quality and very comfortable.,5
+G016,P026,"Loved it, exactly as expected.",5
+G039,P010,Mixed experience but usable.,3
+G078,P054,Great quality and very comfortable.,5
+G019,P047,Excellent fit and premium feel.,5
+G046,P031,Good value for money.,4
+G089,P042,Excellent fit and premium feel.,5
+G004,P011,Did not meet expectations at all.,1
+G072,P019,"Average product, acceptable for the price.",3
+G013,P018,Good value for money.,4
+G016,P043,Excellent fit and premium feel.,5
+G017,P056,Great quality and very comfortable.,5
+G048,P032,Mixed experience but usable.,3
+G011,P004,Nice fabric and decent fit.,4
+G010,P007,Excellent fit and premium feel.,5
+G026,P033,Expected better material quality.,2
+G017,P043,Great quality and very comfortable.,5
+G016,P043,Great quality and very comfortable.,5
+G007,P044,"Loved it, exactly as expected.",5
+G056,P009,"Okay quality, can be improved.",3
+G064,P024,"Loved it, exactly as expected.",5
+G055,P053,Excellent fit and premium feel.,5
+G024,P056,Great quality and very comfortable.,5
+G020,P010,"Loved it, exactly as expected.",5
+G079,P029,Great quality and very comfortable.,5
+G064,P042,Looks good and feels durable.,4
+G062,P054,Great quality and very comfortable.,5
+G050,P005,Excellent fit and premium feel.,5
+G084,P024,Not as good as the photos suggested.,2
+G032,P051,Looks good and feels durable.,4
+G003,P041,Returned due to fit and finish issues.,1
+G046,P005,Nice fabric and decent fit.,4
+G045,P041,Not as good as the photos suggested.,2
+G042,P043,Good value for money.,4
+G004,P051,Excellent fit and premium feel.,5
+G004,P011,Expected better material quality.,2
+G008,P034,"Okay quality, can be improved.",3
+G068,P059,Looks good and feels durable.,4
+G030,P030,Poor stitching and disappointing quality.,1
+G032,P015,"Okay quality, can be improved.",3
+G069,P060,Mixed experience but usable.,3
+G008,P021,"Average product, acceptable for the price.",3
+G074,P007,Expected better material quality.,2
+G046,P032,Poor stitching and disappointing quality.,1
+G023,P022,Great quality and very comfortable.,5
+G100,P045,Mixed experience but usable.,3
+G004,P016,"Okay quality, can be improved.",3
+G073,P001,Looks good and feels durable.,4
+G025,P029,Expected better material quality.,2
+G070,P014,Great quality and very comfortable.,5
+G005,P038,Excellent fit and premium feel.,5
+G078,P054,"Loved it, exactly as expected.",5
+G062,P034,"Loved it, exactly as expected.",5
+G026,P046,"Okay quality, can be improved.",3
+G096,P037,Great quality and very comfortable.,5
+G008,P052,"Loved it, exactly as expected.",5
+G094,P032,Fit was slightly off and finish was average.,2
+G068,P027,Fit was slightly off and finish was average.,2
+G048,P006,Mixed experience but usable.,3
+G051,P038,Nice fabric and decent fit.,4
+G039,P024,Excellent fit and premium feel.,5
+G099,P035,Returned due to fit and finish issues.,1
+G063,P036,Good value for money.,4
+G095,P013,Returned due to fit and finish issues.,1
+G079,P021,"Average product, acceptable for the price.",3
+G087,P029,Good value for money.,4
+G049,P019,"Loved it, exactly as expected.",5
+G038,P035,"Loved it, exactly as expected.",5
+G001,P049,Returned due to fit and finish issues.,1
+G051,P034,Not as good as the photos suggested.,2
+G005,P032,Great quality and very comfortable.,5
+G079,P025,"Loved it, exactly as expected.",5
+G014,P029,Poor stitching and disappointing quality.,1
+G043,P005,"Average product, acceptable for the price.",3
+G045,P033,Poor stitching and disappointing quality.,1
+G082,P029,Fit was slightly off and finish was average.,2
+G095,P013,Mixed experience but usable.,3
+G043,P042,Nice fabric and decent fit.,4
+G027,P047,Excellent fit and premium feel.,5
+G045,P053,Excellent fit and premium feel.,5
+G097,P049,Great quality and very comfortable.,5
+G057,P001,"Average product, acceptable for the price.",3
+G053,P034,Nice fabric and decent fit.,4
+G045,P053,Good value for money.,4
+G062,P054,Mixed experience but usable.,3
+G085,P043,"Average product, acceptable for the price.",3
+G021,P025,Good value for money.,4
+G038,P035,Great quality and very comfortable.,5
+G014,P029,Excellent fit and premium feel.,5
+G049,P004,Excellent fit and premium feel.,5
+G071,P035,Poor stitching and disappointing quality.,1
+G044,P050,Looks good and feels durable.,4
+G062,P046,"Okay quality, can be improved.",3
+G085,P039,Great quality and very comfortable.,5
+G021,P003,Great quality and very comfortable.,5
+G027,P044,Did not meet expectations at all.,1
+G093,P044,Looks good and feels durable.,4
+G070,P031,Great quality and very comfortable.,5
+G039,P023,Excellent fit and premium feel.,5
+G051,P060,Nice fabric and decent fit.,4
+G020,P027,Excellent fit and premium feel.,5
+G055,P053,"Loved it, exactly as expected.",5
+G081,P011,Good value for money.,4
+G013,P008,Excellent fit and premium feel.,5
+G083,P021,Excellent fit and premium feel.,5
+G061,P027,Expected better material quality.,2
+G051,P031,Looks good and feels durable.,4
+G034,P012,"Loved it, exactly as expected.",5
+G050,P049,Great quality and very comfortable.,5
+G048,P053,Excellent fit and premium feel.,5
+G034,P028,Nice fabric and decent fit.,4
+G029,P010,Not as good as the photos suggested.,2
+G008,P010,"Loved it, exactly as expected.",5
+G088,P023,"Loved it, exactly as expected.",5
+G045,P041,"Okay quality, can be improved.",3
+G057,P030,Looks good and feels durable.,4
+G008,P010,Not as good as the photos suggested.,2
+G054,P040,Returned due to fit and finish issues.,1
+G061,P049,Good value for money.,4
+G061,P049,Great quality and very comfortable.,5
+G096,P019,"Loved it, exactly as expected.",5
+G067,P015,Mixed experience but usable.,3
+G080,P007,Great quality and very comfortable.,5
+G023,P006,Poor stitching and disappointing quality.,1
+G028,P038,"Average product, acceptable for the price.",3
+G006,P025,Looks good and feels durable.,4
+G056,P004,"Loved it, exactly as expected.",5
+G019,P047,Expected better material quality.,2
+G041,P029,Fit was slightly off and finish was average.,2
+G012,P006,Nice fabric and decent fit.,4
+G071,P059,Great quality and very comfortable.,5
+G067,P027,Good value for money.,4
+G093,P039,Looks good and feels durable.,4
+G054,P040,Excellent fit and premium feel.,5
+G019,P047,Looks good and feels durable.,4
+G084,P020,Poor stitching and disappointing quality.,1
+G014,P030,Good value for money.,4
+G037,P056,Expected better material quality.,2
+G053,P056,"Loved it, exactly as expected.",5
+G063,P030,Nice fabric and decent fit.,4
+G005,P038,Great quality and very comfortable.,5
+G019,P010,Looks good and feels durable.,4
+G092,P053,Nice fabric and decent fit.,4
+G043,P005,"Average product, acceptable for the price.",3
+G089,P060,Nice fabric and decent fit.,4
+G048,P032,Great quality and very comfortable.,5
+G040,P026,Great quality and very comfortable.,5
+G093,P044,"Average product, acceptable for the price.",3
+G018,P015,"Loved it, exactly as expected.",5
+G057,P059,"Okay quality, can be improved.",3
+G035,P025,Mixed experience but usable.,3
+G084,P044,Great quality and very comfortable.,5
+G028,P038,Expected better material quality.,2
+G100,P037,Looks good and feels durable.,4
+G048,P006,Mixed experience but usable.,3
+G021,P020,"Loved it, exactly as expected.",5
+G065,P013,Looks good and feels durable.,4
+G073,P043,Excellent fit and premium feel.,5
+G026,P046,Fit was slightly off and finish was average.,2
+G005,P032,Nice fabric and decent fit.,4
+G094,P032,Great quality and very comfortable.,5
+G060,P016,Looks good and feels durable.,4
+G016,P005,"Average product, acceptable for the price.",3
+G048,P032,Nice fabric and decent fit.,4
