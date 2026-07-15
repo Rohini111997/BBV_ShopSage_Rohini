@@ -1,0 +1,46 @@
+This dataset represents a retail clothing commerce domain centered on guests, products, inventory, orders, reviews, and guest preferences. It is designed to support product analytics, customer behavior analysis, recommendation use cases, and operational reporting.
+
+The core entity is GuestProfile, which stores one record per guest or customer. Each guest has a unique GuestId and descriptive attributes such as GuestName, Age, Contact, Income, and Shoppercategory. GuestId is the primary identifier for the guest and is referenced by transactional and behavioral tables.
+
+The ProductProfile entity stores one record per clothing product. Each product has a unique ProductId and includes merchandising attributes such as Cost, Retail, Description, Size, Colour, Gender, Brand, Attributes, and productStatus. ProductId is the primary identifier for products and is referenced by inventory, orders, and reviews.
+
+The InventoryProfile entity tracks stock availability for products, typically at the product-size level. It includes ProductId, Size, Units, AvailabilityFlag, and UnitsAvailable. This table describes whether a product variant is available and how much stock remains. A single product may appear in multiple inventory rows if inventory is tracked across sizes or variants. ProductId links inventory back to the product master.
+
+The OrderProfile entity captures purchase transactions. Each order has a unique OrderId and references both a guest and a product through GuestId and ProductID. It also includes OrderDate, CurrentStatus, DeliveredFlag, ShippingAddress, and TrackingNumber. One guest can place many orders, and one product can appear in many orders over time. OrderId is the unique transaction identifier.
+
+The ReviewProfile entity stores guest feedback on products. It contains GuestId, ProductId, Review, and Rating. This table represents a many-to-many behavioral relationship over time: a guest may review multiple products, and a product may receive reviews from multiple guests. GuestId and ProductId together identify the context of the review.
+
+The GuestPreference entity captures inferred or stated shopping interests for each guest. It contains GuestId, PreferenceId, PreferenceName, and PreferenceDesc. A guest may have multiple preferences. GuestId links the preference to the guest profile, while PreferenceId uniquely identifies each preference record.
+
+Relationship model
+GuestProfile (1) to OrderProfile (many): one guest can place many orders.
+ProductProfile (1) to OrderProfile (many): one product can be ordered many times.
+GuestProfile (1) to ReviewProfile (many): one guest can write many reviews.
+ProductProfile (1) to ReviewProfile (many): one product can receive many reviews.
+GuestProfile (1) to GuestPreference (many): one guest can have multiple preferences.
+ProductProfile (1) to InventoryProfile (many or 1, depending on variant tracking): one product can have one or more inventory records, often by size or color variant.
+Business meaning of key attributes
+Shoppercategory classifies customer value or shopping behavior, such as Budget, Premium, Luxury, Frequent, VIP, or Student.
+CurrentStatus indicates order lifecycle state, such as Processing, Shipped, Delivered, or Cancelled.
+DeliveredFlag is a derived indicator that should be Y only when CurrentStatus is Delivered.
+AvailabilityFlag indicates whether inventory is currently sellable.
+Retail should generally be greater than or equal to Cost.
+Rating should typically fall within a bounded scale such as 1 to 5.
+productStatus identifies whether the product is Active or Discontinued.
+Intended AI interpretation
+
+An AI system should understand this data as a connected retail clothing schema where guests browse and purchase clothing products, products are maintained with merchandising and inventory attributes, orders track transactions and fulfillment, reviews capture satisfaction, and preferences describe customer interests. The data can be used for customer segmentation, recommendation systems, inventory analysis, sales reporting, and review sentiment analysis.
+
+Recommended join logic
+Join GuestProfile to OrderProfile on GuestId
+Join ProductProfile to OrderProfile on ProductID
+Join GuestProfile to ReviewProfile on GuestId
+Join ProductProfile to ReviewProfile on ProductId
+Join GuestProfile to GuestPreference on GuestId
+Join ProductProfile to InventoryProfile on ProductId
+Data quality assumptions
+All foreign keys should reference valid primary keys.
+Duplicate guest or product identifiers should not exist in the master tables.
+Order, review, and preference records should only exist for valid guests and products.
+Inventory should reflect realistic stock quantities for each product variant.
+Product size, gender, and attributes should remain consistent with the clothing domain.
