@@ -20,8 +20,8 @@ def ask(user_message):
 
 if __name__ == "__main__":
     print("=== TEST 1 ===")
-    print("User: I need a waterproof jacket under $80 for hiking")
-    print("Assistant:", ask("I need a waterproof jacket under $80 for hiking"))
+    print("User: I need sunglasses under $100 for a beach vacation.")
+    print("Assistant:", ask("I need sunglasses under $100 for a beach vacation."))
     
     print("\n=== TEST 2 ===")
     print("User: Show me running shoes, my budget is $50")

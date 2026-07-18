@@ -1,0 +1,114 @@
+"""ShopSage — Task - ingestion pipeline.
+
+Loads the apparel catalog (JSONL), converts each product into one
+LangChain Document (content for embedding + metadata for filtering),
+embeds with MiniLM, and persists to a local Chroma vector store.
+
+Run from the repo root:
+    python -m src.ingestion
+"""
+
+import json
+from pathlib import Path
+from typing import List
+
+from langchain_chroma import Chroma
+from langchain_core.documents import Document
+from langchain_huggingface import HuggingFaceEmbeddings
+
+import DataBase.Catalog_V1 as Catalog_V1
+
+CATALOG_PATH = Catalog_V1.__file__
+CHROMA_DIR = "chroma_db"
+COLLECTION = "shopsage_catalog"
+EMBED_MODEL = "sentence-transformers/all-MiniLM-L6-v2"
+
+#------------------------- Helpers ----------------------------------- #
+
+
+def _as_text(value) -> str:
+    """Render lists as 'a, b, c' and everything else as a plain string."""
+    if isinstance(value, list):
+        return ", ".join(str(v) for v in value)
+    return str(value)
+
+
+def _as_number(value) -> float:
+    """Coerce price to a number so Chroma range filters ($lte) work."""
+    if isinstance(value, (int, float)):
+        return value
+    return float(str(value).replace(",", "").replace("₹", "").strip())
+
+
+def load_catalog() -> List[dict]:
+    return Catalog_V1.product_catalog
+
+
+
+#------------------------- Document Creation -------------------------- #
+
+def create_item_documents(product_catalog: List[dict]) -> List[Document]:
+    documents = []
+    for item in product_catalog:
+        attributes = item.get("Attributes") or {}
+        attrs = "; ".join(f"{k.capitalize()}: {v}" for k, v in attributes.items())
+
+        content = (
+            f"Product catalog entry for {item['brand']} {item['title']} "
+            f"({item['Subcategory']} > {item['item_type']}, {item['Gender']}): "
+            f"{item['Description']} "
+            f"Available sizes: {_as_text(item['Sizes_available'])}. "
+            f"Available colors: {_as_text(item['Colors_available'])} "
+            f"({item['Number_of_Colors_available']} colors). "
+            f"{attrs}. "
+            f"Price: INR {item['price(INR)']}."
+        )
+
+        documents.append(
+            Document(
+                page_content=content,
+                metadata={
+                    "doc_type": "product_catalog",
+                    "sku": str(item["ID (SKU)"]),
+                    "brand": item["brand"],
+                    "title": item["title"],
+                    # lowercased so slot-extraction filters match reliably
+                    "subcategory": str(item["Subcategory"]).lower(),
+                    "item_type": str(item["item_type"]).lower(),
+                    "gender": str(item["Gender"]).lower(),
+                    # numeric so {"price_inr": {"$lte": budget}} works
+                    "price_inr": _as_number(item["price(INR)"]),
+                    "num_colors": int(item["Number_of_Colors_available"]),
+                    "sizes": _as_text(item["Sizes_available"]).lower(),
+                    "occasion": str(attributes.get("occasion", "")).lower(),
+                },
+            )
+        )
+    return documents
+
+#------------------------- Ingest -------------------------- #
+
+def ingest() -> Chroma:
+    catalog = load_catalog()
+    print(f"[ingest] loaded {len(catalog)} products from {CATALOG_PATH}")
+
+    documents = create_item_documents(catalog)
+    print(f"[ingest] built {len(documents)} documents (1 per product)")
+
+    embeddings = HuggingFaceEmbeddings(model_name=EMBED_MODEL)
+
+    vector_store = Chroma.from_documents(
+        documents=documents,
+        embedding=embeddings,
+        collection_name=COLLECTION,
+        persist_directory=CHROMA_DIR,
+    )
+
+    stored = vector_store._collection.count()
+    print(f"[ingest] embedded + stored {stored} chunks in '{COLLECTION}' at {CHROMA_DIR}/")
+    assert stored == len(documents), "chunk count mismatch — re-run after deleting chroma_db/"
+    return vector_store
+
+
+if __name__ == "__main__":
+    ingest()
