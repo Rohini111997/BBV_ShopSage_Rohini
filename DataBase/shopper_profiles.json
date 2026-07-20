@@ -1,0 +1,4652 @@
+{
+  "CUST-0001": {
+    "customer_id": "CUST-0001",
+    "name": "Chetan Bhat",
+    "phone_no": "+91-962190-41884",
+    "email": "chetan.bhat01@example.com",
+    "gender": "male",
+    "age": 60,
+    "preferences": {
+      "colour": [
+        "Black"
+      ],
+      "size": {
+        "top": "XS",
+        "bottom": "XS"
+      },
+      "occasion": [
+        "Outdoor"
+      ],
+      "style_notes": "Mostly buys jackets for outdoor occasions; favours performance/polyester fabrics, usually regular fit",
+      "budget_inr": 3000
+    },
+    "learned_preferences": [],
+    "loyalty": {
+      "tier": "Bronze",
+      "points": 299,
+      "member_since": "2025-12-03",
+      "total_orders": 1
+    }
+  },
+  "CUST-0002": {
+    "customer_id": "CUST-0002",
+    "name": "Harini Mishra",
+    "phone_no": "+91-983260-71681",
+    "email": "harini.mishra02@example.com",
+    "gender": "female",
+    "age": 34,
+    "preferences": {
+      "colour": [
+        "Emerald",
+        "Navy"
+      ],
+      "size": {
+        "top": "M",
+        "bottom": "M"
+      },
+      "occasion": [
+        "Evening",
+        "Casual"
+      ],
+      "style_notes": "Mostly buys dress and t-shirts for evening and casual occasions; favours satin and cotton fabrics, usually bias-cut fit",
+      "budget_inr": 2500
+    },
+    "learned_preferences": [],
+    "loyalty": {
+      "tier": "Silver",
+      "points": 509,
+      "member_since": "2023-10-25",
+      "total_orders": 2
+    }
+  },
+  "CUST-0004": {
+    "customer_id": "CUST-0004",
+    "name": "Aditya Oberoi",
+    "phone_no": "+91-986880-38975",
+    "email": "aditya.oberoi04@example.com",
+    "gender": "male",
+    "age": 25,
+    "preferences": {
+      "colour": [
+        "Forest Green",
+        "Grey Melange"
+      ],
+      "size": {
+        "top": "XL",
+        "bottom": "XL"
+      },
+      "occasion": [
+        "Casual",
+        "Lounge"
+      ],
+      "style_notes": "Mostly buys hoodies and shorts for casual and lounge occasions; favours fleece and cotton fabrics, usually regular fit",
+      "budget_inr": 1500
+    },
+    "learned_preferences": [],
+    "loyalty": {
+      "tier": "Silver",
+      "points": 479,
+      "member_since": "2025-10-01",
+      "total_orders": 2
+    }
+  },
+  "CUST-0006": {
+    "customer_id": "CUST-0006",
+    "name": "Harini Reddy",
+    "phone_no": "+91-995450-93242",
+    "email": "harini.reddy06@example.com",
+    "gender": "female",
+    "age": 21,
+    "preferences": {
+      "colour": [
+        "Sky",
+        "Ivory"
+      ],
+      "size": {
+        "top": "XL",
+        "bottom": "XL"
+      },
+      "occasion": [
+        "Yoga",
+        "Smart Casual"
+      ],
+      "style_notes": "Mostly buys tank tops and blouses for yoga and smart casual occasions; favours performance/polyester and poly crepe fabrics, usually slim fit",
+      "budget_inr": 1500
+    },
+    "learned_preferences": [],
+    "loyalty": {
+      "tier": "Bronze",
+      "points": 99,
+      "member_since": "2024-11-04",
+      "total_orders": 2
+    }
+  },
+  "CUST-0007": {
+    "customer_id": "CUST-0007",
+    "name": "Siddharth Rathore",
+    "phone_no": "+91-948820-64480",
+    "email": "siddharth.rathore07@example.com",
+    "gender": "male",
+    "age": 60,
+    "preferences": {
+      "colour": [
+        "Grey",
+        "Olive"
+      ],
+      "size": {
+        "top": "L",
+        "bottom": "L"
+      },
+      "occasion": [
+        "Casual",
+        "Everyday"
+      ],
+      "style_notes": "Mostly buys socks and cargo pants for casual and everyday occasions; favours cotton and fleece fabrics, usually relaxed tapered fit",
+      "budget_inr": 2000
+    },
+    "learned_preferences": [],
+    "loyalty": {
+      "tier": "Gold",
+      "points": 1139,
+      "member_since": "2024-08-14",
+      "total_orders": 2
+    }
+  },
+  "CUST-0009": {
+    "customer_id": "CUST-0009",
+    "name": "Manoj Kapoor",
+    "phone_no": "+91-944850-52808",
+    "email": "manoj.kapoor09@example.com",
+    "gender": "male",
+    "age": 32,
+    "preferences": {
+      "colour": [
+        "Sand",
+        "Tortoise-Gold"
+      ],
+      "size": {
+        "top": "XXL",
+        "bottom": "XXL"
+      },
+      "occasion": [
+        "Resort",
+        "Everyday"
+      ],
+      "style_notes": "Mostly buys shirts and sunglasses for resort and everyday occasions; favours linen fabrics, usually relaxed fit",
+      "budget_inr": 2000
+    },
+    "learned_preferences": [],
+    "loyalty": {
+      "tier": "Bronze",
+      "points": 199,
+      "member_since": "2023-11-16",
+      "total_orders": 2
+    }
+  },
+  "CUST-0010": {
+    "customer_id": "CUST-0010",
+    "name": "Ganesh Nair",
+    "phone_no": "+91-965520-71206",
+    "email": "ganesh.nair10@example.com",
+    "gender": "male",
+    "age": 64,
+    "preferences": {
+      "colour": [
+        "Sage",
+        "Grey Melange"
+      ],
+      "size": {
+        "top": "XXL",
+        "bottom": "XXL"
+      },
+      "occasion": [
+        "Lounge",
+        "Everyday"
+      ],
+      "style_notes": "Mostly buys pyjamas and shorts for lounge and everyday occasions; favours cotton fabrics, usually relaxed fit",
+      "budget_inr": 1000
+    },
+    "learned_preferences": [],
+    "loyalty": {
+      "tier": "Bronze",
+      "points": 179,
+      "member_since": "2024-08-02",
+      "total_orders": 3
+    }
+  },
+  "CUST-0011": {
+    "customer_id": "CUST-0011",
+    "name": "Aishwarya Oberoi",
+    "phone_no": "+91-910470-35454",
+    "email": "aishwarya.oberoi11@example.com",
+    "gender": "female",
+    "age": 31,
+    "preferences": {
+      "colour": [
+        "Floral Teal"
+      ],
+      "size": {
+        "top": "S",
+        "bottom": "S"
+      },
+      "occasion": [
+        "Brunch"
+      ],
+      "style_notes": "Mostly buys dress for brunch occasions; favours viscose fabrics, usually wrap fit",
+      "budget_inr": 2000
+    },
+    "learned_preferences": [],
+    "loyalty": {
+      "tier": "Silver",
+      "points": 399,
+      "member_since": "2024-06-25",
+      "total_orders": 1
+    }
+  },
+  "CUST-0012": {
+    "customer_id": "CUST-0012",
+    "name": "Neha Patel",
+    "phone_no": "+91-982190-55505",
+    "email": "neha.patel12@example.com",
+    "gender": "female",
+    "age": 46,
+    "preferences": {
+      "colour": [
+        "Mid-Blue",
+        "Sand"
+      ],
+      "size": {
+        "top": "M",
+        "bottom": "S"
+      },
+      "occasion": [
+        "Casual",
+        "Resort"
+      ],
+      "style_notes": "Mostly buys jeans and shirts for casual and resort occasions; favours denim and linen fabrics, usually wide-leg fit",
+      "budget_inr": 2500
+    },
+    "learned_preferences": [],
+    "loyalty": {
+      "tier": "Bronze",
+      "points": 0,
+      "member_since": "2025-02-20",
+      "total_orders": 1
+    }
+  },
+  "CUST-0015": {
+    "customer_id": "CUST-0015",
+    "name": "Vikram Malhotra",
+    "phone_no": "+91-929060-12636",
+    "email": "vikram.malhotra15@example.com",
+    "gender": "male",
+    "age": 24,
+    "preferences": {
+      "colour": [
+        "Deep Plum",
+        "Bottle Green"
+      ],
+      "size": {
+        "top": "L",
+        "bottom": "XS"
+      },
+      "occasion": [
+        "Yoga",
+        "Smart Casual"
+      ],
+      "style_notes": "Mostly buys yoga pants and polo t-shirts for yoga and smart casual occasions; favours cotton and performance/polyester fabrics, usually flared fit",
+      "budget_inr": 1500
+    },
+    "learned_preferences": [],
+    "loyalty": {
+      "tier": "Bronze",
+      "points": 319,
+      "member_since": "2023-01-03",
+      "total_orders": 2
+    }
+  },
+  "CUST-0016": {
+    "customer_id": "CUST-0016",
+    "name": "Chitra Kulkarni",
+    "phone_no": "+91-998380-85579",
+    "email": "chitra.kulkarni16@example.com",
+    "gender": "female",
+    "age": 20,
+    "preferences": {
+      "colour": [
+        "Cocoa",
+        "Gunmetal",
+        "Mocha"
+      ],
+      "size": {
+        "top": "L",
+        "bottom": "XS"
+      },
+      "occasion": [
+        "Casual",
+        "Gym"
+      ],
+      "style_notes": "Mostly buys shorts and sunglasses for casual and gym occasions; favours performance/polyester and cotton fabrics, usually compression fit",
+      "budget_inr": 1000
+    },
+    "learned_preferences": [],
+    "loyalty": {
+      "tier": "Bronze",
+      "points": 299,
+      "member_since": "2023-08-24",
+      "total_orders": 3
+    }
+  },
+  "CUST-0017": {
+    "customer_id": "CUST-0017",
+    "name": "Dinesh Mishra",
+    "phone_no": "+91-997240-29212",
+    "email": "dinesh.mishra17@example.com",
+    "gender": "male",
+    "age": 53,
+    "preferences": {
+      "colour": [
+        "Rust",
+        "Dark Blue"
+      ],
+      "size": {
+        "top": "XL",
+        "bottom": "XL"
+      },
+      "occasion": [
+        "Casual"
+      ],
+      "style_notes": "Mostly buys trousers and jeans for casual occasions; favours cotton and denim fabrics, usually straight fit",
+      "budget_inr": 2000
+    },
+    "learned_preferences": [],
+    "loyalty": {
+      "tier": "Silver",
+      "points": 679,
+      "member_since": "2024-07-03",
+      "total_orders": 2
+    }
+  },
+  "CUST-0018": {
+    "customer_id": "CUST-0018",
+    "name": "Swathi Iyer",
+    "phone_no": "+91-923330-52324",
+    "email": "swathi.iyer18@example.com",
+    "gender": "female",
+    "age": 63,
+    "preferences": {
+      "colour": [
+        "Olive",
+        "Blush Pink",
+        "Floral Teal"
+      ],
+      "size": {
+        "top": "S",
+        "bottom": "XL"
+      },
+      "occasion": [
+        "Casual",
+        "Smart Casual"
+      ],
+      "style_notes": "Mostly buys skirts and cargo pants for casual and smart casual occasions; favours cotton and performance/polyester fabrics, usually relaxed tapered fit",
+      "budget_inr": 2000
+    },
+    "learned_preferences": [],
+    "loyalty": {
+      "tier": "Gold",
+      "points": 879,
+      "member_since": "2023-09-01",
+      "total_orders": 4
+    }
+  },
+  "CUST-0019": {
+    "customer_id": "CUST-0019",
+    "name": "Deepika Gupta",
+    "phone_no": "+91-915780-47488",
+    "email": "deepika.gupta19@example.com",
+    "gender": "female",
+    "age": 34,
+    "preferences": {
+      "colour": [
+        "Black",
+        "Grey"
+      ],
+      "size": {
+        "top": "XL",
+        "bottom": "XS"
+      },
+      "occasion": [
+        "Casual"
+      ],
+      "style_notes": "Mostly buys jeggings and hoodies for casual occasions; favours denim and fleece fabrics, usually skinny fit",
+      "budget_inr": 1500
+    },
+    "learned_preferences": [],
+    "loyalty": {
+      "tier": "Silver",
+      "points": 429,
+      "member_since": "2023-07-02",
+      "total_orders": 2
+    }
+  },
+  "CUST-0020": {
+    "customer_id": "CUST-0020",
+    "name": "Meera Naidu",
+    "phone_no": "+91-912850-26960",
+    "email": "meera.naidu20@example.com",
+    "gender": "female",
+    "age": 19,
+    "preferences": {
+      "colour": [
+        "Olive",
+        "Black",
+        "Forest Green"
+      ],
+      "size": {
+        "top": "M",
+        "bottom": "XS"
+      },
+      "occasion": [
+        "Casual",
+        "Work"
+      ],
+      "style_notes": "Mostly buys dress and socks for casual and work occasions; favours cotton and fleece fabrics, usually slim fit",
+      "budget_inr": 2000
+    },
+    "learned_preferences": [],
+    "loyalty": {
+      "tier": "Gold",
+      "points": 879,
+      "member_since": "2023-01-28",
+      "total_orders": 2
+    }
+  },
+  "CUST-0021": {
+    "customer_id": "CUST-0021",
+    "name": "Ramya Banerjee",
+    "phone_no": "+91-995570-14322",
+    "email": "ramya.banerjee21@example.com",
+    "gender": "female",
+    "age": 30,
+    "preferences": {
+      "colour": [
+        "Black",
+        "Dark Blue",
+        "Sky Blue"
+      ],
+      "size": {
+        "top": "XL",
+        "bottom": "XS"
+      },
+      "occasion": [
+        "Casual",
+        "Formal"
+      ],
+      "style_notes": "Mostly buys skirts and jeans for casual and formal occasions; favours denim and cotton fabrics, usually a-line fit",
+      "budget_inr": 3000
+    },
+    "learned_preferences": [],
+    "loyalty": {
+      "tier": "Gold",
+      "points": 979,
+      "member_since": "2024-05-24",
+      "total_orders": 3
+    }
+  },
+  "CUST-0022": {
+    "customer_id": "CUST-0022",
+    "name": "Jayant Chauhan",
+    "phone_no": "+91-994890-97233",
+    "email": "jayant.chauhan22@example.com",
+    "gender": "male",
+    "age": 37,
+    "preferences": {
+      "colour": [
+        "Gunmetal"
+      ],
+      "size": {
+        "top": "M",
+        "bottom": "M"
+      },
+      "occasion": [
+        "Everyday"
+      ],
+      "style_notes": "Mostly buys sunglasses for everyday occasions",
+      "budget_inr": 1500
+    },
+    "learned_preferences": [],
+    "loyalty": {
+      "tier": "Bronze",
+      "points": 119,
+      "member_since": "2025-12-07",
+      "total_orders": 1
+    }
+  },
+  "CUST-0024": {
+    "customer_id": "CUST-0024",
+    "name": "Lokesh Yadav",
+    "phone_no": "+91-969200-26924",
+    "email": "lokesh.yadav24@example.com",
+    "gender": "male",
+    "age": 27,
+    "preferences": {
+      "colour": [
+        "Sand",
+        "Jet Black",
+        "Oatmeal"
+      ],
+      "size": {
+        "top": "XXL",
+        "bottom": "XS"
+      },
+      "occasion": [
+        "Casual",
+        "Resort"
+      ],
+      "style_notes": "Mostly buys shirts and jeans for casual and resort occasions; favours denim and linen fabrics, usually regular fit",
+      "budget_inr": 3000
+    },
+    "learned_preferences": [],
+    "loyalty": {
+      "tier": "Gold",
+      "points": 1049,
+      "member_since": "2024-07-12",
+      "total_orders": 2
+    }
+  },
+  "CUST-0025": {
+    "customer_id": "CUST-0025",
+    "name": "Aditya Krishnan",
+    "phone_no": "+91-942340-87047",
+    "email": "aditya.krishnan25@example.com",
+    "gender": "male",
+    "age": 27,
+    "preferences": {
+      "colour": [
+        "Black",
+        "Rosewood"
+      ],
+      "size": {
+        "top": "M",
+        "bottom": "M"
+      },
+      "occasion": [
+        "Winter Smart Casual",
+        "Athleisure"
+      ],
+      "style_notes": "Mostly buys sweaters and joggers for winter smart casual and athleisure occasions; favours cotton and fleece fabrics, usually slim fit",
+      "budget_inr": 3000
+    },
+    "learned_preferences": [],
+    "loyalty": {
+      "tier": "Gold",
+      "points": 909,
+      "member_since": "2025-01-20",
+      "total_orders": 1
+    }
+  },
+  "CUST-0026": {
+    "customer_id": "CUST-0026",
+    "name": "Divya Oberoi",
+    "phone_no": "+91-978790-65421",
+    "email": "divya.oberoi26@example.com",
+    "gender": "female",
+    "age": 48,
+    "preferences": {
+      "colour": [
+        "Checked Grey",
+        "Black"
+      ],
+      "size": {
+        "top": "XXL",
+        "bottom": "S"
+      },
+      "occasion": [
+        "Casual",
+        "Smart Casual"
+      ],
+      "style_notes": "Mostly buys skirts and trousers for casual and smart casual occasions; favours poly twill and viscose fabrics, usually a-line fit",
+      "budget_inr": 1500
+    },
+    "learned_preferences": [],
+    "loyalty": {
+      "tier": "Silver",
+      "points": 449,
+      "member_since": "2024-06-04",
+      "total_orders": 3
+    }
+  },
+  "CUST-0027": {
+    "customer_id": "CUST-0027",
+    "name": "Kiran Ghosh",
+    "phone_no": "+91-957600-82975",
+    "email": "kiran.ghosh27@example.com",
+    "gender": "male",
+    "age": 63,
+    "preferences": {
+      "colour": [
+        "Charcoal",
+        "White"
+      ],
+      "size": {
+        "top": "M",
+        "bottom": "XL"
+      },
+      "occasion": [
+        "Formal",
+        "Festive"
+      ],
+      "style_notes": "Mostly buys formal trousers and kurtas for formal and festive occasions; favours viscose and cotton fabrics, usually tailored fit",
+      "budget_inr": 2000
+    },
+    "learned_preferences": [],
+    "loyalty": {
+      "tier": "Bronze",
+      "points": 279,
+      "member_since": "2025-01-05",
+      "total_orders": 2
+    }
+  },
+  "CUST-0028": {
+    "customer_id": "CUST-0028",
+    "name": "Shreya Bose",
+    "phone_no": "+91-959290-10668",
+    "email": "shreya.bose28@example.com",
+    "gender": "female",
+    "age": 64,
+    "preferences": {
+      "colour": [
+        "Black",
+        "Sage",
+        "Indigo"
+      ],
+      "size": {
+        "top": "M",
+        "bottom": "XXL"
+      },
+      "occasion": [
+        "Casual",
+        "Lounge"
+      ],
+      "style_notes": "Mostly buys pyjamas and kurtas for casual and lounge occasions; favours cotton and performance/polyester fabrics, usually relaxed fit",
+      "budget_inr": 2500
+    },
+    "learned_preferences": [
+      {
+        "note": "Interested in dress",
+        "learned_at": "2026-07-20T22:09:28",
+        "source": "chat"
+      },
+      {
+        "note": "Interested in anything in my favourite colour ?",
+        "learned_at": "2026-07-20T22:10:41",
+        "source": "chat"
+      },
+      {
+        "note": "Interested in which is my fav colour ?",
+        "learned_at": "2026-07-20T22:11:03",
+        "source": "chat"
+      }
+    ],
+    "loyalty": {
+      "tier": "Platinum",
+      "points": 1848,
+      "member_since": "2024-06-21",
+      "total_orders": 4
+    }
+  },
+  "CUST-0029": {
+    "customer_id": "CUST-0029",
+    "name": "Lakshmi Mehta",
+    "phone_no": "+91-918250-80217",
+    "email": "lakshmi.mehta29@example.com",
+    "gender": "female",
+    "age": 31,
+    "preferences": {
+      "colour": [
+        "Coral",
+        "Indigo"
+      ],
+      "size": {
+        "top": "M",
+        "bottom": "XXL"
+      },
+      "occasion": [
+        "Festive",
+        "Casual"
+      ],
+      "style_notes": "Mostly buys kurtas and jeans for festive and casual occasions; favours rayon and denim fabrics, usually flared fit",
+      "budget_inr": 2500
+    },
+    "learned_preferences": [],
+    "loyalty": {
+      "tier": "Silver",
+      "points": 659,
+      "member_since": "2023-07-28",
+      "total_orders": 2
+    }
+  },
+  "CUST-0031": {
+    "customer_id": "CUST-0031",
+    "name": "Sameer Saxena",
+    "phone_no": "+91-939820-34083",
+    "email": "sameer.saxena31@example.com",
+    "gender": "male",
+    "age": 54,
+    "preferences": {
+      "colour": [
+        "Black"
+      ],
+      "size": {
+        "top": "L",
+        "bottom": "L"
+      },
+      "occasion": [
+        "Everyday"
+      ],
+      "style_notes": "Mostly buys socks for everyday occasions",
+      "budget_inr": 1000
+    },
+    "learned_preferences": [],
+    "loyalty": {
+      "tier": "Bronze",
+      "points": 59,
+      "member_since": "2025-04-06",
+      "total_orders": 1
+    }
+  },
+  "CUST-0032": {
+    "customer_id": "CUST-0032",
+    "name": "Kavya Nair",
+    "phone_no": "+91-972080-59100",
+    "email": "kavya.nair32@example.com",
+    "gender": "female",
+    "age": 26,
+    "preferences": {
+      "colour": [
+        "Khaki",
+        "Cocoa"
+      ],
+      "size": {
+        "top": "XS",
+        "bottom": "XS"
+      },
+      "occasion": [
+        "Casual",
+        "Gym"
+      ],
+      "style_notes": "Mostly buys shorts for casual and gym occasions; favours cotton and performance/polyester fabrics, usually regular fit",
+      "budget_inr": 1500
+    },
+    "learned_preferences": [],
+    "loyalty": {
+      "tier": "Bronze",
+      "points": 199,
+      "member_since": "2024-03-22",
+      "total_orders": 1
+    }
+  },
+  "CUST-0033": {
+    "customer_id": "CUST-0033",
+    "name": "Nitin Mishra",
+    "phone_no": "+91-915470-62697",
+    "email": "nitin.mishra33@example.com",
+    "gender": "male",
+    "age": 58,
+    "preferences": {
+      "colour": [
+        "Sky Blue",
+        "Black"
+      ],
+      "size": {
+        "top": "S",
+        "bottom": "S"
+      },
+      "occasion": [
+        "Formal",
+        "Outdoor"
+      ],
+      "style_notes": "Mostly buys shirts and jackets for formal and outdoor occasions; favours cotton and performance/polyester fabrics, usually regular fit",
+      "budget_inr": 3000
+    },
+    "learned_preferences": [],
+    "loyalty": {
+      "tier": "Gold",
+      "points": 879,
+      "member_since": "2025-02-15",
+      "total_orders": 2
+    }
+  },
+  "CUST-0034": {
+    "customer_id": "CUST-0034",
+    "name": "Aditi Banerjee",
+    "phone_no": "+91-930530-81411",
+    "email": "aditi.banerjee34@example.com",
+    "gender": "female",
+    "age": 30,
+    "preferences": {
+      "colour": [
+        "Ecru",
+        "Champagne"
+      ],
+      "size": {
+        "top": "XL",
+        "bottom": "XXL"
+      },
+      "occasion": [
+        "Casual",
+        "Evening"
+      ],
+      "style_notes": "Mostly buys jeans and dress for casual and evening occasions; favours denim and satin fabrics, usually wide-leg fit",
+      "budget_inr": 2500
+    },
+    "learned_preferences": [],
+    "loyalty": {
+      "tier": "Gold",
+      "points": 839,
+      "member_since": "2023-11-17",
+      "total_orders": 2
+    }
+  },
+  "CUST-0036": {
+    "customer_id": "CUST-0036",
+    "name": "Shreya Iyer",
+    "phone_no": "+91-958400-78786",
+    "email": "shreya.iyer36@example.com",
+    "gender": "female",
+    "age": 34,
+    "preferences": {
+      "colour": [
+        "Black"
+      ],
+      "size": {
+        "top": "L",
+        "bottom": "L"
+      },
+      "occasion": [
+        "Gym"
+      ],
+      "style_notes": "Mostly buys shorts for gym occasions; favours performance/polyester fabrics, usually compression fit",
+      "budget_inr": 1000
+    },
+    "learned_preferences": [],
+    "loyalty": {
+      "tier": "Bronze",
+      "points": 69,
+      "member_since": "2025-09-08",
+      "total_orders": 1
+    }
+  },
+  "CUST-0037": {
+    "customer_id": "CUST-0037",
+    "name": "Vishal Gupta",
+    "phone_no": "+91-976690-21662",
+    "email": "vishal.gupta37@example.com",
+    "gender": "male",
+    "age": 38,
+    "preferences": {
+      "colour": [
+        "Mid-Blue",
+        "Khaki"
+      ],
+      "size": {
+        "top": "M",
+        "bottom": "S"
+      },
+      "occasion": [
+        "Casual"
+      ],
+      "style_notes": "Mostly buys jackets and shorts for casual occasions; favours denim and cotton fabrics, usually regular fit",
+      "budget_inr": 3000
+    },
+    "learned_preferences": [],
+    "loyalty": {
+      "tier": "Silver",
+      "points": 399,
+      "member_since": "2024-07-11",
+      "total_orders": 1
+    }
+  },
+  "CUST-0038": {
+    "customer_id": "CUST-0038",
+    "name": "Malini Iyer",
+    "phone_no": "+91-938800-66160",
+    "email": "malini.iyer38@example.com",
+    "gender": "female",
+    "age": 21,
+    "preferences": {
+      "colour": [
+        "Nude",
+        "Cocoa"
+      ],
+      "size": {
+        "top": "L",
+        "bottom": "L"
+      },
+      "occasion": [
+        "Everyday",
+        "Gym"
+      ],
+      "style_notes": "Mostly buys socks and shorts for everyday and gym occasions; favours performance/polyester fabrics, usually compression fit",
+      "budget_inr": 1000
+    },
+    "learned_preferences": [],
+    "loyalty": {
+      "tier": "Bronze",
+      "points": 109,
+      "member_since": "2024-11-15",
+      "total_orders": 2
+    }
+  },
+  "CUST-0039": {
+    "customer_id": "CUST-0039",
+    "name": "Gautham Yadav",
+    "phone_no": "+91-959390-96866",
+    "email": "gautham.yadav39@example.com",
+    "gender": "male",
+    "age": 56,
+    "preferences": {
+      "colour": [
+        "Navy",
+        "White",
+        "Maroon"
+      ],
+      "size": {
+        "top": "M",
+        "bottom": "M"
+      },
+      "occasion": [
+        "Everyday",
+        "Winter Casual"
+      ],
+      "style_notes": "Mostly buys sweaters and socks for everyday and winter casual occasions; favours wool and fleece fabrics, usually regular fit",
+      "budget_inr": 2000
+    },
+    "learned_preferences": [],
+    "loyalty": {
+      "tier": "Silver",
+      "points": 499,
+      "member_since": "2025-02-17",
+      "total_orders": 2
+    }
+  },
+  "CUST-0040": {
+    "customer_id": "CUST-0040",
+    "name": "Naveen Reddy",
+    "phone_no": "+91-915930-11584",
+    "email": "naveen.reddy40@example.com",
+    "gender": "male",
+    "age": 25,
+    "preferences": {
+      "colour": [
+        "Sage",
+        "Maroon"
+      ],
+      "size": {
+        "top": "XS",
+        "bottom": "XS"
+      },
+      "occasion": [
+        "Casual",
+        "Festive"
+      ],
+      "style_notes": "Mostly buys t-shirts and nehru jackets for casual and festive occasions; favours cotton and silk fabrics, usually oversized fit",
+      "budget_inr": 2500
+    },
+    "learned_preferences": [],
+    "loyalty": {
+      "tier": "Silver",
+      "points": 359,
+      "member_since": "2024-05-04",
+      "total_orders": 1
+    }
+  },
+  "CUST-0041": {
+    "customer_id": "CUST-0041",
+    "name": "Swathi Ghosh",
+    "phone_no": "+91-916960-40531",
+    "email": "swathi.ghosh41@example.com",
+    "gender": "female",
+    "age": 22,
+    "preferences": {
+      "colour": [
+        "Black",
+        "Ivory"
+      ],
+      "size": {
+        "top": "S",
+        "bottom": "L"
+      },
+      "occasion": [
+        "Winter",
+        "Smart Casual"
+      ],
+      "style_notes": "Mostly buys jackets and blouses for winter and smart casual occasions; favours poly crepe and performance/polyester fabrics, usually longline fit",
+      "budget_inr": 3000
+    },
+    "learned_preferences": [],
+    "loyalty": {
+      "tier": "Bronze",
+      "points": 0,
+      "member_since": "2024-01-15",
+      "total_orders": 1
+    }
+  },
+  "CUST-0042": {
+    "customer_id": "CUST-0042",
+    "name": "Pallavi Bhat",
+    "phone_no": "+91-944820-72606",
+    "email": "pallavi.bhat42@example.com",
+    "gender": "female",
+    "age": 46,
+    "preferences": {
+      "colour": [
+        "Black"
+      ],
+      "size": {
+        "top": "XL",
+        "bottom": "XL"
+      },
+      "occasion": [
+        "Casual"
+      ],
+      "style_notes": "Mostly buys jeans for casual occasions; favours denim fabrics, usually skinny fit",
+      "budget_inr": 2000
+    },
+    "learned_preferences": [],
+    "loyalty": {
+      "tier": "Silver",
+      "points": 599,
+      "member_since": "2023-04-04",
+      "total_orders": 1
+    }
+  },
+  "CUST-0043": {
+    "customer_id": "CUST-0043",
+    "name": "Omkar Joshi",
+    "phone_no": "+91-984290-17309",
+    "email": "omkar.joshi43@example.com",
+    "gender": "male",
+    "age": 32,
+    "preferences": {
+      "colour": [
+        "Black",
+        "White"
+      ],
+      "size": {
+        "top": "XXL",
+        "bottom": "XS"
+      },
+      "occasion": [
+        "Casual",
+        "Smart Casual"
+      ],
+      "style_notes": "Mostly buys t-shirts and trousers for casual and smart casual occasions; favours cotton and viscose fabrics, usually regular fit",
+      "budget_inr": 2000
+    },
+    "learned_preferences": [],
+    "loyalty": {
+      "tier": "Silver",
+      "points": 699,
+      "member_since": "2024-01-11",
+      "total_orders": 2
+    }
+  },
+  "CUST-0044": {
+    "customer_id": "CUST-0044",
+    "name": "Aarti Agarwal",
+    "phone_no": "+91-954730-88218",
+    "email": "aarti.agarwal44@example.com",
+    "gender": "female",
+    "age": 21,
+    "preferences": {
+      "colour": [
+        "Rust"
+      ],
+      "size": {
+        "top": "S",
+        "bottom": "S"
+      },
+      "occasion": [
+        "Winter Casual"
+      ],
+      "style_notes": "Mostly buys sweaters for winter casual occasions; favours acrylic knit fabrics, usually relaxed fit",
+      "budget_inr": 1500
+    },
+    "learned_preferences": [],
+    "loyalty": {
+      "tier": "Bronze",
+      "points": 149,
+      "member_since": "2024-08-27",
+      "total_orders": 1
+    }
+  },
+  "CUST-0045": {
+    "customer_id": "CUST-0045",
+    "name": "Riya Jain",
+    "phone_no": "+91-981820-43303",
+    "email": "riya.jain45@example.com",
+    "gender": "female",
+    "age": 58,
+    "preferences": {
+      "colour": [
+        "Navy",
+        "Rosewood"
+      ],
+      "size": {
+        "top": "XXL",
+        "bottom": "XXL"
+      },
+      "occasion": [
+        "Sports",
+        "Athleisure"
+      ],
+      "style_notes": "Mostly buys track pants and joggers for sports and athleisure occasions; favours performance/polyester and fleece fabrics, usually regular fit",
+      "budget_inr": 1500
+    },
+    "learned_preferences": [],
+    "loyalty": {
+      "tier": "Silver",
+      "points": 359,
+      "member_since": "2023-11-25",
+      "total_orders": 1
+    }
+  },
+  "CUST-0046": {
+    "customer_id": "CUST-0046",
+    "name": "Ramya Joshi",
+    "phone_no": "+91-966340-61990",
+    "email": "ramya.joshi46@example.com",
+    "gender": "female",
+    "age": 63,
+    "preferences": {
+      "colour": [
+        "Charcoal",
+        "Emerald"
+      ],
+      "size": {
+        "top": "S",
+        "bottom": "XL"
+      },
+      "occasion": [
+        "Formal",
+        "Evening"
+      ],
+      "style_notes": "Mostly buys formal trousers and dress for formal and evening occasions; favours viscose and satin fabrics, usually tailored fit",
+      "budget_inr": 2500
+    },
+    "learned_preferences": [],
+    "loyalty": {
+      "tier": "Gold",
+      "points": 779,
+      "member_since": "2025-08-03",
+      "total_orders": 1
+    }
+  },
+  "CUST-0047": {
+    "customer_id": "CUST-0047",
+    "name": "Nikhil Patel",
+    "phone_no": "+91-945720-42612",
+    "email": "nikhil.patel47@example.com",
+    "gender": "male",
+    "age": 24,
+    "preferences": {
+      "colour": [
+        "Navy",
+        "Black-Grey",
+        "Olive-Cream"
+      ],
+      "size": {
+        "top": "M",
+        "bottom": "XL"
+      },
+      "occasion": [
+        "Casual",
+        "Lounge"
+      ],
+      "style_notes": "Mostly buys socks and shorts for casual and lounge occasions; favours cotton and performance/polyester fabrics, usually regular fit",
+      "budget_inr": 2500
+    },
+    "learned_preferences": [],
+    "loyalty": {
+      "tier": "Silver",
+      "points": 659,
+      "member_since": "2024-01-10",
+      "total_orders": 3
+    }
+  },
+  "CUST-0048": {
+    "customer_id": "CUST-0048",
+    "name": "Tarun Jain",
+    "phone_no": "+91-970490-19135",
+    "email": "tarun.jain48@example.com",
+    "gender": "male",
+    "age": 23,
+    "preferences": {
+      "colour": [
+        "Black",
+        "Ivory"
+      ],
+      "size": {
+        "top": "XL",
+        "bottom": "L"
+      },
+      "occasion": [
+        "Sports",
+        "Smart Casual"
+      ],
+      "style_notes": "Mostly buys track pants and blouses for sports and smart casual occasions; favours performance/polyester and poly crepe fabrics, usually regular fit",
+      "budget_inr": 1500
+    },
+    "learned_preferences": [],
+    "loyalty": {
+      "tier": "Silver",
+      "points": 509,
+      "member_since": "2025-05-21",
+      "total_orders": 1
+    }
+  },
+  "CUST-0049": {
+    "customer_id": "CUST-0049",
+    "name": "Vidya Mehta",
+    "phone_no": "+91-986150-74098",
+    "email": "vidya.mehta49@example.com",
+    "gender": "female",
+    "age": 20,
+    "preferences": {
+      "colour": [
+        "Emerald",
+        "Sky"
+      ],
+      "size": {
+        "top": "S",
+        "bottom": "S"
+      },
+      "occasion": [
+        "Evening",
+        "Yoga"
+      ],
+      "style_notes": "Mostly buys dress and tank tops for evening and yoga occasions; favours performance/polyester and satin fabrics, usually bias-cut fit",
+      "budget_inr": 3000
+    },
+    "learned_preferences": [],
+    "loyalty": {
+      "tier": "Silver",
+      "points": 629,
+      "member_since": "2024-07-25",
+      "total_orders": 3
+    }
+  },
+  "CUST-0050": {
+    "customer_id": "CUST-0050",
+    "name": "Pranav Menon",
+    "phone_no": "+91-929020-15441",
+    "email": "pranav.menon50@example.com",
+    "gender": "male",
+    "age": 42,
+    "preferences": {
+      "colour": [
+        "Black-Red",
+        "Black"
+      ],
+      "size": {
+        "top": "L",
+        "bottom": "L"
+      },
+      "occasion": [
+        "Sports",
+        "Casual"
+      ],
+      "style_notes": "Mostly buys sunglasses and jackets for sports and casual occasions; favours performance/polyester and cotton fabrics, usually regular fit",
+      "budget_inr": 2500
+    },
+    "learned_preferences": [],
+    "loyalty": {
+      "tier": "Silver",
+      "points": 529,
+      "member_since": "2023-05-01",
+      "total_orders": 2
+    }
+  },
+  "CUST-0051": {
+    "customer_id": "CUST-0051",
+    "name": "Naveen Wadhwa",
+    "phone_no": "+91-947010-57600",
+    "email": "naveen.wadhwa51@example.com",
+    "gender": "male",
+    "age": 22,
+    "preferences": {
+      "colour": [
+        "Mustard",
+        "Taupe",
+        "Charcoal"
+      ],
+      "size": {
+        "top": "XXL",
+        "bottom": "XXL"
+      },
+      "occasion": [
+        "Smart Casual",
+        "Winter"
+      ],
+      "style_notes": "Mostly buys trousers and hats for smart casual and winter occasions; favours viscose and cotton fabrics, usually tapered fit",
+      "budget_inr": 2000
+    },
+    "learned_preferences": [],
+    "loyalty": {
+      "tier": "Gold",
+      "points": 709,
+      "member_since": "2025-06-15",
+      "total_orders": 4
+    }
+  },
+  "CUST-0052": {
+    "customer_id": "CUST-0052",
+    "name": "Sanya Joshi",
+    "phone_no": "+91-910030-36647",
+    "email": "sanya.joshi52@example.com",
+    "gender": "female",
+    "age": 19,
+    "preferences": {
+      "colour": [
+        "Navy",
+        "Ecru",
+        "Emerald"
+      ],
+      "size": {
+        "top": "L",
+        "bottom": "S"
+      },
+      "occasion": [
+        "Casual",
+        "Smart Casual"
+      ],
+      "style_notes": "Mostly buys hats and jeans for casual and smart casual occasions; favours cotton and performance/polyester fabrics, usually regular fit",
+      "budget_inr": 2500
+    },
+    "learned_preferences": [],
+    "loyalty": {
+      "tier": "Platinum",
+      "points": 1209,
+      "member_since": "2024-05-11",
+      "total_orders": 5
+    }
+  },
+  "CUST-0055": {
+    "customer_id": "CUST-0055",
+    "name": "Abhishek Reddy",
+    "phone_no": "+91-928210-60251",
+    "email": "abhishek.reddy55@example.com",
+    "gender": "male",
+    "age": 30,
+    "preferences": {
+      "colour": [
+        "Khaki",
+        "Beige"
+      ],
+      "size": {
+        "top": "XL",
+        "bottom": "L"
+      },
+      "occasion": [
+        "Smart Casual",
+        "Winter Casual"
+      ],
+      "style_notes": "Mostly buys chinos and sweaters for smart casual and winter casual occasions; favours cotton and wool fabrics, usually slim fit",
+      "budget_inr": 1500
+    },
+    "learned_preferences": [],
+    "loyalty": {
+      "tier": "Silver",
+      "points": 449,
+      "member_since": "2025-09-23",
+      "total_orders": 1
+    }
+  },
+  "CUST-0056": {
+    "customer_id": "CUST-0056",
+    "name": "Ishita Hegde",
+    "phone_no": "+91-982560-45337",
+    "email": "ishita.hegde56@example.com",
+    "gender": "female",
+    "age": 50,
+    "preferences": {
+      "colour": [
+        "Light Blue",
+        "Rose Gold"
+      ],
+      "size": {
+        "top": "XS",
+        "bottom": "XS"
+      },
+      "occasion": [
+        "Casual",
+        "Everyday"
+      ],
+      "style_notes": "Mostly buys jackets and sunglasses for casual and everyday occasions; favours denim fabrics, usually regular fit",
+      "budget_inr": 2500
+    },
+    "learned_preferences": [],
+    "loyalty": {
+      "tier": "Silver",
+      "points": 419,
+      "member_since": "2023-06-11",
+      "total_orders": 3
+    }
+  },
+  "CUST-0057": {
+    "customer_id": "CUST-0057",
+    "name": "Sanya Mishra",
+    "phone_no": "+91-916660-35633",
+    "email": "sanya.mishra57@example.com",
+    "gender": "female",
+    "age": 25,
+    "preferences": {
+      "colour": [
+        "Black"
+      ],
+      "size": {
+        "top": "XL",
+        "bottom": "XL"
+      },
+      "occasion": [
+        "Casual",
+        "Gym"
+      ],
+      "style_notes": "Mostly buys jeggings and shorts for casual and gym occasions; favours denim and performance/polyester fabrics, usually skinny fit",
+      "budget_inr": 1500
+    },
+    "learned_preferences": [],
+    "loyalty": {
+      "tier": "Bronze",
+      "points": 269,
+      "member_since": "2024-06-11",
+      "total_orders": 1
+    }
+  },
+  "CUST-0058": {
+    "customer_id": "CUST-0058",
+    "name": "Yash Yadav",
+    "phone_no": "+91-946570-16204",
+    "email": "yash.yadav58@example.com",
+    "gender": "male",
+    "age": 23,
+    "preferences": {
+      "colour": [
+        "Stone Grey",
+        "White"
+      ],
+      "size": {
+        "top": "XXL",
+        "bottom": "M"
+      },
+      "occasion": [
+        "Casual",
+        "Formal"
+      ],
+      "style_notes": "Mostly buys shorts and shirts for casual and formal occasions; favours cotton and performance/polyester fabrics, usually regular fit",
+      "budget_inr": 1500
+    },
+    "learned_preferences": [],
+    "loyalty": {
+      "tier": "Silver",
+      "points": 359,
+      "member_since": "2024-04-11",
+      "total_orders": 2
+    }
+  },
+  "CUST-0059": {
+    "customer_id": "CUST-0059",
+    "name": "Kunal Yadav",
+    "phone_no": "+91-913670-86232",
+    "email": "kunal.yadav59@example.com",
+    "gender": "male",
+    "age": 57,
+    "preferences": {
+      "colour": [
+        "White",
+        "Olive"
+      ],
+      "size": {
+        "top": "M",
+        "bottom": "M"
+      },
+      "occasion": [
+        "Resort",
+        "Outdoor"
+      ],
+      "style_notes": "Mostly buys shirts and jackets for resort and outdoor occasions; favours linen and performance/polyester fabrics, usually relaxed fit",
+      "budget_inr": 3000
+    },
+    "learned_preferences": [],
+    "loyalty": {
+      "tier": "Bronze",
+      "points": 229,
+      "member_since": "2025-07-20",
+      "total_orders": 3
+    }
+  },
+  "CUST-0060": {
+    "customer_id": "CUST-0060",
+    "name": "Priya Joshi",
+    "phone_no": "+91-966950-37012",
+    "email": "priya.joshi60@example.com",
+    "gender": "female",
+    "age": 36,
+    "preferences": {
+      "colour": [
+        "Black",
+        "Rust",
+        "Ivory"
+      ],
+      "size": {
+        "top": "XXL",
+        "bottom": "L"
+      },
+      "occasion": [
+        "Casual",
+        "Formal"
+      ],
+      "style_notes": "Mostly buys t-shirts and formal trousers for casual and formal occasions; favours viscose and acrylic knit fabrics, usually straight fit",
+      "budget_inr": 2500
+    },
+    "learned_preferences": [],
+    "loyalty": {
+      "tier": "Gold",
+      "points": 1019,
+      "member_since": "2023-01-12",
+      "total_orders": 5
+    }
+  },
+  "CUST-0061": {
+    "customer_id": "CUST-0061",
+    "name": "Keerthana Iyer",
+    "phone_no": "+91-994210-66146",
+    "email": "keerthana.iyer61@example.com",
+    "gender": "female",
+    "age": 24,
+    "preferences": {
+      "colour": [
+        "Champagne",
+        "Light Blue"
+      ],
+      "size": {
+        "top": "S",
+        "bottom": "M"
+      },
+      "occasion": [
+        "Casual",
+        "Evening"
+      ],
+      "style_notes": "Mostly buys camisoles and skirts for casual and evening occasions; favours satin and denim fabrics, usually slim fit",
+      "budget_inr": 2000
+    },
+    "learned_preferences": [],
+    "loyalty": {
+      "tier": "Silver",
+      "points": 389,
+      "member_since": "2024-12-16",
+      "total_orders": 2
+    }
+  },
+  "CUST-0062": {
+    "customer_id": "CUST-0062",
+    "name": "Bhavana Rathore",
+    "phone_no": "+91-996620-93500",
+    "email": "bhavana.rathore62@example.com",
+    "gender": "female",
+    "age": 29,
+    "preferences": {
+      "colour": [
+        "Light Blue",
+        "Lilac",
+        "White"
+      ],
+      "size": {
+        "top": "XXL",
+        "bottom": "S"
+      },
+      "occasion": [
+        "Casual",
+        "Sports"
+      ],
+      "style_notes": "Mostly buys hoodies and jackets for casual and sports occasions; favours denim and fleece fabrics, usually regular fit",
+      "budget_inr": 2500
+    },
+    "learned_preferences": [],
+    "loyalty": {
+      "tier": "Platinum",
+      "points": 2048,
+      "member_since": "2025-08-06",
+      "total_orders": 4
+    }
+  },
+  "CUST-0063": {
+    "customer_id": "CUST-0063",
+    "name": "Irfan Malhotra",
+    "phone_no": "+91-911620-80663",
+    "email": "irfan.malhotra63@example.com",
+    "gender": "male",
+    "age": 22,
+    "preferences": {
+      "colour": [
+        "White",
+        "Grey"
+      ],
+      "size": {
+        "top": "XL",
+        "bottom": "L"
+      },
+      "occasion": [
+        "Casual",
+        "Formal"
+      ],
+      "style_notes": "Mostly buys jeans and shirts for casual and formal occasions; favours cotton and denim fabrics, usually jogger fit",
+      "budget_inr": 2000
+    },
+    "learned_preferences": [],
+    "loyalty": {
+      "tier": "Silver",
+      "points": 549,
+      "member_since": "2023-07-05",
+      "total_orders": 1
+    }
+  },
+  "CUST-0064": {
+    "customer_id": "CUST-0064",
+    "name": "Sanya Iyer",
+    "phone_no": "+91-951360-17351",
+    "email": "sanya.iyer64@example.com",
+    "gender": "female",
+    "age": 28,
+    "preferences": {
+      "colour": [
+        "Champagne",
+        "Checked Grey"
+      ],
+      "size": {
+        "top": "XS",
+        "bottom": "S"
+      },
+      "occasion": [
+        "Evening",
+        "Casual"
+      ],
+      "style_notes": "Mostly buys dress and skirts for evening and casual occasions; favours satin and poly twill fabrics, usually bias-cut fit",
+      "budget_inr": 2500
+    },
+    "learned_preferences": [],
+    "loyalty": {
+      "tier": "Gold",
+      "points": 879,
+      "member_since": "2024-03-27",
+      "total_orders": 2
+    }
+  },
+  "CUST-0065": {
+    "customer_id": "CUST-0065",
+    "name": "Priya Yadav",
+    "phone_no": "+91-918830-69894",
+    "email": "priya.yadav65@example.com",
+    "gender": "female",
+    "age": 58,
+    "preferences": {
+      "colour": [
+        "White",
+        "Sky"
+      ],
+      "size": {
+        "top": "XXL",
+        "bottom": "XXL"
+      },
+      "occasion": [
+        "Resort",
+        "Yoga"
+      ],
+      "style_notes": "Mostly buys shirts and tank tops for resort and yoga occasions; favours linen and performance/polyester fabrics, usually relaxed fit",
+      "budget_inr": 2000
+    },
+    "learned_preferences": [],
+    "loyalty": {
+      "tier": "Bronze",
+      "points": 299,
+      "member_since": "2023-07-11",
+      "total_orders": 1
+    }
+  },
+  "CUST-0066": {
+    "customer_id": "CUST-0066",
+    "name": "Pallavi Trivedi",
+    "phone_no": "+91-914770-30618",
+    "email": "pallavi.trivedi66@example.com",
+    "gender": "female",
+    "age": 36,
+    "preferences": {
+      "colour": [
+        "Checked Grey",
+        "Black-Grey",
+        "White"
+      ],
+      "size": {
+        "top": "XL",
+        "bottom": "XL"
+      },
+      "occasion": [
+        "Casual",
+        "Yoga"
+      ],
+      "style_notes": "Mostly buys socks and skirts for casual and yoga occasions; favours poly twill and rayon fabrics, usually a-line fit",
+      "budget_inr": 2500
+    },
+    "learned_preferences": [],
+    "loyalty": {
+      "tier": "Silver",
+      "points": 459,
+      "member_since": "2024-01-02",
+      "total_orders": 3
+    }
+  },
+  "CUST-0067": {
+    "customer_id": "CUST-0067",
+    "name": "Sneha Mishra",
+    "phone_no": "+91-910080-20083",
+    "email": "sneha.mishra67@example.com",
+    "gender": "female",
+    "age": 52,
+    "preferences": {
+      "colour": [
+        "Black",
+        "Dark Blue"
+      ],
+      "size": {
+        "top": "S",
+        "bottom": "S"
+      },
+      "occasion": [
+        "Yoga",
+        "Casual"
+      ],
+      "style_notes": "Mostly buys yoga pants and jeans for yoga and casual occasions; favours performance/polyester and denim fabrics, usually flared fit",
+      "budget_inr": 2000
+    },
+    "learned_preferences": [],
+    "loyalty": {
+      "tier": "Bronze",
+      "points": 349,
+      "member_since": "2023-03-18",
+      "total_orders": 1
+    }
+  },
+  "CUST-0069": {
+    "customer_id": "CUST-0069",
+    "name": "Abhishek Sethi",
+    "phone_no": "+91-923650-19600",
+    "email": "abhishek.sethi69@example.com",
+    "gender": "male",
+    "age": 53,
+    "preferences": {
+      "colour": [
+        "Navy",
+        "Black"
+      ],
+      "size": {
+        "top": "M",
+        "bottom": "S"
+      },
+      "occasion": [
+        "Winter Casual",
+        "Winter Smart Casual"
+      ],
+      "style_notes": "Mostly buys sweaters and trousers for winter casual and winter smart casual occasions; favours wool and cotton fabrics, usually regular fit",
+      "budget_inr": 2000
+    },
+    "learned_preferences": [],
+    "loyalty": {
+      "tier": "Silver",
+      "points": 479,
+      "member_since": "2023-07-07",
+      "total_orders": 2
+    }
+  },
+  "CUST-0070": {
+    "customer_id": "CUST-0070",
+    "name": "Bharath Reddy",
+    "phone_no": "+91-912730-10612",
+    "email": "bharath.reddy70@example.com",
+    "gender": "male",
+    "age": 30,
+    "preferences": {
+      "colour": [
+        "Navy",
+        "Khaki"
+      ],
+      "size": {
+        "top": "XS",
+        "bottom": "XS"
+      },
+      "occasion": [
+        "Casual",
+        "Smart Casual"
+      ],
+      "style_notes": "Mostly buys t-shirts and chinos for casual and smart casual occasions; favours cotton fabrics, usually regular fit",
+      "budget_inr": 1500
+    },
+    "learned_preferences": [],
+    "loyalty": {
+      "tier": "Bronze",
+      "points": 249,
+      "member_since": "2023-02-10",
+      "total_orders": 1
+    }
+  },
+  "CUST-0071": {
+    "customer_id": "CUST-0071",
+    "name": "Bhumika Chatterjee",
+    "phone_no": "+91-949910-65619",
+    "email": "bhumika.chatterjee71@example.com",
+    "gender": "female",
+    "age": 27,
+    "preferences": {
+      "colour": [
+        "Black-Lime",
+        "Dark Blue",
+        "Navy"
+      ],
+      "size": {
+        "top": "XXL",
+        "bottom": "L"
+      },
+      "occasion": [
+        "Casual",
+        "Running"
+      ],
+      "style_notes": "Mostly buys socks and jeans for casual and running occasions; favours denim and cotton fabrics, usually bootcut fit",
+      "budget_inr": 2000
+    },
+    "learned_preferences": [],
+    "loyalty": {
+      "tier": "Silver",
+      "points": 529,
+      "member_since": "2024-02-19",
+      "total_orders": 1
+    }
+  },
+  "CUST-0073": {
+    "customer_id": "CUST-0073",
+    "name": "Pooja Gupta",
+    "phone_no": "+91-988890-43102",
+    "email": "pooja.gupta73@example.com",
+    "gender": "female",
+    "age": 21,
+    "preferences": {
+      "colour": [
+        "Grey",
+        "Gold-Green"
+      ],
+      "size": {
+        "top": "M",
+        "bottom": "M"
+      },
+      "occasion": [
+        "Casual",
+        "Everyday"
+      ],
+      "style_notes": "Mostly buys hoodies and sunglasses for casual and everyday occasions; favours fleece fabrics, usually cropped fit",
+      "budget_inr": 1500
+    },
+    "learned_preferences": [],
+    "loyalty": {
+      "tier": "Bronze",
+      "points": 249,
+      "member_since": "2025-09-08",
+      "total_orders": 2
+    }
+  },
+  "CUST-0074": {
+    "customer_id": "CUST-0074",
+    "name": "Pranav Khanna",
+    "phone_no": "+91-926330-17494",
+    "email": "pranav.khanna74@example.com",
+    "gender": "male",
+    "age": 26,
+    "preferences": {
+      "colour": [
+        "Khaki",
+        "Grey"
+      ],
+      "size": {
+        "top": "L",
+        "bottom": "L"
+      },
+      "occasion": [
+        "Casual"
+      ],
+      "style_notes": "Mostly buys shorts and jeans for casual occasions; favours cotton and denim fabrics, usually regular fit",
+      "budget_inr": 2000
+    },
+    "learned_preferences": [],
+    "loyalty": {
+      "tier": "Silver",
+      "points": 529,
+      "member_since": "2025-09-08",
+      "total_orders": 1
+    }
+  },
+  "CUST-0075": {
+    "customer_id": "CUST-0075",
+    "name": "Meera Saxena",
+    "phone_no": "+91-983510-70562",
+    "email": "meera.saxena75@example.com",
+    "gender": "female",
+    "age": 43,
+    "preferences": {
+      "colour": [
+        "Black"
+      ],
+      "size": {
+        "top": "M",
+        "bottom": "M"
+      },
+      "occasion": [
+        "Formal"
+      ],
+      "style_notes": "Mostly buys formal trousers for formal occasions; favours viscose fabrics, usually straight fit",
+      "budget_inr": 2000
+    },
+    "learned_preferences": [],
+    "loyalty": {
+      "tier": "Bronze",
+      "points": 179,
+      "member_since": "2024-08-02",
+      "total_orders": 1
+    }
+  },
+  "CUST-0076": {
+    "customer_id": "CUST-0076",
+    "name": "Yamini Agarwal",
+    "phone_no": "+91-950460-85352",
+    "email": "yamini.agarwal76@example.com",
+    "gender": "female",
+    "age": 49,
+    "preferences": {
+      "colour": [
+        "Navy",
+        "Black"
+      ],
+      "size": {
+        "top": "M",
+        "bottom": "M"
+      },
+      "occasion": [
+        "Party",
+        "Formal"
+      ],
+      "style_notes": "Mostly buys tops and blazers for party and formal occasions; favours poly crepe and viscose fabrics, usually fitted bodice fit",
+      "budget_inr": 4000
+    },
+    "learned_preferences": [],
+    "loyalty": {
+      "tier": "Gold",
+      "points": 1039,
+      "member_since": "2024-06-07",
+      "total_orders": 2
+    }
+  },
+  "CUST-0077": {
+    "customer_id": "CUST-0077",
+    "name": "Janani Rao",
+    "phone_no": "+91-916670-69931",
+    "email": "janani.rao77@example.com",
+    "gender": "female",
+    "age": 31,
+    "preferences": {
+      "colour": [
+        "Black"
+      ],
+      "size": {
+        "top": "M",
+        "bottom": "M"
+      },
+      "occasion": [
+        "Formal"
+      ],
+      "style_notes": "Mostly buys formal trousers for formal occasions; favours viscose fabrics, usually straight fit",
+      "budget_inr": 2000
+    },
+    "learned_preferences": [],
+    "loyalty": {
+      "tier": "Bronze",
+      "points": 179,
+      "member_since": "2024-03-04",
+      "total_orders": 1
+    }
+  },
+  "CUST-0078": {
+    "customer_id": "CUST-0078",
+    "name": "Naveen Prasad",
+    "phone_no": "+91-988240-36457",
+    "email": "naveen.prasad78@example.com",
+    "gender": "male",
+    "age": 52,
+    "preferences": {
+      "colour": [
+        "Black",
+        "Rust"
+      ],
+      "size": {
+        "top": "XS",
+        "bottom": "XS"
+      },
+      "occasion": [
+        "Casual",
+        "Smart Casual"
+      ],
+      "style_notes": "Mostly buys jackets and trousers for casual and smart casual occasions; favours cotton and performance/polyester fabrics, usually regular fit",
+      "budget_inr": 2500
+    },
+    "learned_preferences": [],
+    "loyalty": {
+      "tier": "Silver",
+      "points": 549,
+      "member_since": "2023-12-19",
+      "total_orders": 2
+    }
+  },
+  "CUST-0079": {
+    "customer_id": "CUST-0079",
+    "name": "Ramya Mehta",
+    "phone_no": "+91-955870-12175",
+    "email": "ramya.mehta79@example.com",
+    "gender": "female",
+    "age": 19,
+    "preferences": {
+      "colour": [
+        "Black",
+        "Ivory"
+      ],
+      "size": {
+        "top": "S",
+        "bottom": "S"
+      },
+      "occasion": [
+        "Festive",
+        "Evening"
+      ],
+      "style_notes": "Mostly buys nehru jackets and camisoles for festive and evening occasions; favours silk and satin fabrics, usually tailored fit",
+      "budget_inr": 2500
+    },
+    "learned_preferences": [],
+    "loyalty": {
+      "tier": "Bronze",
+      "points": 339,
+      "member_since": "2024-01-17",
+      "total_orders": 2
+    }
+  },
+  "CUST-0080": {
+    "customer_id": "CUST-0080",
+    "name": "Meera Sharma",
+    "phone_no": "+91-967790-76504",
+    "email": "meera.sharma80@example.com",
+    "gender": "female",
+    "age": 29,
+    "preferences": {
+      "colour": [
+        "Beige",
+        "Sage",
+        "Champagne"
+      ],
+      "size": {
+        "top": "L",
+        "bottom": "L"
+      },
+      "occasion": [
+        "Casual",
+        "Lounge"
+      ],
+      "style_notes": "Mostly buys palazzos and pyjamas for casual and lounge occasions; favours crepe and cotton fabrics, usually wide-leg fit",
+      "budget_inr": 2500
+    },
+    "learned_preferences": [],
+    "loyalty": {
+      "tier": "Platinum",
+      "points": 1399,
+      "member_since": "2024-09-04",
+      "total_orders": 4
+    }
+  },
+  "CUST-0081": {
+    "customer_id": "CUST-0081",
+    "name": "Ananya Mishra",
+    "phone_no": "+91-968430-55814",
+    "email": "ananya.mishra81@example.com",
+    "gender": "female",
+    "age": 56,
+    "preferences": {
+      "colour": [
+        "Floral Coral"
+      ],
+      "size": {
+        "top": "S",
+        "bottom": "S"
+      },
+      "occasion": [
+        "Brunch"
+      ],
+      "style_notes": "Mostly buys dress for brunch occasions; favours viscose fabrics, usually wrap fit",
+      "budget_inr": 2000
+    },
+    "learned_preferences": [],
+    "loyalty": {
+      "tier": "Bronze",
+      "points": 199,
+      "member_since": "2023-01-24",
+      "total_orders": 1
+    }
+  },
+  "CUST-0082": {
+    "customer_id": "CUST-0082",
+    "name": "Swathi Verma",
+    "phone_no": "+91-983960-41059",
+    "email": "swathi.verma82@example.com",
+    "gender": "female",
+    "age": 51,
+    "preferences": {
+      "colour": [
+        "Cream",
+        "Khaki"
+      ],
+      "size": {
+        "top": "S",
+        "bottom": "XXL"
+      },
+      "occasion": [
+        "Winter Casual",
+        "Casual"
+      ],
+      "style_notes": "Mostly buys sweaters and shorts for winter casual and casual occasions; favours acrylic knit and cotton fabrics, usually relaxed fit",
+      "budget_inr": 1500
+    },
+    "learned_preferences": [],
+    "loyalty": {
+      "tier": "Bronze",
+      "points": 279,
+      "member_since": "2024-04-17",
+      "total_orders": 2
+    }
+  },
+  "CUST-0083": {
+    "customer_id": "CUST-0083",
+    "name": "Tanvi Joshi",
+    "phone_no": "+91-992570-84913",
+    "email": "tanvi.joshi83@example.com",
+    "gender": "female",
+    "age": 36,
+    "preferences": {
+      "colour": [
+        "Black",
+        "Lilac",
+        "Rosewood"
+      ],
+      "size": {
+        "top": "S",
+        "bottom": "XS"
+      },
+      "occasion": [
+        "Gym",
+        "Outdoor"
+      ],
+      "style_notes": "Mostly buys jackets and t-shirts for gym and outdoor occasions; favours performance/polyester and cotton fabrics, usually regular fit",
+      "budget_inr": 3000
+    },
+    "learned_preferences": [],
+    "loyalty": {
+      "tier": "Gold",
+      "points": 989,
+      "member_since": "2024-08-22",
+      "total_orders": 5
+    }
+  },
+  "CUST-0084": {
+    "customer_id": "CUST-0084",
+    "name": "Karthik Bose",
+    "phone_no": "+91-999930-16876",
+    "email": "karthik.bose84@example.com",
+    "gender": "male",
+    "age": 26,
+    "preferences": {
+      "colour": [
+        "Steel Grey",
+        "Olive",
+        "Black"
+      ],
+      "size": {
+        "top": "XS",
+        "bottom": "XS"
+      },
+      "occasion": [
+        "Gym",
+        "Casual"
+      ],
+      "style_notes": "Mostly buys tank tops and jackets for gym and casual occasions; favours performance/polyester and satin fabrics, usually athletic fit",
+      "budget_inr": 3000
+    },
+    "learned_preferences": [],
+    "loyalty": {
+      "tier": "Gold",
+      "points": 1119,
+      "member_since": "2023-01-10",
+      "total_orders": 3
+    }
+  },
+  "CUST-0085": {
+    "customer_id": "CUST-0085",
+    "name": "Keerthana Naidu",
+    "phone_no": "+91-971150-18634",
+    "email": "keerthana.naidu85@example.com",
+    "gender": "female",
+    "age": 29,
+    "preferences": {
+      "colour": [
+        "Black",
+        "Rust"
+      ],
+      "size": {
+        "top": "XS",
+        "bottom": "XL"
+      },
+      "occasion": [
+        "Casual",
+        "Winter Casual"
+      ],
+      "style_notes": "Mostly buys jeans and sweaters for casual and winter casual occasions; favours denim and acrylic knit fabrics, usually skinny fit",
+      "budget_inr": 2000
+    },
+    "learned_preferences": [],
+    "loyalty": {
+      "tier": "Gold",
+      "points": 749,
+      "member_since": "2023-10-18",
+      "total_orders": 2
+    }
+  },
+  "CUST-0087": {
+    "customer_id": "CUST-0087",
+    "name": "Omkar Kulkarni",
+    "phone_no": "+91-916250-51622",
+    "email": "omkar.kulkarni87@example.com",
+    "gender": "male",
+    "age": 20,
+    "preferences": {
+      "colour": [
+        "Black",
+        "Washed Blue"
+      ],
+      "size": {
+        "top": "XL",
+        "bottom": "M"
+      },
+      "occasion": [
+        "Sports",
+        "Casual"
+      ],
+      "style_notes": "Mostly buys track pants and jeans for sports and casual occasions; favours performance/polyester and denim fabrics, usually regular fit",
+      "budget_inr": 2000
+    },
+    "learned_preferences": [],
+    "loyalty": {
+      "tier": "Silver",
+      "points": 399,
+      "member_since": "2024-11-24",
+      "total_orders": 3
+    }
+  },
+  "CUST-0088": {
+    "customer_id": "CUST-0088",
+    "name": "Tanvi Krishnan",
+    "phone_no": "+91-975140-62831",
+    "email": "tanvi.krishnan88@example.com",
+    "gender": "female",
+    "age": 51,
+    "preferences": {
+      "colour": [
+        "Black",
+        "White",
+        "Grey Melange"
+      ],
+      "size": {
+        "top": "XL",
+        "bottom": "XXL"
+      },
+      "occasion": [
+        "Casual",
+        "Gym"
+      ],
+      "style_notes": "Mostly buys leggings and joggers for casual and gym occasions; favours cotton and performance/polyester fabrics, usually regular fit",
+      "budget_inr": 2500
+    },
+    "learned_preferences": [],
+    "loyalty": {
+      "tier": "Silver",
+      "points": 459,
+      "member_since": "2023-06-21",
+      "total_orders": 3
+    }
+  },
+  "CUST-0089": {
+    "customer_id": "CUST-0089",
+    "name": "Lakshmi Banerjee",
+    "phone_no": "+91-947530-28603",
+    "email": "lakshmi.banerjee89@example.com",
+    "gender": "female",
+    "age": 45,
+    "preferences": {
+      "colour": [
+        "Black",
+        "Electric Blue"
+      ],
+      "size": {
+        "top": "XXL",
+        "bottom": "XXL"
+      },
+      "occasion": [
+        "Winter",
+        "Gym"
+      ],
+      "style_notes": "Mostly buys jackets and tank tops for winter and gym occasions; favours performance/polyester fabrics, usually longline fit",
+      "budget_inr": 3000
+    },
+    "learned_preferences": [],
+    "loyalty": {
+      "tier": "Silver",
+      "points": 459,
+      "member_since": "2024-02-27",
+      "total_orders": 2
+    }
+  },
+  "CUST-0090": {
+    "customer_id": "CUST-0090",
+    "name": "Nandini Reddy",
+    "phone_no": "+91-958510-56673",
+    "email": "nandini.reddy90@example.com",
+    "gender": "female",
+    "age": 37,
+    "preferences": {
+      "colour": [
+        "Black"
+      ],
+      "size": {
+        "top": "XXL",
+        "bottom": "XXL"
+      },
+      "occasion": [
+        "Gym"
+      ],
+      "style_notes": "Mostly buys leggings for gym occasions; favours performance/polyester fabrics, usually compression fit",
+      "budget_inr": 1500
+    },
+    "learned_preferences": [],
+    "loyalty": {
+      "tier": "Bronze",
+      "points": 149,
+      "member_since": "2024-03-05",
+      "total_orders": 1
+    }
+  },
+  "CUST-0091": {
+    "customer_id": "CUST-0091",
+    "name": "Ananya Pillai",
+    "phone_no": "+91-968950-76117",
+    "email": "ananya.pillai91@example.com",
+    "gender": "female",
+    "age": 18,
+    "preferences": {
+      "colour": [
+        "Cocoa",
+        "Mid-Blue"
+      ],
+      "size": {
+        "top": "XXL",
+        "bottom": "XXL"
+      },
+      "occasion": [
+        "Gym",
+        "Casual"
+      ],
+      "style_notes": "Mostly buys shorts and jeans for gym and casual occasions; favours performance/polyester and denim fabrics, usually compression fit",
+      "budget_inr": 2500
+    },
+    "learned_preferences": [],
+    "loyalty": {
+      "tier": "Bronze",
+      "points": 299,
+      "member_since": "2024-03-16",
+      "total_orders": 2
+    }
+  },
+  "CUST-0092": {
+    "customer_id": "CUST-0092",
+    "name": "Abhishek Prasad",
+    "phone_no": "+91-988480-63164",
+    "email": "abhishek.prasad92@example.com",
+    "gender": "male",
+    "age": 22,
+    "preferences": {
+      "colour": [
+        "Stone",
+        "Electric Blue"
+      ],
+      "size": {
+        "top": "L",
+        "bottom": "XL"
+      },
+      "occasion": [
+        "Smart Casual",
+        "Gym"
+      ],
+      "style_notes": "Mostly buys trousers and tank tops for smart casual and gym occasions; favours viscose and performance/polyester fabrics, usually relaxed tapered fit",
+      "budget_inr": 2000
+    },
+    "learned_preferences": [],
+    "loyalty": {
+      "tier": "Bronze",
+      "points": 339,
+      "member_since": "2024-08-02",
+      "total_orders": 2
+    }
+  },
+  "CUST-0093": {
+    "customer_id": "CUST-0093",
+    "name": "Keerthana Pillai",
+    "phone_no": "+91-979130-68140",
+    "email": "keerthana.pillai93@example.com",
+    "gender": "female",
+    "age": 22,
+    "preferences": {
+      "colour": [
+        "Black",
+        "Olive",
+        "Mustard"
+      ],
+      "size": {
+        "top": "L",
+        "bottom": "XS"
+      },
+      "occasion": [
+        "Winter",
+        "Yoga"
+      ],
+      "style_notes": "Mostly buys jackets and yoga pants for winter and yoga occasions; favours performance/polyester and cotton fabrics, usually longline fit",
+      "budget_inr": 3000
+    },
+    "learned_preferences": [],
+    "loyalty": {
+      "tier": "Platinum",
+      "points": 1949,
+      "member_since": "2024-12-01",
+      "total_orders": 4
+    }
+  },
+  "CUST-0094": {
+    "customer_id": "CUST-0094",
+    "name": "Sameer Kulkarni",
+    "phone_no": "+91-920020-64416",
+    "email": "sameer.kulkarni94@example.com",
+    "gender": "male",
+    "age": 18,
+    "preferences": {
+      "colour": [
+        "Mauve",
+        "White",
+        "Brown"
+      ],
+      "size": {
+        "top": "XS",
+        "bottom": "XL"
+      },
+      "occasion": [
+        "Casual",
+        "Winter"
+      ],
+      "style_notes": "Mostly buys trousers and jackets for casual and winter occasions; favours cotton and performance/polyester fabrics, usually straight fit",
+      "budget_inr": 3000
+    },
+    "learned_preferences": [],
+    "loyalty": {
+      "tier": "Gold",
+      "points": 1159,
+      "member_since": "2025-07-08",
+      "total_orders": 4
+    }
+  },
+  "CUST-0095": {
+    "customer_id": "CUST-0095",
+    "name": "Omkar Krishnan",
+    "phone_no": "+91-991260-91700",
+    "email": "omkar.krishnan95@example.com",
+    "gender": "male",
+    "age": 22,
+    "preferences": {
+      "colour": [
+        "White"
+      ],
+      "size": {
+        "top": "XXL",
+        "bottom": "XXL"
+      },
+      "occasion": [
+        "Festive"
+      ],
+      "style_notes": "Mostly buys kurtas for festive occasions; favours cotton fabrics, usually straight fit",
+      "budget_inr": 1500
+    },
+    "learned_preferences": [],
+    "loyalty": {
+      "tier": "Bronze",
+      "points": 149,
+      "member_since": "2025-06-10",
+      "total_orders": 1
+    }
+  },
+  "CUST-0096": {
+    "customer_id": "CUST-0096",
+    "name": "Naveen Rao",
+    "phone_no": "+91-961380-85296",
+    "email": "naveen.rao96@example.com",
+    "gender": "male",
+    "age": 30,
+    "preferences": {
+      "colour": [
+        "Maroon",
+        "Coral"
+      ],
+      "size": {
+        "top": "M",
+        "bottom": "L"
+      },
+      "occasion": [
+        "Casual"
+      ],
+      "style_notes": "Mostly buys hoodies and shorts for casual occasions; favours fleece and cotton fabrics, usually regular fit",
+      "budget_inr": 2000
+    },
+    "learned_preferences": [],
+    "loyalty": {
+      "tier": "Bronze",
+      "points": 299,
+      "member_since": "2025-04-07",
+      "total_orders": 1
+    }
+  },
+  "CUST-0097": {
+    "customer_id": "CUST-0097",
+    "name": "Deepika Kapoor",
+    "phone_no": "+91-973550-42938",
+    "email": "deepika.kapoor97@example.com",
+    "gender": "female",
+    "age": 22,
+    "preferences": {
+      "colour": [
+        "Washed Black",
+        "Glossy Black"
+      ],
+      "size": {
+        "top": "L",
+        "bottom": "L"
+      },
+      "occasion": [
+        "Casual",
+        "Everyday"
+      ],
+      "style_notes": "Mostly buys jackets and sunglasses for casual and everyday occasions; favours denim fabrics, usually regular fit",
+      "budget_inr": 3000
+    },
+    "learned_preferences": [],
+    "loyalty": {
+      "tier": "Silver",
+      "points": 399,
+      "member_since": "2024-10-08",
+      "total_orders": 1
+    }
+  },
+  "CUST-0099": {
+    "customer_id": "CUST-0099",
+    "name": "Malini Dutta",
+    "phone_no": "+91-962340-18916",
+    "email": "malini.dutta99@example.com",
+    "gender": "female",
+    "age": 45,
+    "preferences": {
+      "colour": [
+        "Dusty Rose"
+      ],
+      "size": {
+        "top": "XL",
+        "bottom": "XL"
+      },
+      "occasion": [
+        "Smart Casual"
+      ],
+      "style_notes": "Mostly buys blouses for smart casual occasions; favours poly crepe fabrics, usually regular fit",
+      "budget_inr": 1500
+    },
+    "learned_preferences": [],
+    "loyalty": {
+      "tier": "Bronze",
+      "points": 129,
+      "member_since": "2024-06-12",
+      "total_orders": 1
+    }
+  },
+  "CUST-0101": {
+    "customer_id": "CUST-0101",
+    "name": "Neha Dutta",
+    "phone_no": "+91-933810-75437",
+    "email": "neha.dutta01@example.com",
+    "gender": "female",
+    "age": 30,
+    "preferences": {
+      "colour": [
+        "Taupe"
+      ],
+      "size": {
+        "top": "XL",
+        "bottom": "XL"
+      },
+      "occasion": [
+        "Smart Casual"
+      ],
+      "style_notes": "Mostly buys trousers for smart casual occasions; favours viscose fabrics, usually tapered fit",
+      "budget_inr": 1500
+    },
+    "learned_preferences": [],
+    "loyalty": {
+      "tier": "Bronze",
+      "points": 149,
+      "member_since": "2023-07-14",
+      "total_orders": 1
+    }
+  },
+  "CUST-0102": {
+    "customer_id": "CUST-0102",
+    "name": "Suresh Reddy",
+    "phone_no": "+91-998260-27064",
+    "email": "suresh.reddy02@example.com",
+    "gender": "male",
+    "age": 52,
+    "preferences": {
+      "colour": [
+        "Beige",
+        "Washed Blue",
+        "Light Blue"
+      ],
+      "size": {
+        "top": "XXL",
+        "bottom": "XL"
+      },
+      "occasion": [
+        "Casual",
+        "Winter Casual"
+      ],
+      "style_notes": "Mostly buys sweaters and jeans for casual and winter casual occasions; favours denim and wool fabrics, usually regular fit",
+      "budget_inr": 2000
+    },
+    "learned_preferences": [],
+    "loyalty": {
+      "tier": "Gold",
+      "points": 849,
+      "member_since": "2023-08-14",
+      "total_orders": 2
+    }
+  },
+  "CUST-0103": {
+    "customer_id": "CUST-0103",
+    "name": "Kiran Rao",
+    "phone_no": "+91-954370-28860",
+    "email": "kiran.rao03@example.com",
+    "gender": "male",
+    "age": 31,
+    "preferences": {
+      "colour": [
+        "Brown"
+      ],
+      "size": {
+        "top": "L",
+        "bottom": "L"
+      },
+      "occasion": [
+        "Casual"
+      ],
+      "style_notes": "Mostly buys trousers for casual occasions; favours cotton fabrics, usually straight fit",
+      "budget_inr": 2000
+    },
+    "learned_preferences": [],
+    "loyalty": {
+      "tier": "Bronze",
+      "points": 179,
+      "member_since": "2025-10-28",
+      "total_orders": 1
+    }
+  },
+  "CUST-0104": {
+    "customer_id": "CUST-0104",
+    "name": "Bhavana Oberoi",
+    "phone_no": "+91-978840-80341",
+    "email": "bhavana.oberoi04@example.com",
+    "gender": "female",
+    "age": 21,
+    "preferences": {
+      "colour": [
+        "Ecru"
+      ],
+      "size": {
+        "top": "L",
+        "bottom": "L"
+      },
+      "occasion": [
+        "Casual"
+      ],
+      "style_notes": "Mostly buys jeans for casual occasions; favours denim fabrics, usually wide-leg fit",
+      "budget_inr": 2500
+    },
+    "learned_preferences": [],
+    "loyalty": {
+      "tier": "Bronze",
+      "points": 229,
+      "member_since": "2025-12-21",
+      "total_orders": 1
+    }
+  },
+  "CUST-0105": {
+    "customer_id": "CUST-0105",
+    "name": "Sneha Patel",
+    "phone_no": "+91-985530-15941",
+    "email": "sneha.patel05@example.com",
+    "gender": "female",
+    "age": 27,
+    "preferences": {
+      "colour": [
+        "Deep Plum",
+        "Blush Pink"
+      ],
+      "size": {
+        "top": "S",
+        "bottom": "XS"
+      },
+      "occasion": [
+        "Yoga",
+        "Smart Casual"
+      ],
+      "style_notes": "Mostly buys yoga pants and skirts for yoga and smart casual occasions; favours performance/polyester and silk fabrics, usually flared fit",
+      "budget_inr": 2500
+    },
+    "learned_preferences": [],
+    "loyalty": {
+      "tier": "Silver",
+      "points": 529,
+      "member_since": "2024-05-15",
+      "total_orders": 2
+    }
+  },
+  "CUST-0106": {
+    "customer_id": "CUST-0106",
+    "name": "Vikram Bhat",
+    "phone_no": "+91-935090-36402",
+    "email": "vikram.bhat06@example.com",
+    "gender": "male",
+    "age": 35,
+    "preferences": {
+      "colour": [
+        "White",
+        "Gold-Green",
+        "Black"
+      ],
+      "size": {
+        "top": "XS",
+        "bottom": "XXL"
+      },
+      "occasion": [
+        "Everyday",
+        "Casual"
+      ],
+      "style_notes": "Mostly buys socks and sunglasses for everyday and casual occasions; favours cotton fabrics, usually regular fit",
+      "budget_inr": 1000
+    },
+    "learned_preferences": [],
+    "loyalty": {
+      "tier": "Bronze",
+      "points": 329,
+      "member_since": "2025-10-09",
+      "total_orders": 2
+    }
+  },
+  "CUST-0107": {
+    "customer_id": "CUST-0107",
+    "name": "Mohit Yadav",
+    "phone_no": "+91-960930-70389",
+    "email": "mohit.yadav07@example.com",
+    "gender": "male",
+    "age": 31,
+    "preferences": {
+      "colour": [
+        "Grey Melange"
+      ],
+      "size": {
+        "top": "XL",
+        "bottom": "XL"
+      },
+      "occasion": [
+        "Smart Casual"
+      ],
+      "style_notes": "Mostly buys polo t-shirts for smart casual occasions; favours cotton fabrics, usually classic fit",
+      "budget_inr": 1500
+    },
+    "learned_preferences": [],
+    "loyalty": {
+      "tier": "Bronze",
+      "points": 119,
+      "member_since": "2025-02-23",
+      "total_orders": 1
+    }
+  },
+  "CUST-0108": {
+    "customer_id": "CUST-0108",
+    "name": "Hemanth Malhotra",
+    "phone_no": "+91-968140-57374",
+    "email": "hemanth.malhotra08@example.com",
+    "gender": "male",
+    "age": 35,
+    "preferences": {
+      "colour": [
+        "Red-Black Check",
+        "Black"
+      ],
+      "size": {
+        "top": "XL",
+        "bottom": "S"
+      },
+      "occasion": [
+        "Casual",
+        "Yoga"
+      ],
+      "style_notes": "Mostly buys shirts and yoga pants for casual and yoga occasions; favours cotton and performance/polyester fabrics, usually regular fit",
+      "budget_inr": 3000
+    },
+    "learned_preferences": [],
+    "loyalty": {
+      "tier": "Silver",
+      "points": 599,
+      "member_since": "2025-12-06",
+      "total_orders": 1
+    }
+  },
+  "CUST-0109": {
+    "customer_id": "CUST-0109",
+    "name": "Harish Yadav",
+    "phone_no": "+91-983050-83141",
+    "email": "harish.yadav09@example.com",
+    "gender": "male",
+    "age": 27,
+    "preferences": {
+      "colour": [
+        "Khaki",
+        "Black",
+        "Beige"
+      ],
+      "size": {
+        "top": "XXL",
+        "bottom": "XL"
+      },
+      "occasion": [
+        "Casual",
+        "Winter Casual"
+      ],
+      "style_notes": "Mostly buys shorts and sweaters for casual and winter casual occasions; favours cotton and wool fabrics, usually regular fit",
+      "budget_inr": 3000
+    },
+    "learned_preferences": [],
+    "loyalty": {
+      "tier": "Platinum",
+      "points": 1209,
+      "member_since": "2025-07-16",
+      "total_orders": 3
+    }
+  },
+  "CUST-0110": {
+    "customer_id": "CUST-0110",
+    "name": "Sanjay Kapoor",
+    "phone_no": "+91-957620-53726",
+    "email": "sanjay.kapoor10@example.com",
+    "gender": "male",
+    "age": 24,
+    "preferences": {
+      "colour": [
+        "Black",
+        "Coral"
+      ],
+      "size": {
+        "top": "XXL",
+        "bottom": "L"
+      },
+      "occasion": [
+        "Winter",
+        "Casual"
+      ],
+      "style_notes": "Mostly buys shorts and jackets for winter and casual occasions; favours cotton and performance/polyester fabrics, usually longline fit",
+      "budget_inr": 3000
+    },
+    "learned_preferences": [],
+    "loyalty": {
+      "tier": "Silver",
+      "points": 459,
+      "member_since": "2024-09-06",
+      "total_orders": 2
+    }
+  },
+  "CUST-0111": {
+    "customer_id": "CUST-0111",
+    "name": "Ganesh Venkatesh",
+    "phone_no": "+91-953300-95672",
+    "email": "ganesh.venkatesh11@example.com",
+    "gender": "male",
+    "age": 22,
+    "preferences": {
+      "colour": [
+        "Black",
+        "Charcoal",
+        "Ivory"
+      ],
+      "size": {
+        "top": "S",
+        "bottom": "XS"
+      },
+      "occasion": [
+        "Smart Casual",
+        "Formal"
+      ],
+      "style_notes": "Mostly buys blazers and trousers for smart casual and formal occasions; favours viscose and poly crepe fabrics, usually tailored fit",
+      "budget_inr": 4000
+    },
+    "learned_preferences": [],
+    "loyalty": {
+      "tier": "Gold",
+      "points": 789,
+      "member_since": "2024-10-02",
+      "total_orders": 3
+    }
+  },
+  "CUST-0112": {
+    "customer_id": "CUST-0112",
+    "name": "Keerthana Jain",
+    "phone_no": "+91-946680-76355",
+    "email": "keerthana.jain12@example.com",
+    "gender": "female",
+    "age": 59,
+    "preferences": {
+      "colour": [
+        "White",
+        "Green-Navy Check"
+      ],
+      "size": {
+        "top": "XS",
+        "bottom": "XS"
+      },
+      "occasion": [
+        "Casual",
+        "Everyday"
+      ],
+      "style_notes": "Mostly buys socks and shirts for casual and everyday occasions; favours cotton and performance/polyester fabrics, usually regular fit",
+      "budget_inr": 1500
+    },
+    "learned_preferences": [],
+    "loyalty": {
+      "tier": "Bronze",
+      "points": 329,
+      "member_since": "2025-06-14",
+      "total_orders": 2
+    }
+  },
+  "CUST-0113": {
+    "customer_id": "CUST-0113",
+    "name": "Tarun Rao",
+    "phone_no": "+91-935260-74676",
+    "email": "tarun.rao13@example.com",
+    "gender": "male",
+    "age": 40,
+    "preferences": {
+      "colour": [
+        "White",
+        "Champagne"
+      ],
+      "size": {
+        "top": "XL",
+        "bottom": "XL"
+      },
+      "occasion": [
+        "Resort",
+        "Evening"
+      ],
+      "style_notes": "Mostly buys shirts and camisoles for resort and evening occasions; favours linen and satin fabrics, usually relaxed fit",
+      "budget_inr": 2500
+    },
+    "learned_preferences": [],
+    "loyalty": {
+      "tier": "Silver",
+      "points": 489,
+      "member_since": "2025-01-21",
+      "total_orders": 2
+    }
+  },
+  "CUST-0115": {
+    "customer_id": "CUST-0115",
+    "name": "Abhishek Mishra",
+    "phone_no": "+91-919800-56598",
+    "email": "abhishek.mishra15@example.com",
+    "gender": "male",
+    "age": 22,
+    "preferences": {
+      "colour": [
+        "Stone Grey",
+        "Olive"
+      ],
+      "size": {
+        "top": "XXL",
+        "bottom": "XL"
+      },
+      "occasion": [
+        "Casual"
+      ],
+      "style_notes": "Mostly buys shorts and jackets for casual occasions; favours cotton and performance/polyester fabrics, usually regular fit",
+      "budget_inr": 2500
+    },
+    "learned_preferences": [],
+    "loyalty": {
+      "tier": "Silver",
+      "points": 379,
+      "member_since": "2024-12-07",
+      "total_orders": 1
+    }
+  },
+  "CUST-0116": {
+    "customer_id": "CUST-0116",
+    "name": "Pooja Hegde",
+    "phone_no": "+91-964760-34075",
+    "email": "pooja.hegde16@example.com",
+    "gender": "female",
+    "age": 22,
+    "preferences": {
+      "colour": [
+        "Navy",
+        "Plum"
+      ],
+      "size": {
+        "top": "M",
+        "bottom": "L"
+      },
+      "occasion": [
+        "Lounge",
+        "Yoga"
+      ],
+      "style_notes": "Mostly buys shorts and socks for lounge and yoga occasions; favours cotton and fleece fabrics, usually relaxed fit",
+      "budget_inr": 1500
+    },
+    "learned_preferences": [],
+    "loyalty": {
+      "tier": "Silver",
+      "points": 569,
+      "member_since": "2024-06-08",
+      "total_orders": 1
+    }
+  },
+  "CUST-0117": {
+    "customer_id": "CUST-0117",
+    "name": "Meera Trivedi",
+    "phone_no": "+91-933310-63283",
+    "email": "meera.trivedi17@example.com",
+    "gender": "female",
+    "age": 26,
+    "preferences": {
+      "colour": [
+        "Beige"
+      ],
+      "size": {
+        "top": "S",
+        "bottom": "S"
+      },
+      "occasion": [
+        "Everyday"
+      ],
+      "style_notes": "Mostly buys socks for everyday occasions",
+      "budget_inr": 500
+    },
+    "learned_preferences": [],
+    "loyalty": {
+      "tier": "Bronze",
+      "points": 49,
+      "member_since": "2023-11-27",
+      "total_orders": 1
+    }
+  },
+  "CUST-0118": {
+    "customer_id": "CUST-0118",
+    "name": "Bhumika Saxena",
+    "phone_no": "+91-927590-21544",
+    "email": "bhumika.saxena18@example.com",
+    "gender": "female",
+    "age": 23,
+    "preferences": {
+      "colour": [
+        "Grey",
+        "Lilac",
+        "Brown"
+      ],
+      "size": {
+        "top": "XS",
+        "bottom": "XXL"
+      },
+      "occasion": [
+        "Casual",
+        "Smart Casual"
+      ],
+      "style_notes": "Mostly buys hoodies and trousers for casual and smart casual occasions; favours fleece and cotton fabrics, usually cropped fit",
+      "budget_inr": 2000
+    },
+    "learned_preferences": [],
+    "loyalty": {
+      "tier": "Gold",
+      "points": 739,
+      "member_since": "2023-07-25",
+      "total_orders": 2
+    }
+  },
+  "CUST-0119": {
+    "customer_id": "CUST-0119",
+    "name": "Varun Dutta",
+    "phone_no": "+91-986310-29633",
+    "email": "varun.dutta19@example.com",
+    "gender": "male",
+    "age": 27,
+    "preferences": {
+      "colour": [
+        "Lilac",
+        "Black",
+        "Maroon"
+      ],
+      "size": {
+        "top": "S",
+        "bottom": "XL"
+      },
+      "occasion": [
+        "Casual"
+      ],
+      "style_notes": "Mostly buys hoodies and cargo pants for casual occasions; favours fleece and cotton fabrics, usually regular fit",
+      "budget_inr": 3000
+    },
+    "learned_preferences": [],
+    "loyalty": {
+      "tier": "Gold",
+      "points": 949,
+      "member_since": "2025-05-11",
+      "total_orders": 2
+    }
+  },
+  "CUST-0120": {
+    "customer_id": "CUST-0120",
+    "name": "Pooja Rao",
+    "phone_no": "+91-967950-92875",
+    "email": "pooja.rao20@example.com",
+    "gender": "female",
+    "age": 45,
+    "preferences": {
+      "colour": [
+        "Nude",
+        "Rust"
+      ],
+      "size": {
+        "top": "M",
+        "bottom": "M"
+      },
+      "occasion": [
+        "Everyday",
+        "Casual"
+      ],
+      "style_notes": "Mostly buys socks and caps for everyday and casual occasions",
+      "budget_inr": 1000
+    },
+    "learned_preferences": [],
+    "loyalty": {
+      "tier": "Bronze",
+      "points": 199,
+      "member_since": "2025-06-28",
+      "total_orders": 1
+    }
+  },
+  "CUST-0121": {
+    "customer_id": "CUST-0121",
+    "name": "Bhavana Banerjee",
+    "phone_no": "+91-949480-20118",
+    "email": "bhavana.banerjee21@example.com",
+    "gender": "female",
+    "age": 35,
+    "preferences": {
+      "colour": [
+        "Black"
+      ],
+      "size": {
+        "top": "M",
+        "bottom": "M"
+      },
+      "occasion": [
+        "Casual"
+      ],
+      "style_notes": "Mostly buys palazzos for casual occasions; favours crepe fabrics, usually wide-leg fit",
+      "budget_inr": 1500
+    },
+    "learned_preferences": [],
+    "loyalty": {
+      "tier": "Bronze",
+      "points": 149,
+      "member_since": "2024-10-11",
+      "total_orders": 1
+    }
+  },
+  "CUST-0122": {
+    "customer_id": "CUST-0122",
+    "name": "Malini Pillai",
+    "phone_no": "+91-916220-69450",
+    "email": "malini.pillai22@example.com",
+    "gender": "female",
+    "age": 29,
+    "preferences": {
+      "colour": [
+        "Blush Pink",
+        "Black"
+      ],
+      "size": {
+        "top": "XL",
+        "bottom": "M"
+      },
+      "occasion": [
+        "Casual",
+        "Smart Casual"
+      ],
+      "style_notes": "Mostly buys skirts and jackets for casual and smart casual occasions; favours denim and performance/polyester fabrics, usually a-line fit",
+      "budget_inr": 2500
+    },
+    "learned_preferences": [],
+    "loyalty": {
+      "tier": "Silver",
+      "points": 529,
+      "member_since": "2023-10-16",
+      "total_orders": 2
+    }
+  },
+  "CUST-0123": {
+    "customer_id": "CUST-0123",
+    "name": "Yamini Trivedi",
+    "phone_no": "+91-983840-93456",
+    "email": "yamini.trivedi23@example.com",
+    "gender": "female",
+    "age": 49,
+    "preferences": {
+      "colour": [
+        "Ivory",
+        "Plum",
+        "Stone Grey"
+      ],
+      "size": {
+        "top": "L",
+        "bottom": "L"
+      },
+      "occasion": [
+        "Smart Casual",
+        "Gym"
+      ],
+      "style_notes": "Mostly buys blouses and leggings for smart casual and gym occasions; favours poly crepe and performance/polyester fabrics, usually regular fit",
+      "budget_inr": 2000
+    },
+    "learned_preferences": [],
+    "loyalty": {
+      "tier": "Silver",
+      "points": 409,
+      "member_since": "2025-11-05",
+      "total_orders": 4
+    }
+  },
+  "CUST-0124": {
+    "customer_id": "CUST-0124",
+    "name": "Aditi Venkatesh",
+    "phone_no": "+91-969610-31707",
+    "email": "aditi.venkatesh24@example.com",
+    "gender": "female",
+    "age": 38,
+    "preferences": {
+      "colour": [
+        "Emerald",
+        "Sand"
+      ],
+      "size": {
+        "top": "M",
+        "bottom": "M"
+      },
+      "occasion": [
+        "Evening",
+        "Resort"
+      ],
+      "style_notes": "Mostly buys dress and shirts for evening and resort occasions; favours satin and linen fabrics, usually bias-cut fit",
+      "budget_inr": 2500
+    },
+    "learned_preferences": [],
+    "loyalty": {
+      "tier": "Silver",
+      "points": 429,
+      "member_since": "2024-05-13",
+      "total_orders": 1
+    }
+  },
+  "CUST-0125": {
+    "customer_id": "CUST-0125",
+    "name": "Ganesh Jain",
+    "phone_no": "+91-960700-85143",
+    "email": "ganesh.jain25@example.com",
+    "gender": "male",
+    "age": 40,
+    "preferences": {
+      "colour": [
+        "Forest Green",
+        "White",
+        "Navy"
+      ],
+      "size": {
+        "top": "XS",
+        "bottom": "XL"
+      },
+      "occasion": [
+        "Casual",
+        "Resort"
+      ],
+      "style_notes": "Mostly buys hoodies and shirts for casual and resort occasions; favours fleece and linen fabrics, usually regular fit",
+      "budget_inr": 2000
+    },
+    "learned_preferences": [],
+    "loyalty": {
+      "tier": "Gold",
+      "points": 909,
+      "member_since": "2025-05-12",
+      "total_orders": 3
+    }
+  },
+  "CUST-0126": {
+    "customer_id": "CUST-0126",
+    "name": "Bharath Banerjee",
+    "phone_no": "+91-933200-75304",
+    "email": "bharath.banerjee26@example.com",
+    "gender": "male",
+    "age": 24,
+    "preferences": {
+      "colour": [
+        "Navy",
+        "Cobalt",
+        "Gold-Green"
+      ],
+      "size": {
+        "top": "XS",
+        "bottom": "M"
+      },
+      "occasion": [
+        "Formal",
+        "Running"
+      ],
+      "style_notes": "Mostly buys blazers and shorts for formal and running occasions; favours viscose and performance/polyester fabrics, usually tailored fit",
+      "budget_inr": 4000
+    },
+    "learned_preferences": [],
+    "loyalty": {
+      "tier": "Gold",
+      "points": 879,
+      "member_since": "2024-08-28",
+      "total_orders": 2
+    }
+  },
+  "CUST-0127": {
+    "customer_id": "CUST-0127",
+    "name": "Malini Agarwal",
+    "phone_no": "+91-929850-12977",
+    "email": "malini.agarwal27@example.com",
+    "gender": "female",
+    "age": 55,
+    "preferences": {
+      "colour": [
+        "Stone Grey",
+        "Mocha"
+      ],
+      "size": {
+        "top": "XL",
+        "bottom": "M"
+      },
+      "occasion": [
+        "Casual"
+      ],
+      "style_notes": "Mostly buys shorts and bodysuits for casual occasions; favours cotton and performance/polyester fabrics, usually regular fit",
+      "budget_inr": 1500
+    },
+    "learned_preferences": [],
+    "loyalty": {
+      "tier": "Bronze",
+      "points": 129,
+      "member_since": "2024-10-06",
+      "total_orders": 2
+    }
+  },
+  "CUST-0128": {
+    "customer_id": "CUST-0128",
+    "name": "Harish Jain",
+    "phone_no": "+91-961760-19740",
+    "email": "harish.jain28@example.com",
+    "gender": "male",
+    "age": 24,
+    "preferences": {
+      "colour": [
+        "Black",
+        "Camel"
+      ],
+      "size": {
+        "top": "XXL",
+        "bottom": "XS"
+      },
+      "occasion": [
+        "Sports",
+        "Casual"
+      ],
+      "style_notes": "Mostly buys track pants and t-shirts for sports and casual occasions; favours cotton and performance/polyester fabrics, usually regular fit",
+      "budget_inr": 2000
+    },
+    "learned_preferences": [],
+    "loyalty": {
+      "tier": "Bronze",
+      "points": 329,
+      "member_since": "2025-03-18",
+      "total_orders": 1
+    }
+  },
+  "CUST-0129": {
+    "customer_id": "CUST-0129",
+    "name": "Tarun Bose",
+    "phone_no": "+91-937500-14129",
+    "email": "tarun.bose29@example.com",
+    "gender": "male",
+    "age": 27,
+    "preferences": {
+      "colour": [
+        "Blush Pink",
+        "Navy"
+      ],
+      "size": {
+        "top": "XS",
+        "bottom": "XS"
+      },
+      "occasion": [
+        "Smart Casual",
+        "Winter Casual"
+      ],
+      "style_notes": "Mostly buys skirts and sweaters for smart casual and winter casual occasions; favours performance/polyester and wool fabrics, usually regular fit",
+      "budget_inr": 1500
+    },
+    "learned_preferences": [],
+    "loyalty": {
+      "tier": "Silver",
+      "points": 429,
+      "member_since": "2024-04-28",
+      "total_orders": 1
+    }
+  },
+  "CUST-0130": {
+    "customer_id": "CUST-0130",
+    "name": "Vishal Sinha",
+    "phone_no": "+91-967070-47569",
+    "email": "vishal.sinha30@example.com",
+    "gender": "male",
+    "age": 30,
+    "preferences": {
+      "colour": [
+        "Jet Black"
+      ],
+      "size": {
+        "top": "L",
+        "bottom": "L"
+      },
+      "occasion": [
+        "Casual"
+      ],
+      "style_notes": "Mostly buys jeans for casual occasions; favours denim fabrics, usually slim fit",
+      "budget_inr": 2000
+    },
+    "learned_preferences": [],
+    "loyalty": {
+      "tier": "Silver",
+      "points": 399,
+      "member_since": "2025-02-25",
+      "total_orders": 1
+    }
+  },
+  "CUST-0131": {
+    "customer_id": "CUST-0131",
+    "name": "Ananya Desai",
+    "phone_no": "+91-943700-80614",
+    "email": "ananya.desai31@example.com",
+    "gender": "female",
+    "age": 22,
+    "preferences": {
+      "colour": [
+        "Light Blue",
+        "Taupe",
+        "Black"
+      ],
+      "size": {
+        "top": "L",
+        "bottom": "XL"
+      },
+      "occasion": [
+        "Casual",
+        "Smart Casual"
+      ],
+      "style_notes": "Mostly buys shorts and trousers for casual and smart casual occasions; favours denim and cotton fabrics, usually regular fit",
+      "budget_inr": 1500
+    },
+    "learned_preferences": [],
+    "loyalty": {
+      "tier": "Gold",
+      "points": 979,
+      "member_since": "2024-06-26",
+      "total_orders": 4
+    }
+  },
+  "CUST-0132": {
+    "customer_id": "CUST-0132",
+    "name": "Pranav Reddy",
+    "phone_no": "+91-975210-78823",
+    "email": "pranav.reddy32@example.com",
+    "gender": "male",
+    "age": 35,
+    "preferences": {
+      "colour": [
+        "Grey Melange",
+        "Olive",
+        "Lilac"
+      ],
+      "size": {
+        "top": "L",
+        "bottom": "M"
+      },
+      "occasion": [
+        "Casual",
+        "Formal"
+      ],
+      "style_notes": "Mostly buys hoodies and cargo pants for casual and formal occasions; favours fleece and cotton fabrics, usually regular fit",
+      "budget_inr": 2500
+    },
+    "learned_preferences": [],
+    "loyalty": {
+      "tier": "Platinum",
+      "points": 1429,
+      "member_since": "2024-07-28",
+      "total_orders": 4
+    }
+  },
+  "CUST-0134": {
+    "customer_id": "CUST-0134",
+    "name": "Shreya Sinha",
+    "phone_no": "+91-964190-94610",
+    "email": "shreya.sinha34@example.com",
+    "gender": "female",
+    "age": 32,
+    "preferences": {
+      "colour": [
+        "Checked Grey",
+        "Blush"
+      ],
+      "size": {
+        "top": "L",
+        "bottom": "L"
+      },
+      "occasion": [
+        "Casual"
+      ],
+      "style_notes": "Mostly buys skirts for casual occasions; favours poly twill fabrics, usually a-line fit",
+      "budget_inr": 1500
+    },
+    "learned_preferences": [],
+    "loyalty": {
+      "tier": "Silver",
+      "points": 359,
+      "member_since": "2023-11-18",
+      "total_orders": 2
+    }
+  },
+  "CUST-0136": {
+    "customer_id": "CUST-0136",
+    "name": "Sadhana Mehta",
+    "phone_no": "+91-955140-31385",
+    "email": "sadhana.mehta36@example.com",
+    "gender": "female",
+    "age": 20,
+    "preferences": {
+      "colour": [
+        "Black",
+        "Grey Melange"
+      ],
+      "size": {
+        "top": "L",
+        "bottom": "L"
+      },
+      "occasion": [
+        "Gym",
+        "Athleisure"
+      ],
+      "style_notes": "Mostly buys shorts and joggers for gym and athleisure occasions; favours performance/polyester and fleece fabrics, usually compression fit",
+      "budget_inr": 1500
+    },
+    "learned_preferences": [],
+    "loyalty": {
+      "tier": "Bronze",
+      "points": 329,
+      "member_since": "2025-08-24",
+      "total_orders": 1
+    }
+  },
+  "CUST-0137": {
+    "customer_id": "CUST-0137",
+    "name": "Naveen Chatterjee",
+    "phone_no": "+91-917990-31149",
+    "email": "naveen.chatterjee37@example.com",
+    "gender": "male",
+    "age": 32,
+    "preferences": {
+      "colour": [
+        "Red-Black Check",
+        "Navy",
+        "Olive"
+      ],
+      "size": {
+        "top": "S",
+        "bottom": "XS"
+      },
+      "occasion": [
+        "Casual",
+        "Yoga"
+      ],
+      "style_notes": "Mostly buys shirts and shorts for casual and yoga occasions; favours cotton and performance/polyester fabrics, usually regular fit",
+      "budget_inr": 2000
+    },
+    "learned_preferences": [],
+    "loyalty": {
+      "tier": "Silver",
+      "points": 599,
+      "member_since": "2025-12-22",
+      "total_orders": 1
+    }
+  },
+  "CUST-0138": {
+    "customer_id": "CUST-0138",
+    "name": "Nandini Iyer",
+    "phone_no": "+91-984540-36807",
+    "email": "nandini.iyer38@example.com",
+    "gender": "female",
+    "age": 21,
+    "preferences": {
+      "colour": [
+        "Black",
+        "Sand"
+      ],
+      "size": {
+        "top": "L",
+        "bottom": "XL"
+      },
+      "occasion": [
+        "Running",
+        "Resort"
+      ],
+      "style_notes": "Mostly buys caps and shirts for running and resort occasions; favours linen and performance/polyester fabrics, usually relaxed fit",
+      "budget_inr": 2000
+    },
+    "learned_preferences": [],
+    "loyalty": {
+      "tier": "Silver",
+      "points": 539,
+      "member_since": "2024-08-08",
+      "total_orders": 2
+    }
+  },
+  "CUST-0139": {
+    "customer_id": "CUST-0139",
+    "name": "Varun Naidu",
+    "phone_no": "+91-955340-19548",
+    "email": "varun.naidu39@example.com",
+    "gender": "male",
+    "age": 20,
+    "preferences": {
+      "colour": [
+        "White",
+        "Brown",
+        "Navy"
+      ],
+      "size": {
+        "top": "S",
+        "bottom": "XXL"
+      },
+      "occasion": [
+        "Lounge",
+        "Casual"
+      ],
+      "style_notes": "Mostly buys pyjamas and trousers for lounge and casual occasions; favours cotton and denim fabrics, usually relaxed fit",
+      "budget_inr": 2500
+    },
+    "learned_preferences": [],
+    "loyalty": {
+      "tier": "Platinum",
+      "points": 1549,
+      "member_since": "2024-09-08",
+      "total_orders": 2
+    }
+  },
+  "CUST-0142": {
+    "customer_id": "CUST-0142",
+    "name": "Varun Bose",
+    "phone_no": "+91-927430-85455",
+    "email": "varun.bose42@example.com",
+    "gender": "male",
+    "age": 19,
+    "preferences": {
+      "colour": [
+        "Black"
+      ],
+      "size": {
+        "top": "XS",
+        "bottom": "XS"
+      },
+      "occasion": [
+        "Casual",
+        "Formal"
+      ],
+      "style_notes": "Mostly buys cargo pants and blazers for casual and formal occasions; favours cotton and viscose fabrics, usually relaxed tapered fit",
+      "budget_inr": 4000
+    },
+    "learned_preferences": [],
+    "loyalty": {
+      "tier": "Silver",
+      "points": 599,
+      "member_since": "2024-03-07",
+      "total_orders": 2
+    }
+  },
+  "CUST-0144": {
+    "customer_id": "CUST-0144",
+    "name": "Rahul Mehta",
+    "phone_no": "+91-953590-91986",
+    "email": "rahul.mehta44@example.com",
+    "gender": "male",
+    "age": 26,
+    "preferences": {
+      "colour": [
+        "Sage",
+        "Taupe",
+        "Assorted Prints"
+      ],
+      "size": {
+        "top": "XXL",
+        "bottom": "XS"
+      },
+      "occasion": [
+        "Lounge",
+        "Smart Casual"
+      ],
+      "style_notes": "Mostly buys pyjamas and trousers for lounge and smart casual occasions; favours cotton and viscose fabrics, usually relaxed fit",
+      "budget_inr": 2500
+    },
+    "learned_preferences": [],
+    "loyalty": {
+      "tier": "Silver",
+      "points": 649,
+      "member_since": "2023-08-03",
+      "total_orders": 3
+    }
+  },
+  "CUST-0145": {
+    "customer_id": "CUST-0145",
+    "name": "Zoya Menon",
+    "phone_no": "+91-978020-55642",
+    "email": "zoya.menon45@example.com",
+    "gender": "female",
+    "age": 20,
+    "preferences": {
+      "colour": [
+        "Camel",
+        "Powder Blue"
+      ],
+      "size": {
+        "top": "M",
+        "bottom": "M"
+      },
+      "occasion": [
+        "Winter Smart Casual",
+        "Formal"
+      ],
+      "style_notes": "Mostly buys sweaters and shirts for winter smart casual and formal occasions; favours cotton fabrics, usually slim fit",
+      "budget_inr": 2000
+    },
+    "learned_preferences": [],
+    "loyalty": {
+      "tier": "Bronze",
+      "points": 329,
+      "member_since": "2025-02-10",
+      "total_orders": 1
+    }
+  },
+  "CUST-0146": {
+    "customer_id": "CUST-0146",
+    "name": "Kunal Bose",
+    "phone_no": "+91-993750-38561",
+    "email": "kunal.bose46@example.com",
+    "gender": "male",
+    "age": 30,
+    "preferences": {
+      "colour": [
+        "Mocha",
+        "Sage"
+      ],
+      "size": {
+        "top": "M",
+        "bottom": "XXL"
+      },
+      "occasion": [
+        "Casual",
+        "Lounge"
+      ],
+      "style_notes": "Mostly buys bodysuits and pyjamas for casual and lounge occasions; favours cotton and performance/polyester fabrics, usually second-skin fit",
+      "budget_inr": 1000
+    },
+    "learned_preferences": [],
+    "loyalty": {
+      "tier": "Silver",
+      "points": 359,
+      "member_since": "2025-05-06",
+      "total_orders": 1
+    }
+  },
+  "CUST-0147": {
+    "customer_id": "CUST-0147",
+    "name": "Rajesh Krishnan",
+    "phone_no": "+91-984110-24675",
+    "email": "rajesh.krishnan47@example.com",
+    "gender": "male",
+    "age": 60,
+    "preferences": {
+      "colour": [
+        "Electric Blue",
+        "Charcoal",
+        "Blush"
+      ],
+      "size": {
+        "top": "L",
+        "bottom": "L"
+      },
+      "occasion": [
+        "Gym",
+        "Formal"
+      ],
+      "style_notes": "Mostly buys tank tops and formal trousers for gym and formal occasions; favours performance/polyester and viscose fabrics, usually athletic fit",
+      "budget_inr": 2000
+    },
+    "learned_preferences": [],
+    "loyalty": {
+      "tier": "Gold",
+      "points": 799,
+      "member_since": "2024-03-26",
+      "total_orders": 2
+    }
+  },
+  "CUST-0149": {
+    "customer_id": "CUST-0149",
+    "name": "Aishwarya Pillai",
+    "phone_no": "+91-911860-97136",
+    "email": "aishwarya.pillai49@example.com",
+    "gender": "female",
+    "age": 26,
+    "preferences": {
+      "colour": [
+        "Black",
+        "Floral Coral"
+      ],
+      "size": {
+        "top": "XL",
+        "bottom": "XL"
+      },
+      "occasion": [
+        "Casual",
+        "Brunch"
+      ],
+      "style_notes": "Mostly buys palazzos and dress for casual and brunch occasions; favours crepe and viscose fabrics, usually wide-leg fit",
+      "budget_inr": 2000
+    },
+    "learned_preferences": [],
+    "loyalty": {
+      "tier": "Silver",
+      "points": 499,
+      "member_since": "2025-05-18",
+      "total_orders": 1
+    }
+  },
+  "CUST-0150": {
+    "customer_id": "CUST-0150",
+    "name": "Yamini Prasad",
+    "phone_no": "+91-957700-61461",
+    "email": "yamini.prasad50@example.com",
+    "gender": "female",
+    "age": 26,
+    "preferences": {
+      "colour": [
+        "Black",
+        "Black-Blue"
+      ],
+      "size": {
+        "top": "M",
+        "bottom": "M"
+      },
+      "occasion": [
+        "Winter",
+        "Sports"
+      ],
+      "style_notes": "Mostly buys jackets and sunglasses for winter and sports occasions; favours performance/polyester fabrics, usually longline fit",
+      "budget_inr": 3000
+    },
+    "learned_preferences": [],
+    "loyalty": {
+      "tier": "Silver",
+      "points": 429,
+      "member_since": "2024-12-19",
+      "total_orders": 2
+    }
+  },
+  "CUST-0151": {
+    "customer_id": "CUST-0151",
+    "name": "Varun Mehta",
+    "phone_no": "+91-916710-18510",
+    "email": "varun.mehta51@example.com",
+    "gender": "male",
+    "age": 27,
+    "preferences": {
+      "colour": [
+        "Black",
+        "Cobalt",
+        "Ivory"
+      ],
+      "size": {
+        "top": "L",
+        "bottom": "XL"
+      },
+      "occasion": [
+        "Festive",
+        "Casual"
+      ],
+      "style_notes": "Mostly buys skirts and shorts for festive and casual occasions; favours denim and performance/polyester fabrics, usually a-line fit",
+      "budget_inr": 2500
+    },
+    "learned_preferences": [],
+    "loyalty": {
+      "tier": "Silver",
+      "points": 589,
+      "member_since": "2024-07-28",
+      "total_orders": 3
+    }
+  },
+  "CUST-0152": {
+    "customer_id": "CUST-0152",
+    "name": "Trisha Hegde",
+    "phone_no": "+91-999780-95503",
+    "email": "trisha.hegde52@example.com",
+    "gender": "female",
+    "age": 19,
+    "preferences": {
+      "colour": [
+        "Black",
+        "Lilac"
+      ],
+      "size": {
+        "top": "XS",
+        "bottom": "M"
+      },
+      "occasion": [
+        "Gym",
+        "Athleisure"
+      ],
+      "style_notes": "Mostly buys t-shirts and joggers for gym and athleisure occasions; favours performance/polyester and poly crepe fabrics, usually regular fit",
+      "budget_inr": 2500
+    },
+    "learned_preferences": [],
+    "loyalty": {
+      "tier": "Silver",
+      "points": 609,
+      "member_since": "2023-11-24",
+      "total_orders": 2
+    }
+  },
+  "CUST-0154": {
+    "customer_id": "CUST-0154",
+    "name": "Sanjay Chauhan",
+    "phone_no": "+91-975130-92439",
+    "email": "sanjay.chauhan54@example.com",
+    "gender": "male",
+    "age": 24,
+    "preferences": {
+      "colour": [
+        "Black"
+      ],
+      "size": {
+        "top": "M",
+        "bottom": "M"
+      },
+      "occasion": [
+        "Winter Smart Casual"
+      ],
+      "style_notes": "Mostly buys sweaters for winter smart casual occasions; favours cotton fabrics, usually slim fit",
+      "budget_inr": 2000
+    },
+    "learned_preferences": [],
+    "loyalty": {
+      "tier": "Silver",
+      "points": 359,
+      "member_since": "2023-11-27",
+      "total_orders": 1
+    }
+  },
+  "CUST-0155": {
+    "customer_id": "CUST-0155",
+    "name": "Pallavi Pillai",
+    "phone_no": "+91-977660-93712",
+    "email": "pallavi.pillai55@example.com",
+    "gender": "female",
+    "age": 19,
+    "preferences": {
+      "colour": [
+        "Coral",
+        "Gold"
+      ],
+      "size": {
+        "top": "XXL",
+        "bottom": "XXL"
+      },
+      "occasion": [
+        "Casual",
+        "Everyday"
+      ],
+      "style_notes": "Mostly buys shorts and sunglasses for casual and everyday occasions; favours cotton fabrics, usually slim fit",
+      "budget_inr": 1000
+    },
+    "learned_preferences": [],
+    "loyalty": {
+      "tier": "Bronze",
+      "points": 199,
+      "member_since": "2024-02-15",
+      "total_orders": 2
+    }
+  },
+  "CUST-0156": {
+    "customer_id": "CUST-0156",
+    "name": "Rahul Wadhwa",
+    "phone_no": "+91-913540-69050",
+    "email": "rahul.wadhwa56@example.com",
+    "gender": "male",
+    "age": 27,
+    "preferences": {
+      "colour": [
+        "Black",
+        "Deep Plum",
+        "Olive"
+      ],
+      "size": {
+        "top": "XS",
+        "bottom": "L"
+      },
+      "occasion": [
+        "Casual",
+        "Everyday"
+      ],
+      "style_notes": "Mostly buys socks and yoga pants for casual and everyday occasions; favours performance/polyester and cotton fabrics, usually flared fit",
+      "budget_inr": 4000
+    },
+    "learned_preferences": [],
+    "loyalty": {
+      "tier": "Platinum",
+      "points": 2558,
+      "member_since": "2024-12-11",
+      "total_orders": 6
+    }
+  },
+  "CUST-0158": {
+    "customer_id": "CUST-0158",
+    "name": "Charu Dutta",
+    "phone_no": "+91-928310-19609",
+    "email": "charu.dutta58@example.com",
+    "gender": "female",
+    "age": 22,
+    "preferences": {
+      "colour": [
+        "Dark Blue",
+        "Grey",
+        "Grey Melange"
+      ],
+      "size": {
+        "top": "XS",
+        "bottom": "XXL"
+      },
+      "occasion": [
+        "Casual",
+        "Smart Casual"
+      ],
+      "style_notes": "Mostly buys jeans and hoodies for casual and smart casual occasions; favours denim and fleece fabrics, usually bootcut fit",
+      "budget_inr": 2000
+    },
+    "learned_preferences": [],
+    "loyalty": {
+      "tier": "Silver",
+      "points": 629,
+      "member_since": "2024-03-21",
+      "total_orders": 2
+    }
+  },
+  "CUST-0159": {
+    "customer_id": "CUST-0159",
+    "name": "Ishita Gupta",
+    "phone_no": "+91-961550-45486",
+    "email": "ishita.gupta59@example.com",
+    "gender": "female",
+    "age": 38,
+    "preferences": {
+      "colour": [
+        "Emerald"
+      ],
+      "size": {
+        "top": "XXL",
+        "bottom": "XXL"
+      },
+      "occasion": [
+        "Evening"
+      ],
+      "style_notes": "Mostly buys dress for evening occasions; favours satin fabrics, usually bias-cut fit",
+      "budget_inr": 2500
+    },
+    "learned_preferences": [],
+    "loyalty": {
+      "tier": "Bronze",
+      "points": 229,
+      "member_since": "2024-07-22",
+      "total_orders": 1
+    }
+  },
+  "CUST-0160": {
+    "customer_id": "CUST-0160",
+    "name": "Pallavi Sinha",
+    "phone_no": "+91-951690-37761",
+    "email": "pallavi.sinha60@example.com",
+    "gender": "female",
+    "age": 22,
+    "preferences": {
+      "colour": [
+        "White",
+        "Teal"
+      ],
+      "size": {
+        "top": "XS",
+        "bottom": "M"
+      },
+      "occasion": [
+        "Lounge",
+        "Festive"
+      ],
+      "style_notes": "Mostly buys pyjamas and kurtas for lounge and festive occasions; favours cotton and rayon fabrics, usually relaxed fit",
+      "budget_inr": 2500
+    },
+    "learned_preferences": [],
+    "loyalty": {
+      "tier": "Bronze",
+      "points": 0,
+      "member_since": "2024-11-07",
+      "total_orders": 1
+    }
+  },
+  "CUST-0161": {
+    "customer_id": "CUST-0161",
+    "name": "Suresh Mishra",
+    "phone_no": "+91-915070-80965",
+    "email": "suresh.mishra61@example.com",
+    "gender": "male",
+    "age": 20,
+    "preferences": {
+      "colour": [
+        "Washed Blue",
+        "Navy",
+        "Forest Green"
+      ],
+      "size": {
+        "top": "XL",
+        "bottom": "S"
+      },
+      "occasion": [
+        "Casual",
+        "Party"
+      ],
+      "style_notes": "Mostly buys jeans and tops for casual and party occasions; favours denim and poly crepe fabrics, usually jogger fit",
+      "budget_inr": 2500
+    },
+    "learned_preferences": [],
+    "loyalty": {
+      "tier": "Platinum",
+      "points": 1769,
+      "member_since": "2025-07-28",
+      "total_orders": 4
+    }
+  },
+  "CUST-0163": {
+    "customer_id": "CUST-0163",
+    "name": "Priya Menon",
+    "phone_no": "+91-942790-12748",
+    "email": "priya.menon63@example.com",
+    "gender": "female",
+    "age": 59,
+    "preferences": {
+      "colour": [
+        "Champagne"
+      ],
+      "size": {
+        "top": "XS",
+        "bottom": "XS"
+      },
+      "occasion": [
+        "Evening"
+      ],
+      "style_notes": "Mostly buys dress for evening occasions; favours satin fabrics, usually bias-cut fit",
+      "budget_inr": 2500
+    },
+    "learned_preferences": [],
+    "loyalty": {
+      "tier": "Bronze",
+      "points": 229,
+      "member_since": "2024-07-23",
+      "total_orders": 1
+    }
+  },
+  "CUST-0164": {
+    "customer_id": "CUST-0164",
+    "name": "Tarun Saxena",
+    "phone_no": "+91-982190-94403",
+    "email": "tarun.saxena64@example.com",
+    "gender": "male",
+    "age": 37,
+    "preferences": {
+      "colour": [
+        "White",
+        "Charcoal",
+        "Stone"
+      ],
+      "size": {
+        "top": "L",
+        "bottom": "XS"
+      },
+      "occasion": [
+        "Casual",
+        "Smart Casual"
+      ],
+      "style_notes": "Mostly buys jackets and formal trousers for casual and smart casual occasions; favours viscose and denim fabrics, usually regular fit",
+      "budget_inr": 2500
+    },
+    "learned_preferences": [],
+    "loyalty": {
+      "tier": "Gold",
+      "points": 989,
+      "member_since": "2025-03-24",
+      "total_orders": 4
+    }
+  },
+  "CUST-0165": {
+    "customer_id": "CUST-0165",
+    "name": "Arjun Kulkarni",
+    "phone_no": "+91-979490-44784",
+    "email": "arjun.kulkarni65@example.com",
+    "gender": "male",
+    "age": 52,
+    "preferences": {
+      "colour": [
+        "Khaki",
+        "Grey Melange",
+        "Sky Blue"
+      ],
+      "size": {
+        "top": "XXL",
+        "bottom": "XL"
+      },
+      "occasion": [
+        "Formal",
+        "Casual"
+      ],
+      "style_notes": "Mostly buys shorts and joggers for formal and casual occasions; favours cotton and performance/polyester fabrics, usually slim fit",
+      "budget_inr": 2000
+    },
+    "learned_preferences": [],
+    "loyalty": {
+      "tier": "Silver",
+      "points": 599,
+      "member_since": "2023-07-20",
+      "total_orders": 4
+    }
+  },
+  "CUST-0166": {
+    "customer_id": "CUST-0166",
+    "name": "Chitra Saxena",
+    "phone_no": "+91-961470-21921",
+    "email": "chitra.saxena66@example.com",
+    "gender": "female",
+    "age": 35,
+    "preferences": {
+      "colour": [
+        "Mocha",
+        "White"
+      ],
+      "size": {
+        "top": "S",
+        "bottom": "S"
+      },
+      "occasion": [
+        "Casual"
+      ],
+      "style_notes": "Mostly buys bodysuits and t-shirts for casual occasions; favours performance/polyester and cotton fabrics, usually second-skin fit",
+      "budget_inr": 1000
+    },
+    "learned_preferences": [],
+    "loyalty": {
+      "tier": "Bronze",
+      "points": 0,
+      "member_since": "2023-05-20",
+      "total_orders": 1
+    }
+  },
+  "CUST-0167": {
+    "customer_id": "CUST-0167",
+    "name": "Ishita Sinha",
+    "phone_no": "+91-972760-69530",
+    "email": "ishita.sinha67@example.com",
+    "gender": "female",
+    "age": 22,
+    "preferences": {
+      "colour": [
+        "Blush",
+        "Floral Teal"
+      ],
+      "size": {
+        "top": "XL",
+        "bottom": "XS"
+      },
+      "occasion": [
+        "Beach",
+        "Brunch"
+      ],
+      "style_notes": "Mostly buys hats and dress for beach and brunch occasions; favours viscose and performance/polyester fabrics, usually wrap fit",
+      "budget_inr": 2000
+    },
+    "learned_preferences": [],
+    "loyalty": {
+      "tier": "Silver",
+      "points": 399,
+      "member_since": "2023-02-03",
+      "total_orders": 2
+    }
+  },
+  "CUST-0168": {
+    "customer_id": "CUST-0168",
+    "name": "Malini Naidu",
+    "phone_no": "+91-955110-61264",
+    "email": "malini.naidu68@example.com",
+    "gender": "female",
+    "age": 25,
+    "preferences": {
+      "colour": [
+        "White",
+        "Black"
+      ],
+      "size": {
+        "top": "XS",
+        "bottom": "L"
+      },
+      "occasion": [
+        "Casual",
+        "Formal"
+      ],
+      "style_notes": "Mostly buys shirts and palazzos for casual and formal occasions; favours cotton and crepe fabrics, usually slim fit",
+      "budget_inr": 1500
+    },
+    "learned_preferences": [],
+    "loyalty": {
+      "tier": "Silver",
+      "points": 679,
+      "member_since": "2025-05-20",
+      "total_orders": 2
+    }
+  },
+  "CUST-0169": {
+    "customer_id": "CUST-0169",
+    "name": "Aditya Saxena",
+    "phone_no": "+91-923830-62016",
+    "email": "aditya.saxena69@example.com",
+    "gender": "male",
+    "age": 22,
+    "preferences": {
+      "colour": [
+        "Ivory",
+        "Khaki",
+        "Olive-Cream"
+      ],
+      "size": {
+        "top": "L",
+        "bottom": "XS"
+      },
+      "occasion": [
+        "Casual",
+        "Festive"
+      ],
+      "style_notes": "Mostly buys t-shirts and nehru jackets for casual and festive occasions; favours cotton and silk fabrics, usually regular fit",
+      "budget_inr": 2500
+    },
+    "learned_preferences": [],
+    "loyalty": {
+      "tier": "Bronze",
+      "points": 159,
+      "member_since": "2024-10-04",
+      "total_orders": 2
+    }
+  },
+  "CUST-0170": {
+    "customer_id": "CUST-0170",
+    "name": "Pradeep Banerjee",
+    "phone_no": "+91-936790-24594",
+    "email": "pradeep.banerjee70@example.com",
+    "gender": "male",
+    "age": 24,
+    "preferences": {
+      "colour": [
+        "White",
+        "Dark Blue",
+        "Brown"
+      ],
+      "size": {
+        "top": "XXL",
+        "bottom": "XS"
+      },
+      "occasion": [
+        "Casual",
+        "Everyday"
+      ],
+      "style_notes": "Mostly buys t-shirts and jeans for casual and everyday occasions; favours cotton and denim fabrics, usually regular fit",
+      "budget_inr": 2000
+    },
+    "learned_preferences": [],
+    "loyalty": {
+      "tier": "Silver",
+      "points": 519,
+      "member_since": "2023-03-22",
+      "total_orders": 1
+    }
+  },
+  "CUST-0171": {
+    "customer_id": "CUST-0171",
+    "name": "Deepika Dutta",
+    "phone_no": "+91-982180-29024",
+    "email": "deepika.dutta71@example.com",
+    "gender": "female",
+    "age": 51,
+    "preferences": {
+      "colour": [
+        "Grey Melange",
+        "Light Blue",
+        "Navy"
+      ],
+      "size": {
+        "top": "M",
+        "bottom": "M"
+      },
+      "occasion": [
+        "Casual",
+        "Lounge"
+      ],
+      "style_notes": "Mostly buys shorts and track pants for casual and lounge occasions; favours cotton and denim fabrics, usually regular fit",
+      "budget_inr": 1500
+    },
+    "learned_preferences": [],
+    "loyalty": {
+      "tier": "Silver",
+      "points": 519,
+      "member_since": "2023-11-14",
+      "total_orders": 3
+    }
+  },
+  "CUST-0173": {
+    "customer_id": "CUST-0173",
+    "name": "Siddharth Chauhan",
+    "phone_no": "+91-966790-61168",
+    "email": "siddharth.chauhan73@example.com",
+    "gender": "male",
+    "age": 23,
+    "preferences": {
+      "colour": [
+        "Black",
+        "White"
+      ],
+      "size": {
+        "top": "L",
+        "bottom": "L"
+      },
+      "occasion": [
+        "Casual"
+      ],
+      "style_notes": "Mostly buys t-shirts for casual occasions; favours cotton fabrics, usually regular fit",
+      "budget_inr": 1000
+    },
+    "learned_preferences": [],
+    "loyalty": {
+      "tier": "Bronze",
+      "points": 119,
+      "member_since": "2025-12-07",
+      "total_orders": 2
+    }
+  },
+  "CUST-0174": {
+    "customer_id": "CUST-0174",
+    "name": "Aarti Rao",
+    "phone_no": "+91-928130-82702",
+    "email": "aarti.rao74@example.com",
+    "gender": "female",
+    "age": 27,
+    "preferences": {
+      "colour": [
+        "Light Blue"
+      ],
+      "size": {
+        "top": "S",
+        "bottom": "S"
+      },
+      "occasion": [
+        "Casual"
+      ],
+      "style_notes": "Mostly buys jackets for casual occasions; favours denim fabrics, usually regular fit",
+      "budget_inr": 2500
+    },
+    "learned_preferences": [],
+    "loyalty": {
+      "tier": "Bronze",
+      "points": 249,
+      "member_since": "2024-04-13",
+      "total_orders": 1
+    }
+  },
+  "CUST-0175": {
+    "customer_id": "CUST-0175",
+    "name": "Ganesh Joshi",
+    "phone_no": "+91-947380-40500",
+    "email": "ganesh.joshi75@example.com",
+    "gender": "male",
+    "age": 38,
+    "preferences": {
+      "colour": [
+        "Blush",
+        "Floral Teal",
+        "Sky Blue"
+      ],
+      "size": {
+        "top": "XL",
+        "bottom": "L"
+      },
+      "occasion": [
+        "Casual",
+        "Brunch"
+      ],
+      "style_notes": "Mostly buys skirts and dress for casual and brunch occasions; favours cotton and poly twill fabrics, usually a-line fit",
+      "budget_inr": 2000
+    },
+    "learned_preferences": [],
+    "loyalty": {
+      "tier": "Silver",
+      "points": 539,
+      "member_since": "2024-05-08",
+      "total_orders": 2
+    }
+  },
+  "CUST-0177": {
+    "customer_id": "CUST-0177",
+    "name": "Shreya Yadav",
+    "phone_no": "+91-931680-82232",
+    "email": "shreya.yadav77@example.com",
+    "gender": "female",
+    "age": 38,
+    "preferences": {
+      "colour": [
+        "Cream-Fair Isle",
+        "Beige"
+      ],
+      "size": {
+        "top": "M",
+        "bottom": "M"
+      },
+      "occasion": [
+        "Winter Lounge",
+        "Casual"
+      ],
+      "style_notes": "Mostly buys socks and hats for winter lounge and casual occasions",
+      "budget_inr": 1000
+    },
+    "learned_preferences": [],
+    "loyalty": {
+      "tier": "Bronze",
+      "points": 189,
+      "member_since": "2024-10-02",
+      "total_orders": 3
+    }
+  }
+}

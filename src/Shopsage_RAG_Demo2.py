@@ -21,9 +21,20 @@ print("API key configured!")
 
 
 # app.py
-from src.Agent_1 import rag_agent   # importing runs the bootstrap at the bottom of Agent_2.py
+from src.Agent_2 import rag_agent   # importing runs the bootstrap at the bottom of Agent_2.py
 
 
+
+# ------------------------- Shopper login (terminal, pre-launch) -------------
+# Enter a customer ID before the UI starts. Blank = anonymous guest session.
+shopper_line = ""
+cid = input("\nCustomer ID (e.g. CUST-0028, blank for guest): ").strip()
+if cid:
+    status = rag_agent.set_shopper(cid)     # loads profile + personalizes prompt
+    print(f"[login] {status}")
+    shopper_line = f"\n\n{status}."
+else:
+    print("[login] anonymous guest session")
 
 
 def chat_fn(message, history):
@@ -64,7 +75,7 @@ function refresh() {
         window.location.href = url.href;
     }
 }
-"""
+""" 
 
 demo = gr.ChatInterface(
     fn=chat_fn,
@@ -72,6 +83,7 @@ demo = gr.ChatInterface(
     description=(
         "Welcome! I'm ShopSage, your personal shopping assistant. "
         "Tell me what you're looking for and I'll find pieces you'll love."
+        + shopper_line
     ),
     examples=[
         "Breathable gym socks for women under ₹600",

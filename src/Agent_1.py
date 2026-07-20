@@ -49,7 +49,6 @@ from mcp import ClientSession, StdioServerParameters
 from mcp.client.stdio import stdio_client
 
 from src.Ingest_Embedding import CHROMA_DIR, COLLECTION, EMBED_MODEL, ingest
-from src import memory
 
 
 # ======================================================================
@@ -232,35 +231,6 @@ Output formats:
 - End each recommendation with ONE short, warm closing line inviting the shopper to continue. Vary the phrasing naturally between responses.
 Keep responses concise. Do not add disclaimers."""
         )
-
-        # Shopper memory (src/memory.py). The base prompt is kept so
-        # set_shopper() can rebuild cleanly when the customer changes.
-        self._base_system_content = self.system_message.content
-        self.customer_id: str | None = None
-        self.profile: dict | None = None
-
-    # ==================================================================
-    # SECTION: SHOPPER MEMORY  (login + personalization)
-    # ==================================================================
-
-    def set_shopper(self, customer_id: str) -> str:
-        """Load (or create) a shopper profile and personalize the system
-        prompt. Called by the UI at login. Returns a status line."""
-        customer_id = customer_id.strip().upper()
-        profile = memory.get_profile(customer_id)
-        first_name = profile["name"].split()[0]
-        if profile is None:
-            profile = memory.upsert_guest(customer_id)
-            status = f"New guest {customer_id} — I'll ask their name in chat."
-        else:
-            status = (f"Welcome back, {first_name} ")
-        self.customer_id = customer_id
-        self.profile = profile
-        # Rebuild from BASE every time — switching shoppers never stacks
-        self.system_message = SystemMessage(
-            content=self._base_system_content + memory.profile_to_prompt(profile)
-        )
-        return status
 
     # ==================================================================
     # SECTION: RETRIEVAL  (Chroma store from src.Ingest_Embedding)
@@ -465,16 +435,6 @@ PARSED UNDERSTANDING:
 
         # ---- Stage 1: extract + ROUTE --------------------------------
         c = self._extract_slots(shopper_query, history_text)
-
-        # ---- Memory: read then write ---------------------------------
-        # Backfill missing slots from the logged-in profile (gender drives
-        # SKU filtering; customer_id lets order tracking skip the ID ask).
-        # Precedence: what the shopper typed this turn always wins.
-        c = memory.apply_profile_defaults(c, self.profile)
-        # Persist durable preferences (product-search turns only; deduped;
-        # capped at the 3 most recent notes on disk).
-        if self.customer_id:
-            memory.record_session_learnings(self.customer_id, c)
 
         # ---- PATH: order tracking (MCP tool, retrieval skipped) ------
         if c["query_type"] == "order_tracking":
