@@ -99,3 +99,6 @@ chroma_db/
 
 # Colab specific
 sample_data/
+
+# Gradio
+.gradio/

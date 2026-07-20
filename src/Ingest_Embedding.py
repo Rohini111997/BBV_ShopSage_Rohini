@@ -8,8 +8,6 @@ Run from the repo root:
     python -m src.ingestion
 """
 
-import json
-from pathlib import Path
 from typing import List
 
 from langchain_chroma import Chroma
