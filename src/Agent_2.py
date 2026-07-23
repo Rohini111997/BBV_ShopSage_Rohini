@@ -607,3 +607,5 @@ mcp_client = RetailMCPClient(
 )
 rag_agent = RAG_Reco_Agent(vectorstore, embeddings, mcp_client)
 print("RAG Recommendation Agent Ready!")
+
+

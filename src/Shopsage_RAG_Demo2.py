@@ -24,6 +24,8 @@ print("API key configured!")
 from src.Agent_2 import rag_agent   # importing runs the bootstrap at the bottom of Agent_2.py
 
 
+rag_agent.vectorstore._collection.count()
+
 
 # ------------------------- Shopper login (terminal, pre-launch) -------------
 # Enter a customer ID before the UI starts. Blank = anonymous guest session.
@@ -46,36 +48,28 @@ def chat_fn(message, history):
 
 custom_css = """
 .gradio-container {
-    background: linear-gradient(160deg, #fff1f2 0%, #fffbeb 100%) !important;
+    background: linear-gradient(160deg, #2a1418 0%, #2b2012 100%) !important;
 }
 
-/* Belt-and-suspenders: even if dark mode is active, force light colors */
+/* Slight translucency so the gradient glows through panels */
 .dark {
-    --body-background-fill: #fff1f2;
-    --background-fill-primary: #ffffff;
-    --background-fill-secondary: #fff7ed;
-    --block-background-fill: #ffffff;
-    --body-text-color: #1f2937;
-    --body-text-color-subdued: #6b7280;
-    --block-label-text-color: #1f2937;
-    --block-title-text-color: #1f2937;
-    --input-background-fill: #ffffff;
-    --input-placeholder-color: #9ca3af;
-    --border-color-primary: #fecdd3;
-    --chatbot-text-color: #1f2937;
+    --body-background-fill: transparent;
+    --background-fill-primary: rgba(255, 241, 242, 0.04);
+    --block-background-fill: rgba(255, 241, 242, 0.05);
+    --border-color-primary: rgba(254, 205, 211, 0.18);
 }
 """
 
-# Officially documented way to force light mode via URL param
-force_light = """
+# Force dark mode via the documented URL param
+force_dark = """
 function refresh() {
     const url = new URL(window.location);
-    if (url.searchParams.get('__theme') !== 'light') {
-        url.searchParams.set('__theme', 'light');
+    if (url.searchParams.get('__theme') !== 'dark') {
+        url.searchParams.set('__theme', 'dark');
         window.location.href = url.href;
     }
 }
-""" 
+"""
 
 demo = gr.ChatInterface(
     fn=chat_fn,
@@ -102,5 +96,5 @@ demo.launch(
     debug=True,
     theme=gr.themes.Soft(),
     css=custom_css,
-    js=force_light,
+    js=force_dark,
 )

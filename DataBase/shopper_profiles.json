@@ -266,7 +266,18 @@
       "style_notes": "Mostly buys jeans and shirts for casual and resort occasions; favours denim and linen fabrics, usually wide-leg fit",
       "budget_inr": 2500
     },
-    "learned_preferences": [],
+    "learned_preferences": [
+      {
+        "note": "Interested in give me full outfit recommendations for my vacation., for vacation",
+        "learned_at": "2026-07-23T19:36:12",
+        "source": "chat"
+      },
+      {
+        "note": "Interested in what is fav colour?",
+        "learned_at": "2026-07-23T20:09:46",
+        "source": "chat"
+      }
+    ],
     "loyalty": {
       "tier": "Bronze",
       "points": 0,

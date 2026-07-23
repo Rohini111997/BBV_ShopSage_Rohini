@@ -7,21 +7,23 @@ embeds with MiniLM, and persists to a local Chroma vector store.
 Run from the repo root:
     python -m src.ingestion
 """
-
+import json
+from pathlib import Path
 from typing import List
+
 
 from langchain_chroma import Chroma
 from langchain_core.documents import Document
 from langchain_huggingface import HuggingFaceEmbeddings
 
-import DataBase.Catalog_V1 as Catalog_V1
 
-CATALOG_PATH = Catalog_V1.__file__
+
+CATALOG_PATH = Path(__file__).resolve().parent.parent / "DataBase" / "product_catalog.jsonl"
 CHROMA_DIR = "chroma_db"
 COLLECTION = "shopsage_catalog"
 EMBED_MODEL = "sentence-transformers/all-MiniLM-L6-v2"
 
-#------------------------- Helpers ----------------------------------- #
+# ------------------------- Helpers ----------------------------------- #
 
 
 def _as_text(value) -> str:
@@ -38,12 +40,22 @@ def _as_number(value) -> float:
     return float(str(value).replace(",", "").replace("₹", "").strip())
 
 
-def load_catalog() -> List[dict]:
-    return Catalog_V1.product_catalog
+def load_catalog(path: Path = CATALOG_PATH) -> List[dict]:
+    """Read the product catalog from a JSONL file (one JSON object per line)."""
+    products = []
+    with open(path, "r", encoding="utf-8") as f:
+        for line_num, line in enumerate(f, start=1):
+            line = line.strip()
+            if not line:
+                continue
+            try:
+                products.append(json.loads(line))
+            except json.JSONDecodeError as e:
+                print(f"[ingest] skipping malformed line {line_num}: {e}")
+    return products
 
 
-
-#------------------------- Document Creation -------------------------- #
+# ------------------------- Document Creation -------------------------- #
 
 def create_item_documents(product_catalog: List[dict]) -> List[Document]:
     documents = []
@@ -84,7 +96,8 @@ def create_item_documents(product_catalog: List[dict]) -> List[Document]:
         )
     return documents
 
-#------------------------- Ingest -------------------------- #
+
+# ------------------------- Ingest -------------------------- #
 
 def ingest() -> Chroma:
     catalog = load_catalog()
@@ -110,3 +123,5 @@ def ingest() -> Chroma:
 
 if __name__ == "__main__":
     ingest()
+
+
