@@ -30,8 +30,22 @@ class ChatRequest(BaseModel):
     history: list[ChatMessage] = []
 
 
+class Product(BaseModel):
+    sku: str
+    brand: str
+    title: str
+    price_inr: float | None = None
+    image: str | None = None
+    item_type: str | None = None
+    description: str | None = None
+    sizes_available: str | None = None
+    colors_available: str | None = None
+    attributes: dict = {}
+
+
 class ChatResponse(BaseModel):
     reply: str
+    products: list[Product] = []
 
 
 @app.post("/api/login")
@@ -48,8 +62,8 @@ def chat(req: ChatRequest):
     if not req.message.strip():
         raise HTTPException(status_code=400, detail="message must not be empty")
     history = [m.model_dump() for m in req.history]
-    reply = rag_agent.get_rag_product_recommendation(req.message, history=history)
-    return ChatResponse(reply=reply)
+    result = rag_agent.get_rag_product_recommendation(req.message, history=history)
+    return ChatResponse(reply=result["reply"], products=result["products"])
 
 
 @app.get("/api/memory/{customer_id}")

@@ -48,8 +48,13 @@ from langchain_huggingface import HuggingFaceEmbeddings
 from mcp import ClientSession, StdioServerParameters
 from mcp.client.stdio import stdio_client
 
-from src.Ingest_Embedding import CHROMA_DIR, COLLECTION, EMBED_MODEL, ingest
+from src.Ingest_Embedding import CHROMA_DIR, COLLECTION, EMBED_MODEL, ingest, load_catalog
 from src import memory
+
+# Full catalog rows keyed by SKU — Chroma metadata only carries the fields
+# used for filtering/ranking, so product-detail lookups (description,
+# sizes, colors, attributes) go through this instead.
+_CATALOG_BY_SKU = {item["ID (SKU)"]: item for item in load_catalog()}
 
 
 # ======================================================================
@@ -356,6 +361,35 @@ Keep responses concise. Do not add disclaimers."""
         }
 
     @staticmethod
+    def _products_from_docs(docs, limit=3):
+        """Distinct retrieved catalog entries -> product cards for the
+        frontend, enriched with full catalog detail (description, sizes,
+        colors, attributes) for the image-click detail preview."""
+        products = []
+        seen_skus = set()
+        for doc in docs:
+            sku = doc.metadata.get("sku")
+            if not sku or sku in seen_skus:
+                continue
+            seen_skus.add(sku)
+            catalog_item = _CATALOG_BY_SKU.get(sku, {})
+            products.append({
+                "sku": sku,
+                "brand": doc.metadata.get("brand", ""),
+                "title": doc.metadata.get("title", ""),
+                "price_inr": doc.metadata.get("price_inr"),
+                "image": doc.metadata.get("image") or None,
+                "item_type": catalog_item.get("item_type", ""),
+                "description": catalog_item.get("Description", ""),
+                "sizes_available": catalog_item.get("Sizes_available", ""),
+                "colors_available": catalog_item.get("Colors_available", ""),
+                "attributes": catalog_item.get("Attributes") or {},
+            })
+            if len(products) >= limit:
+                break
+        return products
+
+    @staticmethod
     def _resolve_sku(docs):
         """Pull the SKU off the top retrieved catalog entry, if present.
         (Retrieval resolves product NAME -> catalog entry -> SKU; the
@@ -479,11 +513,11 @@ PARSED UNDERSTANDING:
         # ---- PATH: order tracking (MCP tool, retrieval skipped) ------
         if c["query_type"] == "order_tracking":
             if not c["customer_id"]:
-                return ("I can check that for you — could you share your "
-                        "customer ID (e.g. CUST-001)? An order ID helps too "
-                        "if you have it.")
+                return {"reply": ("I can check that for you — could you share your "
+                                   "customer ID (e.g. CUST-001)? An order ID helps too "
+                                   "if you have it."), "products": []}
             result = self.track_order(c["customer_id"], c["order_id"])
-            return self._generate(
+            reply = self._generate(
                 shopper_query, history_text, c, tool_result=result,
                 rules=("- Answer ONLY from the TOOL RESULT\n"
                        "- If found, summarize order_status, item_count and "
@@ -491,6 +525,7 @@ PARSED UNDERSTANDING:
                        "order ID\n"
                        "- If not found, say so and ask the shopper to "
                        "double-check their customer ID / order ID"))
+            return {"reply": reply, "products": []}
 
         # ---- Build search inputs (all remaining paths use retrieval) --
         query_parts = [c["item_intent"]]
@@ -519,12 +554,12 @@ PARSED UNDERSTANDING:
         # ---- PATH: inventory check (retrieval resolves SKU -> MCP tool)
         if c["query_type"] == "inventory_check":
             if not relevant_docs:
-                return ("I'm not sure which item you'd like me to check — "
-                        "could you mention the product name?")
+                return {"reply": ("I'm not sure which item you'd like me to check — "
+                                   "could you mention the product name?"), "products": []}
             sku, top_doc = self._resolve_sku(relevant_docs)
             result = self.check_inventory(sku, size=c["size"], color=c["color"])
             context = self.format_retrieved_context([top_doc] if top_doc else [])
-            return self._generate(
+            reply = self._generate(
                 shopper_query, history_text, c,
                 context=context, tool_result=result,
                 rules=("- If the TOOL RESULT has checked=true, answer stock "
@@ -535,13 +570,15 @@ PARSED UNDERSTANDING:
                        "catalog offers for this product and say you could "
                        "not confirm live stock\n"
                        "- 1-3 plain sentences"))
+            products = self._products_from_docs([top_doc] if top_doc else [], limit=1)
+            return {"reply": reply, "products": products}
 
         # ---- PATH: RAG (new_search / follow_up) ----------------------
         # Empty-retrieval guard — only meaningful for new searches
         if not relevant_docs:
             if c["query_type"] == "follow_up":
-                return ("I'm not sure which item you're referring to — could you "
-                        "mention the product name from the list I shared?")
+                return {"reply": ("I'm not sure which item you're referring to — could you "
+                                   "mention the product name from the list I shared?"), "products": []}
             if c["max_price_inr"] is not None:
                 relaxed = {k: v for k, v in metadata_filter.items()
                            if k != "price_inr"}
@@ -550,15 +587,16 @@ PARSED UNDERSTANDING:
                 )
                 if alt_docs:
                     cheapest = min(d.metadata["price_inr"] for d in alt_docs)
-                    return (f"I couldn't find anything matching your request under "
-                            f"INR {c['max_price_inr']}. The closest options start at "
-                            f"INR {cheapest}. Would you like to see those, or adjust "
-                            f"your budget?")
-            return ("I couldn't find anything in the catalog matching that request. "
-                    "Could you tell me a bit more about what you're looking for?")
+                    return {"reply": (f"I couldn't find anything matching your request under "
+                                       f"INR {c['max_price_inr']}. The closest options start at "
+                                       f"INR {cheapest}. Would you like to see those, or adjust "
+                                       f"your budget?"), "products": []}
+            return {"reply": ("I couldn't find anything in the catalog matching that request. "
+                               "Could you tell me a bit more about what you're looking for?"),
+                    "products": []}
 
         context = self.format_retrieved_context(relevant_docs)
-        return self._generate(
+        reply = self._generate(
             shopper_query, history_text, c, context=context,
             rules=("- For a new search: recommend ONLY items in the retrieved "
                    "context; treat size and budget as hard constraints; rank "
@@ -570,6 +608,9 @@ PARSED UNDERSTANDING:
                    "price; answer in 1-3 plain sentences and name the product\n"
                    "- If the retrieved context doesn't contain the item being "
                    "asked about, say so rather than guessing"))
+        limit = 3 if c["query_type"] == "new_search" else 1
+        products = self._products_from_docs(relevant_docs, limit=limit)
+        return {"reply": reply, "products": products}
 
     # Mental Model:
     # shopper query -> extract slots + ROUTE

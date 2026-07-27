@@ -48,6 +48,7 @@ def _load_products() -> list[dict]:
                     "price_inr": item["price(INR)"],
                     "attributes": item.get("Attributes") or {},
                     "description": item["Description"],
+                    "image_url": item.get("image"),
                 }
             )
     return products

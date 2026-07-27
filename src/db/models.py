@@ -31,6 +31,7 @@ class Product(Base):
     price_inr: Mapped[int] = mapped_column(Integer)
     attributes: Mapped[dict] = mapped_column(JSONB)
     description: Mapped[str] = mapped_column(Text)
+    image_url: Mapped[str | None] = mapped_column(String, nullable=True)
 
     inventory_items: Mapped[list["InventoryItem"]] = relationship(back_populates="product")
 

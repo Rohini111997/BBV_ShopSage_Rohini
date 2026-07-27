@@ -20,7 +20,18 @@
       "style_notes": "Mostly buys jackets for outdoor occasions; favours performance/polyester fabrics, usually regular fit",
       "budget_inr": 3000
     },
-    "learned_preferences": [],
+    "learned_preferences": [
+      {
+        "note": "Interested in hi",
+        "learned_at": "2026-07-27T14:03:59",
+        "source": "chat"
+      },
+      {
+        "note": "Interested in mens tee",
+        "learned_at": "2026-07-27T14:04:14",
+        "source": "chat"
+      }
+    ],
     "loyalty": {
       "tier": "Bronze",
       "points": 299,
