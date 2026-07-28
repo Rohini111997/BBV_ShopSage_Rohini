@@ -22,12 +22,18 @@ def check_inventory(sku: str, size: str | None = None, color: str | None = None)
     session = get_session()
     try:
         query = session.query(InventoryItem).filter(InventoryItem.sku.ilike(sku))
+        if query.count() == 0:
+            return f"Error: unknown SKU '{sku}'"
         if size:
             query = query.filter(InventoryItem.size.ilike(size))
         if color:
             query = query.filter(InventoryItem.color.ilike(color))
 
-        has_stock = any(row.qty_available > 0 for row in query.all())
+        rows = query.all()
+        if not rows:
+            return (f"Error: '{sku}' has no variant in size="
+                    f"{size or 'any'}, color={color or 'any'}")
+        has_stock = any(row.qty_available > 0 for row in rows)
     finally:
         session.close()
 

@@ -46,6 +46,7 @@ class Product(BaseModel):
 class ChatResponse(BaseModel):
     reply: str
     products: list[Product] = []
+    trace: dict = {}
 
 
 @app.post("/api/login")
@@ -63,7 +64,8 @@ def chat(req: ChatRequest):
         raise HTTPException(status_code=400, detail="message must not be empty")
     history = [m.model_dump() for m in req.history]
     result = rag_agent.get_rag_product_recommendation(req.message, history=history)
-    return ChatResponse(reply=result["reply"], products=result["products"])
+    return ChatResponse(reply=result["reply"], products=result["products"],
+                        trace=result.get("trace", {}))
 
 
 @app.get("/api/memory/{customer_id}")

@@ -30,7 +30,9 @@ def track_order(customer_id: str, order_id: str | None = None) -> dict:
 
         rows = query.all()
         if not rows:
-            return {"order_id": None, "order_status": None, "item_count": 0}
+            return {"error": f"no orders found for customer '{customer_id}'"
+                             + (f", order '{order_id}'" if order_id else ""),
+                    "order_id": None, "order_status": None, "item_count": 0}
 
         latest_order = max(rows, key=lambda r: r.order_date)
         item_count = sum(1 for r in rows if r.order_id == latest_order.order_id)
