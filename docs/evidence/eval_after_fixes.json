@@ -1,0 +1,40 @@
+﻿{
+  "run_date": "2026-07-29",
+  "agent": "Agent_3",
+  "description": "Re-run after applying top-3 fixes (Tasks 27-28)",
+  "fixes_applied": [
+    {
+      "priority": 1,
+      "fix": "Bug: set_shopper null-dereference on new guest profiles",
+      "file": "src/Agent_3.py",
+      "detail": "first_name accessed before profile is-None check — would crash on any new shopper login"
+    },
+    {
+      "priority": 2,
+      "fix": "Guardrail events not traced — age_filter and stock_filter ran silently",
+      "file": "src/Agent_3.py",
+      "detail": "Both guardrails now emit trace.event('guardrail', rule=...) so they appear in agent-trace panel and LangSmith"
+    },
+    {
+      "priority": 3,
+      "fix": "Cache hits invisible in traces — only logged to console",
+      "file": "src/Agent_3.py",
+      "detail": "retrieve_relevant_knowledge() now accepts trace param and emits cache_hit/cache_miss events"
+    }
+  ],
+  "summary": {
+    "total": 6,
+    "passed": 6,
+    "failed": 0,
+    "accuracy_pct": 100.0
+  },
+  "delta_vs_baseline": {
+    "accuracy_delta_pct": 0,
+    "note": "Baseline was already 100% on functional test cases. Fixes addressed correctness bugs (null crash on new users) and observability gaps — not retrieval accuracy. The fixes prevent crashes and improve trace completeness, which are higher-value than accuracy delta on a passing suite."
+  },
+  "qualitative_improvements": [
+    "New guest login no longer crashes the server (critical correctness fix)",
+    "Guardrail decisions now visible in every trace — can be counted for the dashboard",
+    "Cache efficiency now measurable from traces — hit/miss rates surfaced per request"
+  ]
+}

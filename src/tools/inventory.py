@@ -38,3 +38,27 @@ def check_inventory(sku: str, size: str | None = None, color: str | None = None)
         session.close()
 
     return "In Stock" if has_stock else "Out of Stock"
+
+
+# ─────────────────────────────────────────────────────────────────────────
+# TOOL Setup -  In-Stock Sizes  (facts only — the agent applies the
+# "recommendable" business rule: >=2 sizes for apparel, >=1 for accessories)
+# ─────────────────────────────────────────────────────────────────────────
+
+@mcp.tool()
+def get_in_stock_sizes(sku: str) -> dict:
+    """Return the distinct sizes of this SKU currently in stock
+    (qty_available > 0). Accessories may have blank/one-size rows,
+    which still count as one available 'size'."""
+    session = get_session()
+    try:
+        rows = (
+            session.query(InventoryItem)
+            .filter(InventoryItem.sku.ilike(sku), InventoryItem.qty_available > 0)
+            .all()
+        )
+        sizes = sorted({(row.size or "One Size") for row in rows})
+    finally:
+        session.close()
+
+    return {"sku": sku, "in_stock_sizes": sizes, "count": len(sizes)}

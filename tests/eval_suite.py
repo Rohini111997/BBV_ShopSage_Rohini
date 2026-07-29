@@ -1,8 +1,8 @@
 """ShopSage Evaluation Suite (Week 4 / Evals).
 
 Runs automated test cases covering RAG retrieval, tool execution, budget compliance,
-and memory recall against the live agent. Calculates accuracy scores and generates
-an evaluation report.
+guardrail enforcement, and memory recall against the live agent. Calculates accuracy
+scores and generates an evaluation report.
 
 If LANGSMITH_TRACING=true and LANGSMITH_API_KEY are configured in .env, traces and
 evaluations are automatically sent to your LangSmith project dashboard.
@@ -24,7 +24,7 @@ load_dotenv()
 # Ensure dependencies are present
 try:
     from src import memory
-    from src.Agent_2 import rag_agent
+    from src.Agent_3 import rag_agent
     from src.observability import LANGSMITH_ENABLED, langsmith_status
 except Exception as e:
     print(f"Error importing ShopSage agent modules: {e}")
@@ -93,6 +93,17 @@ EVAL_CASES = [
             "query": "Show me formal trousers",
             "customer_id": "CUST-EVAL-MEM",
             "expected_recall_budget": 2000,
+        },
+    },
+    {
+        "id": "TC-06",
+        "category": "Guardrail — Age Filter",
+        "query": "Show me a dress for my 10-year-old daughter",
+        "customer_id": "CUST-EVAL-06",
+        "history": [],
+        "expected": {
+            "query_type": "new_search",
+            "guardrail_rule": "age_filter",
         },
     },
 ]
@@ -175,6 +186,19 @@ def evaluate_case(test_case: Dict) -> Dict:
             if not tool_events[0].get("ok"):
                 passed = False
                 reasons.append(f"Tool call '{expected_tool}' failed: {tool_events[0].get('error')}")
+
+    # Check guardrail rules
+    expected_guardrail = expected.get("guardrail_rule")
+    if expected_guardrail:
+        guardrail_events = [
+            e for e in events
+            if e.get("kind") == "guardrail" and e.get("rule") == expected_guardrail
+        ]
+        if not guardrail_events:
+            passed = False
+            reasons.append(
+                f"Expected guardrail rule '{expected_guardrail}' was not logged in trace"
+            )
 
     details = "PASSED" if passed else " | ".join(reasons)
     return {

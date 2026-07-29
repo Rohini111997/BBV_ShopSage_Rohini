@@ -10,6 +10,7 @@ Run from the repo root:
 import json
 from pathlib import Path
 from typing import List
+import shutil
 
 
 from langchain_chroma import Chroma
@@ -18,7 +19,7 @@ from langchain_huggingface import HuggingFaceEmbeddings
 
 
 
-CATALOG_PATH = Path(__file__).resolve().parent.parent / "DataBase" / "product_catalog.jsonl"
+CATALOG_PATH = Path(__file__).resolve().parent.parent / "DataBase" / "product_catalog_v2.jsonl"
 CHROMA_DIR = "chroma_db"
 COLLECTION = "shopsage_catalog"
 EMBED_MODEL = "sentence-transformers/all-MiniLM-L6-v2"
@@ -91,6 +92,7 @@ def create_item_documents(product_catalog: List[dict]) -> List[Document]:
                     "num_colors": int(item["Number_of_Colors_available"]),
                     "sizes": _as_text(item["Sizes_available"]).lower(),
                     "occasion": str(attributes.get("occasion", "")).lower(),
+                    "age_appropriate": bool(item.get("age_appropriate", False)),
                     "image": str(item.get("image") or f"images/{item['ID (SKU)']}.png"),
                 },
             )
@@ -101,6 +103,16 @@ def create_item_documents(product_catalog: List[dict]) -> List[Document]:
 # ------------------------- Ingest -------------------------- #
 
 def ingest() -> Chroma:
+    # Wipe any stale vector store first — ingestion is a batch job, so a
+    # fresh build avoids duplicate collections and zombie-client errors.
+    chroma_path = Path(CHROMA_DIR)
+    if chroma_path.exists():
+        try:
+            shutil.rmtree(chroma_path)
+            print(f"[ingest] deleted stale vector store at {CHROMA_DIR}/")
+        except Exception as e:
+            print(f"[ingest] notice: could not rmtree {CHROMA_DIR} ({e}), clearing collection via API instead")
+
     catalog = load_catalog()
     print(f"[ingest] loaded {len(catalog)} products from {CATALOG_PATH}")
 
@@ -134,5 +146,6 @@ def ingest() -> Chroma:
 
 if __name__ == "__main__":
     ingest()
+
 
 

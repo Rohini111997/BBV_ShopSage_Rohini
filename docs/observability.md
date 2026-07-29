@@ -1,9 +1,9 @@
 # ShopSage Observability
 
-Every shopper message produces one `Trace` — routing, memory, retrieval, tool calls, failures — sharing a single `trace_id`.
+Every shopper message produces one `Trace` — routing, memory, retrieval, tool calls, guardrail decisions, cache hits, failures — sharing a single `trace_id`.
 
 - **Implementation:** [`src/observability.py`](../src/observability.py)
-- **Collected in:** [`src/Agent_2.py`](../src/Agent_2.py) (`get_rag_product_recommendation` → `_run_turn`)
+- **Collected in:** [`src/Agent_3.py`](../src/Agent_3.py) (`get_rag_product_recommendation` → `_run_turn`)
 - **Evidence:** [evidence/trace_test.log](evidence/trace_test.log)
 
 Instrument once, consume twice:
@@ -25,6 +25,9 @@ The panel deliberately reads the in-process record rather than querying LangSmit
 | `memory_recall` | which slots were backfilled, `budget_from_memory`, current learned notes |
 | `retrieval` | search query, `k`, metadata filters, and each hit (SKU, title, price) |
 | `retrieval_relaxed` | the budget-dropped retry used for "nothing under your budget" |
+| `cache_hit` | kind_detail=`retrieval`, cumulative hits/misses, query text |
+| `cache_miss` | kind_detail=`retrieval`, cumulative hits/misses, query text |
+| `guardrail` | rule name (`age_filter` / `stock_filter`), counts of retrieved/blocked SKUs |
 | `tool_call` | tool name, arguments, result, `ok`, duration |
 | `generate` | which path generated the reply, and its duration |
 | `unhandled_error` | exception type and message if the turn dies |
@@ -82,6 +85,7 @@ When enabled you get two layers:
 
 ## What's still missing for Week 4
 
-- **Guardrail triggers** (task 24) — guardrails don't exist yet; they get a `guardrail` event kind in Week 3
-- **Dashboard** (task 29) — tool-call failure rate and guardrail counts, aggregated across traces. `trace.failures()` is the hook
-- **Persistence** — traces are per-request and in-memory; nothing is stored server-side yet, so aggregate metrics need either LangSmith or a local sink
+- **Dashboard** (task 29) — tool-call failure rate and guardrail counts, aggregated across traces. `trace.failures()` is the hook; guardrail triggers now appear in every trace via `kind="guardrail"` events.
+- **Persistence** — traces are per-request and in-memory; nothing is stored server-side yet, so aggregate metrics need either LangSmith or a local sink.
+
+> **Guardrail events are now wired** (tasks 18, 24). Both `age_filter` and `stock_filter` emit a `guardrail` event on the trace, visible in the agent-trace panel and in LangSmith when enabled.

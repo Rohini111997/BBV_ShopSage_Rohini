@@ -721,6 +721,21 @@
         "note": "Interested in casual cotton t-shirt, for casual, budget under ₹700",
         "learned_at": "2026-07-25T15:54:58",
         "source": "chat"
+      },
+      {
+        "note": "Interested in office wear, for office",
+        "learned_at": "2026-07-26T08:28:59",
+        "source": "chat"
+      },
+      {
+        "note": "Interested in lumière boulevard formal shirt, for office",
+        "learned_at": "2026-07-26T08:30:21",
+        "source": "chat"
+      },
+      {
+        "note": "Interested in what can i wear for party give me some options , for party",
+        "learned_at": "2026-07-26T08:32:24",
+        "source": "chat"
       }
     ],
     "loyalty": {
@@ -4700,7 +4715,7 @@
     "learned_preferences": [
       {
         "note": "Interested in breathable gym socks, for sports, budget under ₹600",
-        "learned_at": "2026-07-29T18:28:50",
+        "learned_at": "2026-07-29T19:17:42",
         "source": "chat",
         "budget_inr": 600
       }
@@ -4728,7 +4743,13 @@
     "learned_preferences": [
       {
         "note": "Interested in crisp formal shirt, for office wear, budget under ₹1500",
-        "learned_at": "2026-07-29T18:28:52",
+        "learned_at": "2026-07-29T18:41:25",
+        "source": "chat",
+        "budget_inr": 1500
+      },
+      {
+        "note": "Interested in formal shirt, for office wear, budget under ₹1500",
+        "learned_at": "2026-07-29T19:17:47",
         "source": "chat",
         "budget_inr": 1500
       }
@@ -4777,13 +4798,13 @@
     "learned_preferences": [
       {
         "note": "Interested in formal trousers, for formal, budget under ₹2000",
-        "learned_at": "2026-07-29T18:28:56",
+        "learned_at": "2026-07-29T19:17:53",
         "source": "chat",
         "budget_inr": 2000
       },
       {
         "note": "Interested in formal trousers, for formal",
-        "learned_at": "2026-07-29T18:28:57",
+        "learned_at": "2026-07-29T19:18:07",
         "source": "chat",
         "budget_inr": null
       }
@@ -4835,6 +4856,34 @@
         "learned_at": "2026-07-29T18:32:40",
         "source": "chat",
         "budget_inr": 4000
+      }
+    ],
+    "loyalty": {
+      "tier": "Bronze",
+      "points": 0,
+      "member_since": "2026-07-29",
+      "total_orders": 0
+    }
+  },
+  "CUST-EVAL-06": {
+    "customer_id": "CUST-EVAL-06",
+    "name": "Guest",
+    "phone_no": "",
+    "email": "",
+    "gender": null,
+    "age": null,
+    "preferences": {
+      "colour": [],
+      "size": {},
+      "style_notes": "",
+      "budget_inr": null
+    },
+    "learned_preferences": [
+      {
+        "note": "Interested in dress",
+        "learned_at": "2026-07-29T19:18:21",
+        "source": "chat",
+        "budget_inr": null
       }
     ],
     "loyalty": {

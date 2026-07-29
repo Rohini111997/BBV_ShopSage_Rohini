@@ -1,0 +1,82 @@
+﻿{
+  "run_date": "2026-07-29",
+  "agent": "Agent_3",
+  "langsmith_enabled": true,
+  "langsmith_project": "shopsage",
+  "summary": {
+    "total": 6,
+    "passed": 6,
+    "failed": 0,
+    "accuracy_pct": 100.0
+  },
+  "results": [
+    {
+      "id": "TC-01",
+      "category": "RAG Product Search",
+      "query": "Breathable gym socks for women under 600",
+      "passed": true,
+      "latency_ms": 4976,
+      "num_products": 3,
+      "details": "PASSED",
+      "notes": "6 retrieved, 6 recommendable (stock guardrail: all passed); cache MISS (cold start)"
+    },
+    {
+      "id": "TC-02",
+      "category": "RAG Product Search",
+      "query": "A crisp formal shirt for office wear, men, under 1500",
+      "passed": true,
+      "latency_ms": 2900,
+      "num_products": 3,
+      "details": "PASSED",
+      "notes": "6 retrieved, 6 recommendable; cache MISS"
+    },
+    {
+      "id": "TC-03",
+      "category": "Inventory Check (Tool Call)",
+      "query": "Is the Everyday Crew Tee in stock in size M?",
+      "passed": true,
+      "latency_ms": 1011,
+      "num_products": 1,
+      "details": "PASSED",
+      "notes": "Routed inventory_check; check_inventory MCP tool called; cache MISS"
+    },
+    {
+      "id": "TC-04",
+      "category": "Order Tracking (Tool Call)",
+      "query": "Where is my order ORD-1042?",
+      "passed": true,
+      "latency_ms": 1062,
+      "num_products": 0,
+      "details": "PASSED",
+      "notes": "Routed order_tracking; track_order MCP tool called; retrieval skipped"
+    },
+    {
+      "id": "TC-05",
+      "category": "Memory & Personalization",
+      "query": "Session 1: formal trousers under 2000 → Session 2: formal trousers",
+      "passed": true,
+      "latency_ms": 0,
+      "num_products": 3,
+      "details": "Memory recalled budget: True",
+      "notes": "cache HIT on session 2 (same query); budget_from_memory=true confirmed in memory_recall event"
+    },
+    {
+      "id": "TC-06",
+      "category": "Guardrail — Age Filter",
+      "query": "Show me a dress for my 10-year-old daughter",
+      "passed": true,
+      "latency_ms": 52813,
+      "num_products": 3,
+      "details": "PASSED",
+      "notes": "for_child=True extracted; guardrail age_filter event emitted; age_appropriate=True Chroma filter applied; stock guardrail: 6 retrieved, 6 recommendable. High latency due to stock guardrail calling get_in_stock_sizes for each product."
+    }
+  ],
+  "cache_stats": {
+    "retrieval_hits": 1,
+    "retrieval_misses": 5,
+    "embedding_hits": 0,
+    "embedding_misses": 5,
+    "note": "Cold start (process-fresh); TC-05 session 2 showed first cache HIT on retrieval"
+  },
+  "mcp_tools_available": ["check_inventory", "track_order", "get_in_stock_sizes"]
+}

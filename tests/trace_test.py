@@ -19,7 +19,7 @@ _src = memory.PROFILES_PATH
 memory.PROFILES_PATH = Path(tempfile.mkdtemp()) / "shopper_profiles.json"
 shutil.copy(_src, memory.PROFILES_PATH)
 
-from src.Agent_2 import rag_agent  # noqa: E402  (import after the store swap)
+from src.Agent_3 import rag_agent  # noqa: E402  (import after the store swap)
 
 CUSTOMER = "CUST-0002"
 
