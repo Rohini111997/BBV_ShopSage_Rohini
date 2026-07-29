@@ -119,18 +119,20 @@ function TypingBubble() {
 
 function ProductCard({ product, onSelect }) {
   const [imgOk, setImgOk] = useState(true)
-  const hasImage = product.image && imgOk
+  const imageSrc = product.image || (product.sku ? `images/${product.sku}.png` : '')
+  const hasImage = imageSrc && imgOk
+  const fullSrc = imageSrc.startsWith('/') ? imageSrc : `/${imageSrc}`
+
   return (
     <div className="w-32 shrink-0 overflow-hidden rounded-xl border border-stone-200 bg-white shadow-sm transition duration-200 hover:-translate-y-1 hover:shadow-lg dark:border-rose-100/10 dark:bg-rose-50/[0.05]">
       <button
         type="button"
         onClick={() => onSelect(product)}
-        disabled={!hasImage}
-        className={`flex h-32 w-32 items-center justify-center bg-stone-100 dark:bg-black/20 ${hasImage ? 'cursor-zoom-in' : 'cursor-default'}`}
+        className="flex h-32 w-32 cursor-pointer items-center justify-center bg-stone-100 dark:bg-black/20"
       >
         {hasImage ? (
           <img
-            src={`/${product.image}`}
+            src={fullSrc}
             alt={product.title}
             className="h-full w-full object-cover"
             onError={() => setImgOk(false)}
@@ -181,6 +183,8 @@ function Bubble({ role, content, products, onSelectProduct }) {
 }
 
 function ProductDetailModal({ product, onClose }) {
+  const [modalImgOk, setModalImgOk] = useState(true)
+
   useEffect(() => {
     const onKey = (e) => e.key === 'Escape' && onClose()
     window.addEventListener('keydown', onKey)
@@ -189,6 +193,9 @@ function ProductDetailModal({ product, onClose }) {
 
   if (!product) return null
   const attributes = Object.entries(product.attributes || {})
+  const imageSrc = product.image || (product.sku ? `images/${product.sku}.png` : '')
+  const hasImage = imageSrc && modalImgOk
+  const fullSrc = imageSrc.startsWith('/') ? imageSrc : `/${imageSrc}`
 
   return (
     <div
@@ -199,8 +206,17 @@ function ProductDetailModal({ product, onClose }) {
         className="flex max-h-[85vh] w-full max-w-2xl flex-col overflow-hidden rounded-2xl border border-stone-200 bg-white shadow-2xl sm:flex-row dark:border-rose-100/15 dark:bg-[#2a1418]"
         onClick={(e) => e.stopPropagation()}
       >
-        <div className="flex shrink-0 items-center justify-center bg-stone-100 dark:bg-black/30 sm:w-1/2">
-          <img src={`/${product.image}`} alt={product.title} className="max-h-[40vh] w-full object-contain sm:max-h-[85vh]" />
+        <div className="flex shrink-0 items-center justify-center bg-stone-100 dark:bg-black/30 sm:w-1/2 min-h-[160px]">
+          {hasImage ? (
+            <img
+              src={fullSrc}
+              alt={product.title}
+              className="max-h-[40vh] w-full object-contain sm:max-h-[85vh]"
+              onError={() => setModalImgOk(false)}
+            />
+          ) : (
+            <span className="text-5xl">🛍️</span>
+          )}
         </div>
 
         <div className="flex-1 overflow-y-auto p-6">

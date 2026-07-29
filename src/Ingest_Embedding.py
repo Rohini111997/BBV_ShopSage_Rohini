@@ -91,7 +91,7 @@ def create_item_documents(product_catalog: List[dict]) -> List[Document]:
                     "num_colors": int(item["Number_of_Colors_available"]),
                     "sizes": _as_text(item["Sizes_available"]).lower(),
                     "occasion": str(attributes.get("occasion", "")).lower(),
-                    "image": str(item.get("image", "")),
+                    "image": str(item.get("image") or f"images/{item['ID (SKU)']}.png"),
                 },
             )
         )
@@ -108,6 +108,16 @@ def ingest() -> Chroma:
     print(f"[ingest] built {len(documents)} documents (1 per product)")
 
     embeddings = HuggingFaceEmbeddings(model_name=EMBED_MODEL)
+
+    try:
+        existing_vs = Chroma(
+            collection_name=COLLECTION,
+            embedding_function=embeddings,
+            persist_directory=CHROMA_DIR,
+        )
+        existing_vs.delete_collection()
+    except Exception:
+        pass
 
     vector_store = Chroma.from_documents(
         documents=documents,

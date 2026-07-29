@@ -402,7 +402,7 @@ Keep responses concise. Do not add disclaimers."""
                 "brand": doc.metadata.get("brand", ""),
                 "title": doc.metadata.get("title", ""),
                 "price_inr": doc.metadata.get("price_inr"),
-                "image": doc.metadata.get("image") or None,
+                "image": doc.metadata.get("image") or catalog_item.get("image") or f"images/{sku}.png",
                 "item_type": catalog_item.get("item_type", ""),
                 "description": catalog_item.get("Description", ""),
                 "sizes_available": catalog_item.get("Sizes_available", ""),

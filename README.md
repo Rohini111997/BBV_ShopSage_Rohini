@@ -74,7 +74,7 @@ GROQ_API_KEY=your_key_here
 
 Both are required — the app raises on startup without them. `.env` is gitignored; never commit it.
 
-LangSmith tracing is optional and off by default; see [docs/observability.md](docs/observability.md) to switch it on.
+LangSmith tracing is optional and off 1
 
 ### 3. Load the dataset into Postgres
 
