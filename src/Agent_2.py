@@ -34,6 +34,7 @@ import json
 import os
 import sys
 import threading
+from contextlib import nullcontext
 from pathlib import Path
 
 from dotenv import load_dotenv
@@ -48,8 +49,16 @@ from langchain_huggingface import HuggingFaceEmbeddings
 from mcp import ClientSession, StdioServerParameters
 from mcp.client.stdio import stdio_client
 
-from src.Ingest_Embedding import CHROMA_DIR, COLLECTION, EMBED_MODEL, ingest
+from langsmith import traceable
+
+from src.Ingest_Embedding import CHROMA_DIR, COLLECTION, EMBED_MODEL, ingest, load_catalog
 from src import memory
+from src.observability import Trace, langsmith_status
+
+# Full catalog rows keyed by SKU — Chroma metadata only carries the fields
+# used for filtering/ranking, so product-detail lookups (description,
+# sizes, colors, attributes) go through this instead.
+_CATALOG_BY_SKU = {item["ID (SKU)"]: item for item in load_catalog()}
 
 
 # ======================================================================
@@ -248,12 +257,11 @@ Keep responses concise. Do not add disclaimers."""
         prompt. Called by the UI at login. Returns a status line."""
         customer_id = customer_id.strip().upper()
         profile = memory.get_profile(customer_id)
-        first_name = profile["name"].split()[0]
         if profile is None:
             profile = memory.upsert_guest(customer_id)
             status = f"New guest {customer_id} — I'll ask their name in chat."
         else:
-            status = (f"Welcome back, {first_name} ")
+            status = f"Welcome back, {profile['name'].split()[0]}"
         self.customer_id = customer_id
         self.profile = profile
         # Rebuild from BASE every time — switching shoppers never stacks
@@ -302,7 +310,9 @@ Keep responses concise. Do not add disclaimers."""
     # the bodies now delegate to the retail-tools MCP server.
     # ==================================================================
 
-    def track_order(self, customer_id: str, order_id: str | None = None) -> dict:
+    @traceable(run_type="tool", name="track_order")
+    def track_order(self, customer_id: str, order_id: str | None = None,
+                    trace: Trace | None = None) -> dict:
         """TOOL (MCP): order tracking via retail-tools `track_order`.
 
         The MCP tool filters order_tracking.csv by Customer_ID (and
@@ -312,10 +322,17 @@ Keep responses concise. Do not add disclaimers."""
         if not customer_id:
             return {"found": False, "error": "no_customer_id"}
 
-        res = self.mcp.call_tool(
-            "track_order",
-            {"customer_id": customer_id, "order_id": order_id},
-        )
+        span = trace.span("tool_call", tool="track_order",
+                          args={"customer_id": customer_id, "order_id": order_id}) \
+            if trace else nullcontext(None)
+        with span as rec:
+            res = self.mcp.call_tool(
+                "track_order",
+                {"customer_id": customer_id, "order_id": order_id},
+            )
+            if rec is not None:
+                rec["result"] = res["data"] if res["ok"] else res["raw_text"]
+                rec["ok"] = res["ok"]
         if not res["ok"]:
             return {"found": False, "error": "tool_error",
                     "detail": res["raw_text"]}
@@ -323,11 +340,13 @@ Keep responses concise. Do not add disclaimers."""
         data = res["data"] if isinstance(res["data"], dict) else {}
         if not data.get("order_id"):
             return {"found": False, "error": "order_not_found",
+                    "detail": data.get("error"),
                     "customer_id": customer_id, "order_id": order_id}
         return {"found": True, "order": data}
 
+    @traceable(run_type="tool", name="check_inventory")
     def check_inventory(self, sku: str, size: str = None,
-                        color: str = None) -> dict:
+                        color: str = None, trace: Trace | None = None) -> dict:
         """TOOL (MCP): live inventory via retail-tools `check_inventory`.
 
         The MCP tool reads inventory.csv and returns the string
@@ -337,15 +356,25 @@ Keep responses concise. Do not add disclaimers."""
         if not sku:
             return {"checked": False, "error": "no_sku"}
 
-        res = self.mcp.call_tool(
-            "check_inventory",
-            {"sku": sku, "size": size, "color": color},
-        )
+        span = trace.span("tool_call", tool="check_inventory",
+                          args={"sku": sku, "size": size, "color": color}) \
+            if trace else nullcontext(None)
+        with span as rec:
+            res = self.mcp.call_tool(
+                "check_inventory",
+                {"sku": sku, "size": size, "color": color},
+            )
+            if rec is not None:
+                rec["result"] = res["data"] if res["ok"] else res["raw_text"]
+                rec["ok"] = res["ok"]
         if not res["ok"]:
             return {"checked": False, "sku": sku, "size": size, "color": color,
                     "error": "tool_error", "detail": res["raw_text"]}
 
         status = res["data"] if isinstance(res["data"], str) else res["raw_text"]
+        if status.startswith("Error:"):
+            return {"checked": False, "sku": sku, "size": size, "color": color,
+                    "error": "not_found", "detail": status}
         return {
             "checked": True,
             "sku": sku,
@@ -354,6 +383,35 @@ Keep responses concise. Do not add disclaimers."""
             "stock_status": status,          # "In Stock" | "Out of Stock"
             "in_stock": status.strip().lower() == "in stock",
         }
+
+    @staticmethod
+    def _products_from_docs(docs, limit=3):
+        """Distinct retrieved catalog entries -> product cards for the
+        frontend, enriched with full catalog detail (description, sizes,
+        colors, attributes) for the image-click detail preview."""
+        products = []
+        seen_skus = set()
+        for doc in docs:
+            sku = doc.metadata.get("sku")
+            if not sku or sku in seen_skus:
+                continue
+            seen_skus.add(sku)
+            catalog_item = _CATALOG_BY_SKU.get(sku, {})
+            products.append({
+                "sku": sku,
+                "brand": doc.metadata.get("brand", ""),
+                "title": doc.metadata.get("title", ""),
+                "price_inr": doc.metadata.get("price_inr"),
+                "image": doc.metadata.get("image") or None,
+                "item_type": catalog_item.get("item_type", ""),
+                "description": catalog_item.get("Description", ""),
+                "sizes_available": catalog_item.get("Sizes_available", ""),
+                "colors_available": catalog_item.get("Colors_available", ""),
+                "attributes": catalog_item.get("Attributes") or {},
+            })
+            if len(products) >= limit:
+                break
+        return products
 
     @staticmethod
     def _resolve_sku(docs):
@@ -427,6 +485,9 @@ SHOPPER MESSAGE: "{shopper_query}" """
         keys = ["query_type", "item_intent", "customer_id", "order_id",
                 "gender", "size", "color", "max_price_inr", "occasion"]
         c = {k: c.get(k) for k in keys}
+        # Distinguish a real extracted intent from the raw-message fallback —
+        # memory only persists the former, so greetings don't become notes.
+        c["item_intent_extracted"] = bool(c["item_intent"])
         if not c["item_intent"] and c["query_type"] != "order_tracking":
             c["item_intent"] = shopper_query
         if c["query_type"] not in ("new_search", "follow_up",
@@ -456,41 +517,69 @@ PARSED UNDERSTANDING:
         messages = [self.system_message, HumanMessage(content=prompt)]
         return self.llm.invoke(messages).content
 
+    @traceable(run_type="chain", name="shopsage_turn")
     def get_rag_product_recommendation(self, shopper_query, history=None):
-        """Main entry point. Routes each message to the right path:
-        RAG (new_search / follow_up), MCP order tool, or MCP inventory tool."""
+        """Main entry point. Wraps the turn in one Trace so every event —
+        routing, memory, retrieval, tool calls — shares a single trace_id,
+        and attaches it to the reply for the UI's agent-trace panel."""
+        trace = Trace(shopper_query, self.customer_id)
+        try:
+            result = self._run_turn(shopper_query, history or [], trace)
+        except Exception as exc:
+            trace.event("unhandled_error", detail=f"{type(exc).__name__}: {exc}")
+            raise
+        result["trace"] = trace.to_dict()
+        return result
 
-        history = history or []
+    def _run_turn(self, shopper_query, history, trace: Trace):
+        """Routes each message to the right path: RAG (new_search /
+        follow_up), MCP order tool, or MCP inventory tool."""
+
         history_text = self._format_history(history)
 
         # ---- Stage 1: extract + ROUTE --------------------------------
-        c = self._extract_slots(shopper_query, history_text)
+        with trace.span("extract_slots"):
+            c = self._extract_slots(shopper_query, history_text)
+        trace.event("route", query_type=c["query_type"], slots=c)
 
         # ---- Memory: read then write ---------------------------------
         # Backfill missing slots from the logged-in profile (gender drives
         # SKU filtering; customer_id lets order tracking skip the ID ask).
         # Precedence: what the shopper typed this turn always wins.
-        c = memory.apply_profile_defaults(c, self.profile)
-        # Persist durable preferences (product-search turns only; deduped;
-        # capped at the 3 most recent notes on disk).
+        # Record what the shopper actually said BEFORE backfilling, so recalled
+        # values don't get re-persisted as fresh learnings.
         if self.customer_id:
-            memory.record_session_learnings(self.customer_id, c)
+            updated = memory.record_session_learnings(self.customer_id, c)
+            if updated:
+                self.profile = updated
+                trace.event("memory_write",
+                            note=updated["learned_preferences"][-1]["note"])
+        before = dict(c)
+        c = memory.apply_profile_defaults(c, self.profile)
+        recalled = {k: v for k, v in c.items() if before.get(k) != v}
+        trace.event("memory_recall",
+                    recalled=recalled,
+                    budget_from_memory=bool(c.get("budget_from_memory")),
+                    learned_notes=[n["note"] for n in
+                                   (self.profile or {}).get("learned_preferences", [])])
 
         # ---- PATH: order tracking (MCP tool, retrieval skipped) ------
         if c["query_type"] == "order_tracking":
             if not c["customer_id"]:
-                return ("I can check that for you — could you share your "
-                        "customer ID (e.g. CUST-001)? An order ID helps too "
-                        "if you have it.")
-            result = self.track_order(c["customer_id"], c["order_id"])
-            return self._generate(
-                shopper_query, history_text, c, tool_result=result,
-                rules=("- Answer ONLY from the TOOL RESULT\n"
-                       "- If found, summarize order_status, item_count and "
-                       "expected_delivery_date in 1-3 sentences, naming the "
-                       "order ID\n"
-                       "- If not found, say so and ask the shopper to "
-                       "double-check their customer ID / order ID"))
+                return {"reply": ("I can check that for you — could you share your "
+                                   "customer ID (e.g. CUST-001)? An order ID helps too "
+                                   "if you have it."), "products": []}
+            result = self.track_order(c["customer_id"], c["order_id"], trace=trace)
+            with trace.span("generate", path="order_tracking"):
+                reply = self._generate(
+                    shopper_query, history_text, c, tool_result=result,
+                    rules=("- Answer ONLY from the TOOL RESULT\n"
+                           "- If found, summarize order_status, item_count and "
+                           "expected_delivery_date in 1-3 sentences, naming the "
+                           "order ID\n"
+                           "- If not found, say so and ask the shopper to "
+                           "double-check their customer ID / order ID"))
+            return {"reply": reply, "products": []}
 
         # ---- Build search inputs (all remaining paths use retrieval) --
         query_parts = [c["item_intent"]]
@@ -512,64 +601,86 @@ PARSED UNDERSTANDING:
             if c["max_price_inr"]:
                 metadata_filter["price_inr"] = {"$lte": c["max_price_inr"]}
 
-        relevant_docs = self.retrieve_relevant_knowledge(
-            search_query, k=6, metadata_filter=metadata_filter
-        )
+        with trace.span("retrieval", query=search_query, k=6,
+                        filters=metadata_filter) as rec:
+            relevant_docs = self.retrieve_relevant_knowledge(
+                search_query, k=6, metadata_filter=metadata_filter
+            )
+            rec["hits"] = [{"sku": d.metadata.get("sku"),
+                            "title": d.metadata.get("title"),
+                            "price_inr": d.metadata.get("price_inr")}
+                           for d in relevant_docs]
 
         # ---- PATH: inventory check (retrieval resolves SKU -> MCP tool)
         if c["query_type"] == "inventory_check":
             if not relevant_docs:
-                return ("I'm not sure which item you'd like me to check — "
-                        "could you mention the product name?")
+                return {"reply": ("I'm not sure which item you'd like me to check — "
+                                   "could you mention the product name?"), "products": []}
             sku, top_doc = self._resolve_sku(relevant_docs)
-            result = self.check_inventory(sku, size=c["size"], color=c["color"])
+            result = self.check_inventory(sku, size=c["size"], color=c["color"],
+                                          trace=trace)
             context = self.format_retrieved_context([top_doc] if top_doc else [])
-            return self._generate(
-                shopper_query, history_text, c,
-                context=context, tool_result=result,
-                rules=("- If the TOOL RESULT has checked=true, answer stock "
-                       "from stock_status exactly ('In Stock' / 'Out of "
-                       "Stock'), naming the product and any size/color "
-                       "checked\n"
-                       "- If checked=false, state which sizes/colors the "
-                       "catalog offers for this product and say you could "
-                       "not confirm live stock\n"
-                       "- 1-3 plain sentences"))
+            with trace.span("generate", path="inventory_check"):
+                reply = self._generate(
+                    shopper_query, history_text, c,
+                    context=context, tool_result=result,
+                    rules=("- If the TOOL RESULT has error=not_found, say that "
+                           "product or that exact size/colour isn't one we carry, "
+                           "and name what the catalog does offer\n"
+                           "- If the TOOL RESULT has checked=true, answer stock "
+                           "from stock_status exactly ('In Stock' / 'Out of "
+                           "Stock'), naming the product and any size/color "
+                           "checked\n"
+                           "- If checked=false, state which sizes/colors the "
+                           "catalog offers for this product and say you could "
+                           "not confirm live stock\n"
+                           "- 1-3 plain sentences"))
+            products = self._products_from_docs([top_doc] if top_doc else [], limit=1)
+            return {"reply": reply, "products": products}
 
         # ---- PATH: RAG (new_search / follow_up) ----------------------
         # Empty-retrieval guard — only meaningful for new searches
         if not relevant_docs:
             if c["query_type"] == "follow_up":
-                return ("I'm not sure which item you're referring to — could you "
-                        "mention the product name from the list I shared?")
+                return {"reply": ("I'm not sure which item you're referring to — could you "
+                                   "mention the product name from the list I shared?"), "products": []}
             if c["max_price_inr"] is not None:
                 relaxed = {k: v for k, v in metadata_filter.items()
                            if k != "price_inr"}
-                alt_docs = self.retrieve_relevant_knowledge(
-                    search_query, k=3, metadata_filter=relaxed
-                )
+                with trace.span("retrieval_relaxed", filters=relaxed, k=3):
+                    alt_docs = self.retrieve_relevant_knowledge(
+                        search_query, k=3, metadata_filter=relaxed
+                    )
                 if alt_docs:
                     cheapest = min(d.metadata["price_inr"] for d in alt_docs)
-                    return (f"I couldn't find anything matching your request under "
-                            f"INR {c['max_price_inr']}. The closest options start at "
-                            f"INR {cheapest}. Would you like to see those, or adjust "
-                            f"your budget?")
-            return ("I couldn't find anything in the catalog matching that request. "
-                    "Could you tell me a bit more about what you're looking for?")
+                    return {"reply": (f"I couldn't find anything matching your request under "
+                                       f"INR {c['max_price_inr']}. The closest options start at "
+                                       f"INR {cheapest}. Would you like to see those, or adjust "
+                                       f"your budget?"), "products": []}
+            return {"reply": ("I couldn't find anything in the catalog matching that request. "
+                               "Could you tell me a bit more about what you're looking for?"),
+                    "products": []}
 
         context = self.format_retrieved_context(relevant_docs)
-        return self._generate(
-            shopper_query, history_text, c, context=context,
-            rules=("- For a new search: recommend ONLY items in the retrieved "
-                   "context; treat size and budget as hard constraints; rank "
-                   "by fit and return up to 3, in the standard recommendation "
-                   "format\n"
-                   "- For a follow-up question: answer about the specific "
-                   "item(s) from the conversation, using the retrieved context "
-                   "as the source of truth for colors, sizes, fabric, and "
-                   "price; answer in 1-3 plain sentences and name the product\n"
-                   "- If the retrieved context doesn't contain the item being "
-                   "asked about, say so rather than guessing"))
+        with trace.span("generate", path=c["query_type"]):
+            reply = self._generate(
+                shopper_query, history_text, c, context=context,
+                rules=("- For a new search: recommend ONLY items in the retrieved "
+                       "context; treat size and budget as hard constraints; rank "
+                       "by fit and return up to 3, in the standard recommendation "
+                       "format\n"
+                       "- If budget_from_memory is true, say once that you've "
+                       "applied the budget they gave you earlier — never apply it "
+                       "silently\n"
+                       "- For a follow-up question: answer about the specific "
+                       "item(s) from the conversation, using the retrieved context "
+                       "as the source of truth for colors, sizes, fabric, and "
+                       "price; answer in 1-3 plain sentences and name the product\n"
+                       "- If the retrieved context doesn't contain the item being "
+                       "asked about, say so rather than guessing"))
+        limit = 3 if c["query_type"] == "new_search" else 1
+        products = self._products_from_docs(relevant_docs, limit=limit)
+        return {"reply": reply, "products": products}
 
     # Mental Model:
     # shopper query -> extract slots + ROUTE
@@ -606,6 +717,7 @@ mcp_client = RetailMCPClient(
     data_dir=os.environ.get("RETAIL_DATA_DIR"),
 )
 rag_agent = RAG_Reco_Agent(vectorstore, embeddings, mcp_client)
+print(f"[observability] LangSmith tracing {langsmith_status()}")
 print("RAG Recommendation Agent Ready!")
 
 

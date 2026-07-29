@@ -1,0 +1,65 @@
+# Tasks 13, 15, 24 — agent trace log
+# Run: python tests/trace_test.py  (2026-07-28, LangSmith disabled)
+
+Initializing RAG Recommendation Agent...
+[07/28/26 16:13:29] INFO     Processing request of type            server.py:733
+[07/28/26 16:13:32] INFO     Processing request of type            server.py:733
+[MCP] connected to retail-tools — tools: ['check_inventory', 'track_order']
+[observability] LangSmith tracing disabled (set LANGSMITH_TRACING + LANGSMITH_API_KEY to enable)
+RAG Recommendation Agent Ready!
+==============================================================================
+SESSION 1 — shopper states a budget
+==============================================================================
+  trace_id : e165f0685360   total 1254ms   langsmith=False
+      0ms  extract_slots (402ms)
+    402ms  route
+           -> new_search
+    421ms  memory_write
+           -> stored 'Interested in waterproof jacket, for hiking, budget under ₹4000'
+    421ms  memory_recall
+           -> recalled {"customer_id": "CUST-0002", "gender": "female"}
+    421ms  retrieval (45ms)
+           -> filters {"doc_type": "product_catalog", "gender": "female", "price_inr": {"$lte": 4000}}
+           -> hit APL-TOP-F-103 Stormshield Rain Jacket INR 1799
+           -> hit APL-TOP-F-104 Trailmist Waterproof Parka INR 3999
+           -> hit APL-TOP-F-072 Polar Longline Puffer INR 2999
+    467ms  generate (787ms)
+  failures : none
+==============================================================================
+SESSION 2 — fresh login, no budget mentioned
+==============================================================================
+  trace_id : cdea9493ec34   total 1149ms   langsmith=False
+      0ms  extract_slots (347ms)
+    347ms  route
+           -> new_search
+    371ms  memory_write
+           -> stored 'Interested in jackets'
+    371ms  memory_recall
+           -> recalled {"customer_id": "CUST-0002", "gender": "female", "max_price_inr": 4000, "budget_from_memory": true}
+    371ms  retrieval (59ms)
+           -> filters {"doc_type": "product_catalog", "gender": "female", "price_inr": {"$lte": 4000}}
+           -> hit APL-TOP-F-103 Stormshield Rain Jacket INR 1799
+           -> hit APL-TOP-F-072 Polar Longline Puffer INR 2999
+           -> hit APL-TOP-F-024 Crop Cloud Hoodie INR 1499
+    431ms  generate (718ms)
+  failures : none
+==============================================================================
+INVENTORY CHECK — MCP tool round trip
+==============================================================================
+  trace_id : 61b04eebcf78   total 1970ms   langsmith=False
+      0ms  extract_slots (365ms)
+    365ms  route
+           -> inventory_check
+    365ms  memory_recall
+           -> recalled {"gender": "female", "max_price_inr": 4000, "budget_from_memory": true}
+    365ms  retrieval (50ms)
+           -> filters {"doc_type": "product_catalog"}
+           -> hit APL-TOP-M-102 Summit Waterproof Trail Jacket INR 3499
+           -> hit APL-TOP-F-104 Trailmist Waterproof Parka INR 3999
+           -> hit APL-TOP-F-103 Stormshield Rain Jacket INR 1799
+    416ms  tool_call (1134ms)
+           -> check_inventory({"sku": "APL-TOP-M-102", "size": "M", "color": "Forest Green"}) = 'Out of Stock'
+   1550ms  generate (419ms)
+  failures : none
+  reply: The Drift & Dune Summit Waterproof Trail Jacket in size M and Forest Green is currently Out of Stock. This jacket is available in sizes XS, S, M, L, XL, XXL, and colors Forest Green and Charcoal. If y
+✅ trace captures routing, cross-session recall, and MCP tool calls

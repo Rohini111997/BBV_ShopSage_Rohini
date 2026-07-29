@@ -1,0 +1,63 @@
+# Task 7 — retrieval test log
+# Run: python tests/retrieval_test.py  (against chroma_db/, 2026-07-28)
+
+Warning: You are sending unauthenticated requests to the HF Hub. Please set a HF_TOKEN to enable higher rate limits and faster downloads.
+chroma store: 104 chunks in 'shopsage_catalog'
+
+==============================================================================
+sample query 1 — waterproof jacket, cold-weather hiking
+==============================================================================
+
+QUERY   : waterproof jacket for cold-weather hiking
+FILTERS : gender=male, price_inr <= 7000
+  [1] APL-TOP-M-102  INR 3499  Drift & Dune Summit Waterproof Trail Jacket  (jacket)
+      Product catalog entry for Drift & Dune Summit Waterproof Trail Jacket (Topwear > Jacket, Male): An insulated w...
+  [2] APL-TOP-M-101  INR 1799  Drift & Dune Stormshield Rain Jacket  (jacket)
+      Product catalog entry for Drift & Dune Stormshield Rain Jacket (Topwear > Jacket, Male): A fully waterproof sh...
+  [3] APL-TOP-M-006  INR 2999  Drift & Dune Trailhead Puffer Jacket  (jacket)
+      Product catalog entry for Drift & Dune Trailhead Puffer Jacket (Topwear > Jacket, Male): A lightweight quilted...
+VERDICT : CORRECT
+
+==============================================================================
+formal shirt for office wear, men, under INR 1500
+==============================================================================
+
+QUERY   : crisp formal shirt for office wear
+FILTERS : gender=male, price_inr <= 1500
+  [1] APL-TOP-M-001  INR 499   UrbanThread Everyday Crew Tee  (t-shirt)
+      Product catalog entry for UrbanThread Everyday Crew Tee (Topwear > T-Shirt, Male): A soft combed-cotton crew n...
+  [2] APL-TOP-M-002  INR 1499  Aster & Co. Boardroom Oxford Shirt  (shirt)
+      Product catalog entry for Aster & Co. Boardroom Oxford Shirt (Topwear > Shirt, Male): A crisp slim-fit oxford ...
+  [3] APL-TOP-M-051  INR 799   UrbanThread Heritage Striped Henley  (t-shirt)
+      Product catalog entry for UrbanThread Heritage Striped Henley (Topwear > T-Shirt, Male): A striped henley in t...
+VERDICT : CORRECT
+
+==============================================================================
+breathable gym socks for women under INR 600
+==============================================================================
+
+QUERY   : breathable gym socks
+FILTERS : gender=female, price_inr <= 600
+  [1] APL-ACC-F-050  INR 499   SoleMate Ankle Sport Socks 3-Pack  (socks)
+      Product catalog entry for SoleMate Ankle Sport Socks 3-Pack (Accessories > Socks, Female): Breathable ankle so...
+  [2] APL-ACC-F-099  INR 599   NovaFit GripFlow Yoga Socks  (socks)
+      Product catalog entry for NovaFit GripFlow Yoga Socks (Accessories > Socks, Female): Non-slip yoga socks with ...
+  [3] APL-ACC-F-049  INR 599   SoleMate Cozy Cabin Socks 2-Pack  (socks)
+      Product catalog entry for SoleMate Cozy Cabin Socks 2-Pack (Accessories > Socks, Female): Thick wool-blend soc...
+VERDICT : CORRECT
+
+==============================================================================
+budget filter — no formal shirt exists under INR 500
+==============================================================================
+
+QUERY   : crisp formal shirt for office wear
+FILTERS : gender=male, price_inr <= 500
+  [1] APL-TOP-M-001  INR 499   UrbanThread Everyday Crew Tee  (t-shirt)
+      Product catalog entry for UrbanThread Everyday Crew Tee (Topwear > T-Shirt, Male): A soft combed-cotton crew n...
+  [2] APL-ACC-M-046  INR 499   SoleMate Everyday Crew Socks 3-Pack  (socks)
+      Product catalog entry for SoleMate Everyday Crew Socks 3-Pack (Accessories > Socks, Male): A three-pack of cus...
+VERDICT : CORRECT
+NOTE    : filter holds, but note the retriever returns the nearest surviving items rather than nothing — relevance is not enforced, only price. Agent_2's 'nothing under your budget' path only fires when the filter eliminates every product.
+
+==============================================================================
+4/4 cases correct
