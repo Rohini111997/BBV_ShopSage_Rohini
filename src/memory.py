@@ -84,23 +84,41 @@ def profile_to_prompt(profile: dict) -> str:
     return "\n".join(lines)
 
 
+def learned_budget(profile: dict | None) -> int | None:
+    """Most recent budget the shopper stated in chat. Purchase-derived
+    preferences.budget_inr is deliberately NOT used — it's a soft default and
+    hard-filtering on it would silently cap searches the shopper never capped."""
+    if not profile:
+        return None
+    for note in reversed(profile.get("learned_preferences", [])):
+        if note.get("budget_inr"):
+            return note["budget_inr"]
+    return None
+
+
 def apply_profile_defaults(slots: dict, profile: dict | None) -> dict:
     """Backfill missing extraction slots from the profile — precedence rule:
     what the shopper said this turn always wins; profile only fills gaps.
-    Currently backfills gender (drives SKU filtering: APL-TOP-F vs -M).
-    Extend with size/budget here if hard filtering on them is wanted later."""
+    Backfills gender (drives SKU filtering: APL-TOP-F vs -M) and the budget
+    remembered from an earlier session."""
     if not profile:
         return slots
     if not slots.get("gender"):
         slots["gender"] = profile.get("gender")
     if not slots.get("customer_id"):
         slots["customer_id"] = profile.get("customer_id")
+    if not slots.get("max_price_inr"):
+        budget = learned_budget(profile)
+        if budget:
+            slots["max_price_inr"] = budget
+            slots["budget_from_memory"] = True
     return slots
 
 
 # ---------------------------------------------------------------- write path
 
-def remember_preference(customer_id: str, note: str, source: str = "chat") -> dict | None:
+def remember_preference(customer_id: str, note: str, source: str = "chat",
+                        budget_inr: int | None = None) -> dict | None:
     """Append one chat-learned note. Dedupes identical notes, keeps only the
     MAX_LEARNED most recent. Returns updated profile, None if unknown customer."""
     profiles = _load_all()
@@ -110,7 +128,8 @@ def remember_preference(customer_id: str, note: str, source: str = "chat") -> di
     notes = profile.setdefault("learned_preferences", [])
     if any(n["note"] == note for n in notes):      # exact duplicate → refresh, don't stack
         notes[:] = [n for n in notes if n["note"] != note]
-    notes.append({"note": note, "learned_at": _now(), "source": source})
+    notes.append({"note": note, "learned_at": _now(), "source": source,
+                  "budget_inr": budget_inr})
     profile["learned_preferences"] = notes[-MAX_LEARNED:]   # keep last 3 only
     _save_all(profiles)
     return profile
@@ -120,7 +139,7 @@ def note_from_slots(slots: dict) -> str | None:
     """Compose a short note from extraction slots. Returns None if the turn
     carried nothing durable (so order-tracking queries etc. write nothing)."""
     parts = []
-    if slots.get("item_intent"):
+    if slots.get("item_intent") and slots.get("item_intent_extracted", True):
         parts.append(f"interested in {slots['item_intent']}")
     if slots.get("color"):
         parts.append(f"prefers {slots['color']}")
@@ -139,7 +158,8 @@ def record_session_learnings(customer_id: str, slots: dict) -> dict | None:
     note = note_from_slots(slots)
     if not note:
         return None
-    return remember_preference(customer_id, note)
+    return remember_preference(customer_id, note,
+                               budget_inr=slots.get("max_price_inr"))
 
 
 def upsert_guest(customer_id: str, name: str = "Guest") -> dict:
@@ -162,6 +182,14 @@ def upsert_guest(customer_id: str, name: str = "Guest") -> dict:
 # ---------------------------------------------------------------- self-test
 
 if __name__ == "__main__":
+    import shutil
+    import tempfile
+
+    # Work on a throwaway copy — the self-test must not dirty committed data.
+    _src = PROFILES_PATH
+    PROFILES_PATH = Path(tempfile.mkdtemp()) / "shopper_profiles.json"
+    shutil.copy(_src, PROFILES_PATH)
+
     print("=== memory.py self-test: write, cap at 3, read back ===\n")
     cid = "CUST-0083"
     for i, note in enumerate([

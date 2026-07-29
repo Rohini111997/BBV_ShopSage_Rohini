@@ -1,0 +1,23 @@
+# Task 11 & 12 — tool test log
+# Run: python tests/tool_test.py  (against Neon Postgres, 2026-07-28)
+
+
+======================================================================
+TOOL 1: check_inventory
+======================================================================
+  any variant of a known SKU         → In Stock
+  known SKU, size M                  → In Stock
+  known SKU, color Black             → In Stock
+  known SKU, size M + Black          → In Stock
+  unknown SKU                        → Error: unknown SKU 'APL-XXX-X-999'
+  known SKU, colour we don't carry   → Error: 'APL-TOP-M-001' has no variant in size=any, color=Neon Pink
+
+======================================================================
+TOOL 2: track_order
+======================================================================
+  known customer, latest order       → {'order_id': 'ORD-2026-000001', 'order_status': 'delivered', 'item_count': 2, 'expected_delivery_date': datetime.date(2026, 7, 3)}
+  known customer + order ID          → {'order_id': 'ORD-2026-000001', 'order_status': 'delivered', 'item_count': 2, 'expected_delivery_date': datetime.date(2026, 7, 3)}
+  unknown customer                   → {'error': "no orders found for customer 'CUST-9999'", 'order_id': None, 'order_status': None, 'item_count': 0}
+  known customer, unknown order      → {'error': "no orders found for customer 'CUST-0083', order 'ORD-2026-999999'", 'order_id': None, 'order_status': None, 'item_count': 0}
+
+✅ all tool cases passed

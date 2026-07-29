@@ -1,0 +1,37 @@
+# Task 14 — memory write / read-back log
+# Run: python -m src.memory  (operates on a temp copy of shopper_profiles.json)
+
+=== memory.py self-test: write, cap at 3, read back ===
+
+[1] wrote: Interested in kurtas, budget under ₹1500
+[2] wrote: Prefers pastels for office wear
+[3] wrote: Interested in linen shirts, for beach trip
+[4] wrote: Interested in party wear, budget under ₹2500
+
+Kept on disk (3):
+  - Prefers pastels for office wear
+  - Interested in linen shirts, for beach trip
+  - Interested in party wear, budget under ₹2500
+
+--- rendered prompt section ---
+
+
+KNOWN SHOPPER
+You are speaking with Tanvi Joshi (Gold member). Greet her/him by name once.
+
+From purchase history (defaults, lowest priority):
+- Gender: female
+- Usual sizes: top S, bottom XS
+- Usual colours: Black, Lilac, Rosewood
+- Shops for occasions: Gym, Outdoor
+- Typical budget: up to ₹3000
+- Style: Mostly buys jackets and t-shirts for gym and outdoor occasions; favours performance/polyester and cotton fabrics, usually regular fit
+
+From recent conversations (override purchase history):
+- Prefers pastels for office wear (noted 2026-07-28)
+- Interested in linen shirts, for beach trip (noted 2026-07-28)
+- Interested in party wear, budget under ₹2500 (noted 2026-07-28)
+
+PRECEDENCE: what the shopper says in the current message always wins; then recent conversation notes; purchase history is only a fallback. Never contradict an explicit request using remembered preferences.
+
+✅ Cap-at-3 + read-back verified.

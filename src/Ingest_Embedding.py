@@ -91,6 +91,7 @@ def create_item_documents(product_catalog: List[dict]) -> List[Document]:
                     "num_colors": int(item["Number_of_Colors_available"]),
                     "sizes": _as_text(item["Sizes_available"]).lower(),
                     "occasion": str(attributes.get("occasion", "")).lower(),
+                    "image": str(item.get("image", "")),
                 },
             )
         )
