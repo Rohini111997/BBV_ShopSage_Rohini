@@ -41,7 +41,8 @@ else:
 
 def chat_fn(message, history):
     try:
-        return rag_agent.get_rag_product_recommendation(message, history=history)
+        result = rag_agent.get_rag_product_recommendation(message, history=history)
+        return result["reply"]
     except Exception as e:
         import traceback; traceback.print_exc()
         return f"Sorry, something went wrong: {e}"

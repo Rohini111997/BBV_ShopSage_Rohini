@@ -20,7 +20,18 @@
       "style_notes": "Mostly buys jackets for outdoor occasions; favours performance/polyester fabrics, usually regular fit",
       "budget_inr": 3000
     },
-    "learned_preferences": [],
+    "learned_preferences": [
+      {
+        "note": "Interested in hi",
+        "learned_at": "2026-07-27T14:03:59",
+        "source": "chat"
+      },
+      {
+        "note": "Interested in mens tee",
+        "learned_at": "2026-07-27T14:04:14",
+        "source": "chat"
+      }
+    ],
     "loyalty": {
       "tier": "Bronze",
       "points": 299,
@@ -683,6 +694,21 @@
       "budget_inr": 2500
     },
     "learned_preferences": [
+      {
+        "note": "Interested in breathable gym socks, for sports, budget under ₹600",
+        "learned_at": "2026-07-25T15:54:43",
+        "source": "chat"
+      },
+      {
+        "note": "Interested in crisp formal shirt, for office",
+        "learned_at": "2026-07-25T15:54:55",
+        "source": "chat"
+      },
+      {
+        "note": "Interested in casual cotton t-shirt, for casual, budget under ₹700",
+        "learned_at": "2026-07-25T15:54:58",
+        "source": "chat"
+      },
       {
         "note": "Interested in office wear, for office",
         "learned_at": "2026-07-26T08:28:59",

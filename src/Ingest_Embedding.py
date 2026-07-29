@@ -93,6 +93,7 @@ def create_item_documents(product_catalog: List[dict]) -> List[Document]:
                     "sizes": _as_text(item["Sizes_available"]).lower(),
                     "occasion": str(attributes.get("occasion", "")).lower(),
                     "age_appropriate": bool(item.get("age_appropriate", False)),
+                    "image": str(item.get("image", "")),
                 },
             )
         )
