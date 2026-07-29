@@ -44,5 +44,27 @@ def check_inventory(sku: str, size: str | None = None, color: str | None = None)
     
     has_stock = (query["Qty_available"] > 0).any()
     return "In Stock" if has_stock else "Out of Stock"
+
+
+
+# ─────────────────────────────────────────────────────────────────────────
+# TOOL Setup -  In-Stock Sizes  (facts only — the agent applies the
+# "recommendable" business rule: >=2 sizes for apparel, >=1 for accessories)
+# ─────────────────────────────────────────────────────────────────────────
+ 
+@mcp.tool()
+def get_in_stock_sizes(sku: str) -> dict:
+    """Return the distinct sizes of this SKU currently in stock
+    (Qty_available > 0). Accessories may have blank/one-size rows,
+    which still count as one available 'size'."""
+    df = pd.read_csv(INVENTORY_CSV)
+    rows = df[
+        (df["ID (SKU)"].str.upper() == sku.upper())
+        & (df["Qty_available"] > 0)
+    ]
+    sizes = sorted(rows["Size"].fillna("One Size").astype(str).unique().tolist())
+    return {"sku": sku, "in_stock_sizes": sizes, "count": len(sizes)}
+ 
+ 
  
  

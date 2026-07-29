@@ -9,12 +9,14 @@ Run directly to serve over stdio for Claude Desktop / MCP clients:
 
 from mcp.server.fastmcp import FastMCP
 
-from inventory import check_inventory
+from inventory import check_inventory, get_in_stock_sizes
 from order_tracking import track_order
 
 mcp = FastMCP("retail-tools")
 mcp.add_tool(check_inventory)
 mcp.add_tool(track_order)
+mcp.add_tool(get_in_stock_sizes)
+ 
 
 if __name__ == "__main__":
     mcp.run()
