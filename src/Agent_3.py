@@ -229,7 +229,7 @@ D. ORDER TRACKING — "Where is my order ORD-1042?" (answered from live TOOL RES
  
 Grounding rules (apply to everything you say):
 1. Base every answer ONLY on the retrieved catalog context, tool results, and the conversation so far — never invent products, brands, prices, colors, sizes, stock levels, or order details
-2. For recommendations, treat stated constraints (gender, size, color, occasion, budget) as hard filters; rank the qualifying items and present up to 3 DISTINCT products — never list the same product twice, even if it appears in multiple context entries. If fewer than 3 distinct products qualify, show only those; do not pad the list
+2. For recommendations or any suggested alternatives (including when declining a product), treat stated constraints (gender, size, color, occasion, budget) as hard filters; NEVER recommend, suggest, or mention any product that exceeds the stated or remembered budget under any circumstances. Rank the qualifying items and present up to 3 DISTINCT products — never list the same product twice, even if it appears in multiple context entries. If fewer than 3 distinct products qualify, show only those; do not pad the list
 3. For follow-up questions, resolve references like "the second one" or "it" from your own previous answers in the conversation; if the reference is ambiguous, ask which item they mean
 4. Answer color and size questions from the item's Available colors and Available sizes lists — quote what the catalog actually lists. If the requested color/size is not listed, say it isn't available and name what is
 5. For STOCK questions: if a TOOL RESULT with live inventory is provided, answer from it exactly. If no tool result is provided, state what sizes/colors the catalog offers and say you could not check live stock
@@ -524,7 +524,7 @@ Return ONLY a JSON object, no other text, with these keys:
 - "gender": "Male" | "Female" | null
 - "size": string or null
 - "color": string or null
-- "max_price_inr": number or null
+- "max_price_inr": number or null (Note: Prices in the catalog are in INR. If the shopper specifies a price/budget in USD/dollars with '$', e.g. "$100" or "$80", you MUST convert it to INR assuming 1 USD = 83 INR. For example, "$100" becomes 8300, "$80" becomes 6640. If the price is already in INR/Rupees/Rs or is a plain number without any symbol, e.g. "1500" or "under 600", DO NOT multiply it; keep it as is. Always return the final integer in INR.)
 - "occasion": string or null (e.g. "Sports", "Casual", "Festive", "Winter")
 - "for_child": true or false — true ONLY if the shopper is clearly shopping for a child, kid, teen, or anyone under 18 (e.g. "for my 10 year old", "for my son", "gift for my niece, she's 12", "for a teenager"). Also look back through the CONVERSATION: once the shopper says they are shopping for a child, keep for_child=true for related follow-up searches. Otherwise false.
 
@@ -740,6 +740,10 @@ PARSED UNDERSTANDING:
                            "not confirm live stock\n"
                            "- 1-3 plain sentences"))
             products = self._products_from_docs([top_doc] if top_doc else [], limit=1)
+            if c.get("for_child"):
+                products = [p for p in products if _CATALOG_BY_SKU.get(p["sku"], {}).get("age_appropriate")]
+            if c.get("max_price_inr") is not None:
+                products = [p for p in products if p.get("price_inr") is not None and p["price_inr"] <= c["max_price_inr"]]
             return {"reply": reply, "products": products}
 
         # ---- PATH: RAG (new_search / follow_up) ----------------------
@@ -766,13 +770,13 @@ PARSED UNDERSTANDING:
                     "products": []}
 
         context = self.format_retrieved_context(relevant_docs)
-        rag_rules = ("- For a new search: recommend ONLY items in the retrieved "
-                     "context; treat size and budget as hard constraints; rank "
+        rag_rules = ("- For a new search or when suggesting alternatives: recommend ONLY items in the retrieved "
+                     "context; treat size and budget as absolute hard constraints; NEVER recommend, suggest, or mention any product exceeding the budget; rank "
                      "by fit and return up to 3, in the standard recommendation "
                      "format\n"
                      "- If budget_from_memory is true, say once that you've "
                      "applied the budget they gave you earlier — never apply it "
-                     "silently\n"
+                     "silently and never recommend anything exceeding it\n"
                      "- For a follow-up question: answer about the specific "
                      "item(s) from the conversation, using the retrieved context "
                      "as the source of truth for colors, sizes, fabric, and "
@@ -789,7 +793,35 @@ PARSED UNDERSTANDING:
             reply = self._generate(
                 shopper_query, history_text, c, context=context, rules=rag_rules)
         limit = 3 if c["query_type"] == "new_search" else 1
-        products = self._products_from_docs(relevant_docs, limit=limit)
+        # Retrieve all candidate products from the relevant docs (no limit first)
+        all_candidates = self._products_from_docs(relevant_docs, limit=len(relevant_docs))
+        # Filter candidates based on whether the LLM actually mentioned them in the reply text
+        reply_lower = reply.lower()
+        aligned_products = []
+        for p in all_candidates:
+            brand_lower = p["brand"].lower()
+            title_lower = p["title"].lower()
+            base_title = title_lower.split(" - ")[0].split("(")[0].replace(" 3-pack", "").replace(" 2-pack", "").strip()
+            # Match if the title, full brand + title, or normalized base title is mentioned in the reply
+            if title_lower in reply_lower or f"{brand_lower} {title_lower}" in reply_lower or (len(base_title) > 3 and base_title in reply_lower):
+                aligned_products.append(p)
+        
+        # Apply child and budget guardrails on the candidates
+        if c.get("for_child"):
+            aligned_products = [p for p in aligned_products if _CATALOG_BY_SKU.get(p["sku"], {}).get("age_appropriate")]
+        if c.get("max_price_inr") is not None:
+            aligned_products = [p for p in aligned_products if p.get("price_inr") is not None and p["price_inr"] <= c["max_price_inr"]]
+            
+        # Fallback to general filtered products if alignment is empty (e.g., follow-up queries where LLM describes but doesn't list products)
+        if not aligned_products:
+            products = self._products_from_docs(relevant_docs, limit=limit)
+            if c.get("for_child"):
+                products = [p for p in products if _CATALOG_BY_SKU.get(p["sku"], {}).get("age_appropriate")]
+            if c.get("max_price_inr") is not None:
+                products = [p for p in products if p.get("price_inr") is not None and p["price_inr"] <= c["max_price_inr"]]
+        else:
+            products = aligned_products[:limit]
+            
         return {"reply": reply, "products": products}
 
     # Mental Model:

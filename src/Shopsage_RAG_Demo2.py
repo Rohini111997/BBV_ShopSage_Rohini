@@ -21,7 +21,7 @@ print("API key configured!")
 
 
 # app.py
-from src.Agent_2 import rag_agent   # importing runs the bootstrap at the bottom of Agent_2.py
+from src.Agent_3 import rag_agent   # importing runs the bootstrap at the bottom of Agent_2.py
 
 
 rag_agent.vectorstore._collection.count()

@@ -70,10 +70,22 @@
     },
     "learned_preferences": [
       {
-        "note": "Interested in crisp formal shirt, for office wear, budget under ₹1500",
-        "learned_at": "2026-07-29T18:32:35",
+        "note": "Interested in urbanthread crop cloud hoodie, prefers green, for cold-weather hiking, budget under ₹800",
+        "learned_at": "2026-07-30T13:19:06",
         "source": "chat",
-        "budget_inr": 1500
+        "budget_inr": 800
+      },
+      {
+        "note": "Interested in urbanthread crop cloud hoodie, prefers green, for cold-weather hiking",
+        "learned_at": "2026-07-30T13:20:26",
+        "source": "chat",
+        "budget_inr": null
+      },
+      {
+        "note": "For sports, budget under ₹10000",
+        "learned_at": "2026-07-30T13:26:55",
+        "source": "chat",
+        "budget_inr": 10000
       }
     ],
     "loyalty": {
@@ -106,7 +118,20 @@
       "style_notes": "Mostly buys hoodies and shorts for casual and lounge occasions; favours fleece and cotton fabrics, usually regular fit",
       "budget_inr": 1500
     },
-    "learned_preferences": [],
+    "learned_preferences": [
+      {
+        "note": "For vacation",
+        "learned_at": "2026-08-02T11:05:40",
+        "source": "chat",
+        "budget_inr": null
+      },
+      {
+        "note": "Interested in rangrez cloud cotton pyjamas, for vacation",
+        "learned_at": "2026-08-02T11:08:50",
+        "source": "chat",
+        "budget_inr": null
+      }
+    ],
     "loyalty": {
       "tier": "Silver",
       "points": 479,
@@ -4714,8 +4739,14 @@
     },
     "learned_preferences": [
       {
+        "note": "Interested in breathable gym socks, for sports, budget under ₹60000",
+        "learned_at": "2026-07-30T14:10:37",
+        "source": "chat",
+        "budget_inr": 60000
+      },
+      {
         "note": "Interested in breathable gym socks, for sports, budget under ₹600",
-        "learned_at": "2026-07-29T19:17:42",
+        "learned_at": "2026-08-02T03:12:02",
         "source": "chat",
         "budget_inr": 600
       }
@@ -4742,14 +4773,20 @@
     },
     "learned_preferences": [
       {
-        "note": "Interested in crisp formal shirt, for office wear, budget under ₹1500",
-        "learned_at": "2026-07-29T18:41:25",
+        "note": "Interested in formal shirt, for office wear, budget under ₹1500",
+        "learned_at": "2026-07-29T19:17:47",
         "source": "chat",
         "budget_inr": 1500
       },
       {
-        "note": "Interested in formal shirt, for office wear, budget under ₹1500",
-        "learned_at": "2026-07-29T19:17:47",
+        "note": "Interested in crisp formal shirt, for office wear, budget under ₹125000",
+        "learned_at": "2026-07-30T14:10:41",
+        "source": "chat",
+        "budget_inr": 125000
+      },
+      {
+        "note": "Interested in crisp formal shirt, for office wear, budget under ₹1500",
+        "learned_at": "2026-08-02T03:12:08",
         "source": "chat",
         "budget_inr": 1500
       }
@@ -4797,14 +4834,20 @@
     },
     "learned_preferences": [
       {
+        "note": "Interested in formal trousers, for formal",
+        "learned_at": "2026-07-29T19:18:07",
+        "source": "chat",
+        "budget_inr": null
+      },
+      {
         "note": "Interested in formal trousers, for formal, budget under ₹2000",
-        "learned_at": "2026-07-29T19:17:53",
+        "learned_at": "2026-08-02T03:13:17",
         "source": "chat",
         "budget_inr": 2000
       },
       {
-        "note": "Interested in formal trousers, for formal",
-        "learned_at": "2026-07-29T19:18:07",
+        "note": "Interested in formal trousers",
+        "learned_at": "2026-08-02T03:13:46",
         "source": "chat",
         "budget_inr": null
       }
@@ -4881,7 +4924,7 @@
     "learned_preferences": [
       {
         "note": "Interested in dress",
-        "learned_at": "2026-07-29T19:18:21",
+        "learned_at": "2026-08-02T03:14:16",
         "source": "chat",
         "budget_inr": null
       }
@@ -4890,6 +4933,69 @@
       "tier": "Bronze",
       "points": 0,
       "member_since": "2026-07-29",
+      "total_orders": 0
+    }
+  },
+  "CUST-002": {
+    "customer_id": "CUST-002",
+    "name": "Guest",
+    "phone_no": "",
+    "email": "",
+    "gender": null,
+    "age": null,
+    "preferences": {
+      "colour": [],
+      "size": {},
+      "style_notes": "",
+      "budget_inr": null
+    },
+    "learned_preferences": [],
+    "loyalty": {
+      "tier": "Bronze",
+      "points": 0,
+      "member_since": "2026-07-30",
+      "total_orders": 0
+    }
+  },
+  "CUST-001": {
+    "customer_id": "CUST-001",
+    "name": "Guest",
+    "phone_no": "",
+    "email": "",
+    "gender": null,
+    "age": null,
+    "preferences": {
+      "colour": [],
+      "size": {},
+      "style_notes": "",
+      "budget_inr": null
+    },
+    "learned_preferences": [],
+    "loyalty": {
+      "tier": "Bronze",
+      "points": 0,
+      "member_since": "2026-07-30",
+      "total_orders": 0
+    }
+  },
+  "CUST-003": {
+    "customer_id": "CUST-003",
+    "name": "Guest",
+    "phone_no": "",
+    "email": "",
+    "gender": null,
+    "age": null,
+    "preferences": {
+      "colour": [],
+      "size": {},
+      "style_notes": "",
+      "budget_inr": null
+    },
+    "learned_preferences": [],
+    "loyalty": {
+      "tier": "Bronze",
+      "points": 0,
+      "member_since": "2026-08-02",
       "total_orders": 0
     }
   }

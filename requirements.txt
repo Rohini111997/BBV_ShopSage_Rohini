@@ -163,3 +163,16 @@ websockets==16.1.1
 xxhash==3.8.1
 yarl==1.24.2
 zstandard==0.25.0
+
+# ======================================================================
+# FRONTEND NODE.JS DEPENDENCIES & SETUP
+# ======================================================================
+# The React frontend application requires Node.js (v18+) and npm.
+# To install the frontend dependencies, run the following:
+#   cd frontend
+#   npm install
+#
+# To start the Vite frontend development server:
+#   npm run dev
+# ======================================================================
+

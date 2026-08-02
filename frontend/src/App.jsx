@@ -199,6 +199,10 @@ function ProductDetailModal({ product, onClose }) {
   const [modalImgOk, setModalImgOk] = useState(true)
 
   useEffect(() => {
+    setModalImgOk(true)
+  }, [product])
+
+  useEffect(() => {
     const onKey = (e) => e.key === 'Escape' && onClose()
     window.addEventListener('keydown', onKey)
     return () => window.removeEventListener('keydown', onKey)
