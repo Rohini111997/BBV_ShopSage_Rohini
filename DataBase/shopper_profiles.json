@@ -193,7 +193,26 @@
       "style_notes": "Mostly buys socks and cargo pants for casual and everyday occasions; favours cotton and fleece fabrics, usually relaxed tapered fit",
       "budget_inr": 2000
     },
-    "learned_preferences": [],
+    "learned_preferences": [
+      {
+        "note": "For office, budget under ₹1500",
+        "learned_at": "2026-08-02T22:06:21",
+        "source": "chat",
+        "budget_inr": 1500
+      },
+      {
+        "note": "Interested in body suit",
+        "learned_at": "2026-08-02T22:07:55",
+        "source": "chat",
+        "budget_inr": null
+      },
+      {
+        "note": "Interested in novafit pacer running shorts",
+        "learned_at": "2026-08-02T22:08:38",
+        "source": "chat",
+        "budget_inr": null
+      }
+    ],
     "loyalty": {
       "tier": "Gold",
       "points": 1139,
@@ -4992,6 +5011,46 @@
       "budget_inr": null
     },
     "learned_preferences": [],
+    "loyalty": {
+      "tier": "Bronze",
+      "points": 0,
+      "member_since": "2026-08-02",
+      "total_orders": 0
+    }
+  },
+  "CUST-0008": {
+    "customer_id": "CUST-0008",
+    "name": "Guest",
+    "phone_no": "",
+    "email": "",
+    "gender": null,
+    "age": null,
+    "preferences": {
+      "colour": [],
+      "size": {},
+      "style_notes": "",
+      "budget_inr": null
+    },
+    "learned_preferences": [
+      {
+        "note": "Interested in formal trousers, for office, budget under ₹1500",
+        "learned_at": "2026-08-02T17:47:27",
+        "source": "chat",
+        "budget_inr": 1500
+      },
+      {
+        "note": "Interested in shirts, budget under ₹1000",
+        "learned_at": "2026-08-02T17:47:58",
+        "source": "chat",
+        "budget_inr": 1000
+      },
+      {
+        "note": "Interested in urbanthread everyday crew tee, prefers white",
+        "learned_at": "2026-08-02T17:48:50",
+        "source": "chat",
+        "budget_inr": null
+      }
+    ],
     "loyalty": {
       "tier": "Bronze",
       "points": 0,

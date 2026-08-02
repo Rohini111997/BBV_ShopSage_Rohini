@@ -17,13 +17,13 @@ sys.path.insert(0, str(Path(__file__).resolve().parent.parent.parent))
 
 from mcp.server.fastmcp import FastMCP
 
-from inventory import check_inventory, get_in_stock_sizes
-from order_tracking import track_order
+from src.tools.inventory import check_inventory, get_in_stock_size_counts
+from src.tools.order_tracking import track_order
 
 mcp = FastMCP("retail-tools")
 mcp.add_tool(check_inventory)
 mcp.add_tool(track_order)
-mcp.add_tool(get_in_stock_sizes)
+mcp.add_tool(get_in_stock_size_counts)
  
 
 if __name__ == "__main__":

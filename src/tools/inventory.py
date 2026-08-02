@@ -46,19 +46,21 @@ def check_inventory(sku: str, size: str | None = None, color: str | None = None)
 # ─────────────────────────────────────────────────────────────────────────
 
 @mcp.tool()
-def get_in_stock_sizes(sku: str) -> dict:
-    """Return the distinct sizes of this SKU currently in stock
-    (qty_available > 0). Accessories may have blank/one-size rows,
-    which still count as one available 'size'."""
+def get_in_stock_size_counts(skus: list[str]) -> dict:
+    """For each SKU, the number of distinct sizes currently in stock
+    (qty_available > 0). One query for the whole batch. SKUs with no
+    stock (or unknown SKUs) return 0."""
     session = get_session()
     try:
         rows = (
-            session.query(InventoryItem)
-            .filter(InventoryItem.sku.ilike(sku), InventoryItem.qty_available > 0)
+            session.query(InventoryItem.sku, InventoryItem.size)
+            .filter(InventoryItem.sku.in_(skus), InventoryItem.qty_available > 0)
             .all()
         )
-        sizes = sorted({(row.size or "One Size") for row in rows})
+        sizes_by_sku: dict[str, set] = {}
+        for sku, size in rows:
+            sizes_by_sku.setdefault(sku, set()).add(size or "One Size")
     finally:
         session.close()
 
-    return {"sku": sku, "in_stock_sizes": sizes, "count": len(sizes)}
+    return {"counts": {sku: len(sizes_by_sku.get(sku, set())) for sku in skus}}

@@ -110,8 +110,10 @@ def apply_profile_defaults(slots: dict, profile: dict | None) -> dict:
     if not slots.get("max_price_inr"):
         budget = learned_budget(profile)
         if budget:
-            slots["max_price_inr"] = budget
-            slots["budget_from_memory"] = True
+            # Soft memory only: surfaced to the LLM to mention/ask about,
+            # NEVER copied into max_price_inr — a budget from a past chat
+            # must not hard-filter searches the shopper didn't cap.
+            slots["remembered_budget_inr"] = budget
     return slots
 
 

@@ -1,14 +1,4 @@
-from langchain_groq import ChatGroq
-from langchain_core.prompts import PromptTemplate
-from langchain_core.messages import SystemMessage, HumanMessage
-from langchain_community.vectorstores import Chroma
-from langchain_community.embeddings import SentenceTransformerEmbeddings
-from langchain_text_splitters import CharacterTextSplitter
-from langchain_core.documents import Document
 import os
-import pandas as pd
-import json
-from typing import List, Dict
 from dotenv import load_dotenv
 import gradio as gr
 
@@ -21,10 +11,11 @@ print("API key configured!")
 
 
 # app.py
-from src.Agent_3 import rag_agent   # importing runs the bootstrap at the bottom of Agent_2.py
+from src.Agent_3 import rag_agent   # importing runs the bootstrap at the bottom of Agent_3.py
 
 
-rag_agent.vectorstore._collection.count()
+print(f"[demo] catalog chunks in vector store: "
+      f"{rag_agent.vectorstore._collection.count()}")
 
 
 # ------------------------- Shopper login (terminal, pre-launch) -------------

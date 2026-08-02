@@ -24,9 +24,9 @@ MCP integration:
     otherwise-sync agent code.
 
 Environment:
-    RETAIL_MCP_SERVER  path to retail_mcp_server.py   (default: ./retail_mcp_server.py)
-    RETAIL_DATA_DIR    folder holding inventory.csv / order_tracking.csv
-                       (forwarded to the server subprocess)
+    RETAIL_MCP_SERVER  path to retail_mcp_server.py   (default: src/tools/retail_mcp_server.py)
+    DATABASE_URL       Postgres connection string used by the retail-tools
+                       server (inherited by the subprocess via os.environ)
 """
    
 import asyncio
@@ -76,17 +76,16 @@ class RetailMCPClient:
     _DEFAULT_SERVER_SCRIPT = Path(__file__).parent / "tools" / "retail_mcp_server.py"
 
     def __init__(self, server_script: str | None = None,
-                 data_dir: str | None = None, startup_timeout: float = 30.0):
+                 startup_timeout: float = 30.0):
         self.server_script = str(Path(
             server_script
             or os.environ.get("RETAIL_MCP_SERVER")
             or self._DEFAULT_SERVER_SCRIPT
         ).resolve())
 
-        # Forward env so the server finds its CSVs
+        # Forward env so the server subprocess inherits DATABASE_URL (.env
+        # is loaded into os.environ by load_dotenv at module import)
         self.server_env = dict(os.environ)
-        if data_dir:
-            self.server_env["RETAIL_DATA_DIR"] = str(data_dir)
 
         self._loop = asyncio.new_event_loop()
         self._thread = threading.Thread(
@@ -193,7 +192,7 @@ class RAG_Reco_Agent:
 
         # Initialize the LLM
         self.llm = ChatGroq(
-            model="llama-3.1-8b-instant",
+             model="llama-3.3-70b-versatile",
             temperature=0.1,  # low temp: recommendations need consistency, not creativity
             max_tokens=1024   # Caps the response length
         )
@@ -229,7 +228,7 @@ D. ORDER TRACKING — "Where is my order ORD-1042?" (answered from live TOOL RES
  
 Grounding rules (apply to everything you say):
 1. Base every answer ONLY on the retrieved catalog context, tool results, and the conversation so far — never invent products, brands, prices, colors, sizes, stock levels, or order details
-2. For recommendations or any suggested alternatives (including when declining a product), treat stated constraints (gender, size, color, occasion, budget) as hard filters; NEVER recommend, suggest, or mention any product that exceeds the stated or remembered budget under any circumstances. Rank the qualifying items and present up to 3 DISTINCT products — never list the same product twice, even if it appears in multiple context entries. If fewer than 3 distinct products qualify, show only those; do not pad the list
+2. For recommendations or any suggested alternatives (including when declining a product), treat stated constraints (gender, size, color, occasion, budget) as hard filters; NEVER recommend, suggest, or mention any product that exceeds a buget stated in this the stated in this conversation. Rank the qualifying items and present up to 3 DISTINCT products — never list the same product twice, even if it appears in multiple context entries. If fewer than 3 distinct products qualify, show only those; do not pad the list
 3. For follow-up questions, resolve references like "the second one" or "it" from your own previous answers in the conversation; if the reference is ambiguous, ask which item they mean
 4. Answer color and size questions from the item's Available colors and Available sizes lists — quote what the catalog actually lists. If the requested color/size is not listed, say it isn't available and name what is
 5. For STOCK questions: if a TOOL RESULT with live inventory is provided, answer from it exactly. If no tool result is provided, state what sizes/colors the catalog offers and say you could not check live stock
@@ -360,7 +359,7 @@ Keep responses concise. Do not add disclaimers."""
                     trace: Trace | None = None) -> dict:
         """TOOL (MCP): order tracking via retail-tools `track_order`.
 
-        The MCP tool filters order_tracking.csv by Customer_ID (and
+        The MCP tool queries the Postgres order_tracking table by Customer_ID (and
         optionally Order_ID) and returns
         {order_id, order_status, item_count, expected_delivery_date}.
         """
@@ -394,7 +393,7 @@ Keep responses concise. Do not add disclaimers."""
                         color: str = None, trace: Trace | None = None) -> dict:
         """TOOL (MCP): live inventory via retail-tools `check_inventory`.
 
-        The MCP tool reads inventory.csv and returns the string
+        The MCP tool queries the Postgres inventory table and returns the string
         "In Stock" / "Out of Stock"; we wrap it so the generation rules
         (checked=true/false) keep working.
         """
@@ -469,22 +468,26 @@ Keep responses concise. Do not add disclaimers."""
                 return sku, doc
         return None, (docs[0] if docs else None)
 
-    def _is_recommendable(self, doc) -> bool:
-        """GUARDRAIL (stock): a product may be recommended only if it has
-        live stock — apparel needs >= 2 sizes in stock, accessories >= 1
-        (size doesn't matter for them). The MCP tool returns facts
-        (in-stock sizes); this business rule lives here in the agent.
-        Fail-open on tool errors so a flaky tool doesn't blank the demo."""
-        sku = doc.metadata.get("sku")
-        if not sku:
-            return False
-        res = self.mcp.call_tool("get_in_stock_sizes", {"sku": sku})
+    def _recommendable_skus(self, docs) -> set:
+        """GUARDRAIL (stock): apparel needs >= 2 in-stock sizes, accessories
+        >= 1. One bulk MCP call for the whole candidate list. Fail-open on
+        tool errors so a flaky tool doesn't blank the demo."""
+        skus = [d.metadata["sku"] for d in docs if d.metadata.get("sku")]
+        if not skus:
+            return set()
+        res = self.mcp.call_tool("get_in_stock_size_counts", {"skus": skus})
         if not res["ok"] or not isinstance(res["data"], dict):
-            return True   # tool error -> don't silently hide the product
-        count = res["data"].get("count", 0)
-        if doc.metadata.get("subcategory") == "accessories":
-            return count >= 1
-        return count >= 2
+            return set(skus)   # fail-open, same policy as before
+        counts = res["data"].get("counts", {})
+        ok = set()
+        for d in docs:
+            sku = d.metadata.get("sku")
+            if not sku:
+                continue
+            needed = 1 if d.metadata.get("subcategory") == "accessories" else 2
+            if counts.get(sku, 0) >= needed:
+                ok.add(sku)
+        return ok
 
     # ==================================================================
     # SECTION: ORCHESTRATOR
@@ -533,6 +536,8 @@ Routing hints:
 - "does it COME in green?" (catalog attribute, not live stock) -> follow_up
 - "where is my order" / "has it shipped" / an order ID -> order_tracking
 - Also look back through the CONVERSATION for a customer ID the shopper gave earlier
+- NEVER copy example IDs from these instructions or from ShopSage's own messages — only extract a customer_id or order_id that the shopper themselves typed
+
 
 CONVERSATION SO FAR:
 {history_text if history_text else "(none — this is the first message)"}
@@ -607,6 +612,27 @@ PARSED UNDERSTANDING:
         with trace.span("extract_slots"):
             c = self._extract_slots(shopper_query, history_text)
         trace.event("route", query_type=c["query_type"], slots=c)
+
+        # ---- ID hallucination guard ----------------------------------
+        # The extractor sometimes copies example IDs (e.g. CUST-001) from
+        # prompts or ShopSage's own messages. Only keep an ID the SHOPPER
+        # actually typed (this turn or an earlier user turn); otherwise
+        # drop it so the logged-in profile can backfill the real one.
+        user_parts = [shopper_query]
+        for item in history:
+            if isinstance(item, dict) and item.get("role") == "user":
+                content = item.get("content", "")
+                if isinstance(content, list):
+                    content = " ".join(b.get("text", "") for b in content
+                                       if isinstance(b, dict))
+                user_parts.append(str(content))
+            elif isinstance(item, (list, tuple)) and len(item) == 2:
+                user_parts.append(str(item[0]))
+        user_text = " ".join(user_parts).upper()
+        for key in ("customer_id", "order_id"):
+            if c.get(key) and str(c[key]).upper() not in user_text:
+                trace.event("id_guard", dropped=key, value=c[key])
+                c[key] = None
 
         # ---- Memory: read then write ---------------------------------
         # Backfill missing slots from the logged-in profile (gender drives
@@ -689,20 +715,18 @@ PARSED UNDERSTANDING:
         # Recommendations must be backed by live stock (>= 2 sizes for
         # apparel, >= 1 for accessories). Applied ONLY to new_search:
         # follow_up / inventory_check must still SEE the item asked about.
+        # ONE bulk MCP call for all candidates (was one call per doc).
         if c["query_type"] == "new_search" and relevant_docs:
-            in_stock_docs = []
-            blocked_skus = []
-            for d in relevant_docs:
-                if self._is_recommendable(d):
-                    in_stock_docs.append(d)
-                else:
-                    sku = d.metadata.get('sku')
-                    title = d.metadata.get('title')
-                    blocked_skus.append(sku)
-                    print(f"[guardrail] BLOCKED "
-                          f"{sku} "
-                          f"'{title}' — fails stock rule "
-                          f"(needs >=2 in-stock sizes; accessories >=1)")
+            ok_skus = self._recommendable_skus(relevant_docs)
+            in_stock_docs = [d for d in relevant_docs
+                             if d.metadata.get("sku") in ok_skus]
+            blocked = [(d.metadata.get("sku"), d.metadata.get("title"))
+                       for d in relevant_docs
+                       if d.metadata.get("sku") not in ok_skus]
+            blocked_skus = [sku for sku, _ in blocked]
+            for sku, title in blocked:
+                print(f"[guardrail] BLOCKED {sku} '{title}' — fails stock rule "
+                      f"(needs >=2 in-stock sizes; accessories >=1)")
             print(f"[guardrail] stock check: {len(relevant_docs)} retrieved "
                   f"-> {len(in_stock_docs)} recommendable")
             trace.event("guardrail", rule="stock_filter",
@@ -774,9 +798,9 @@ PARSED UNDERSTANDING:
                      "context; treat size and budget as absolute hard constraints; NEVER recommend, suggest, or mention any product exceeding the budget; rank "
                      "by fit and return up to 3, in the standard recommendation "
                      "format\n"
-                     "- If budget_from_memory is true, say once that you've "
-                     "applied the budget they gave you earlier — never apply it "
-                     "silently and never recommend anything exceeding it\n"
+                     "- If remembered_budget_inr is present, mention once that "
+                     "they shopped with that budget previously and ask if it "
+                     "still applies — but do NOT limit this answer to it\n"
                      "- For a follow-up question: answer about the specific "
                      "item(s) from the conversation, using the retrieved context "
                      "as the source of truth for colors, sizes, fabric, and "
@@ -896,7 +920,6 @@ print("Initializing RAG Recommendation Agent...")
 vectorstore, embeddings = _load_vectorstore()
 mcp_client = RetailMCPClient(
     server_script=os.environ.get("RETAIL_MCP_SERVER"),
-    data_dir=os.environ.get("RETAIL_DATA_DIR"),
 )
 rag_agent = RAG_Reco_Agent(vectorstore, embeddings, mcp_client)
 print(f"[observability] LangSmith tracing {langsmith_status()}")
