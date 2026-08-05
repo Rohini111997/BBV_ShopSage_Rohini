@@ -69,6 +69,10 @@ if __name__ == "__main__":
     print(f"\n  reply: {r3['reply'][:200]}")
 
     recall = next(e for e in r2["trace"]["events"] if e["kind"] == "memory_recall")
+    # Check the recalled VALUE as well as the derived flag: when the slot was
+    # renamed to remembered_budget_inr, a flag-only check went quietly false.
     assert recall["budget_from_memory"], "session 2 did not recall the budget"
+    assert recall["recalled"].get("remembered_budget_inr") == 4000, (
+        f"session 2 recalled the wrong budget: {recall['recalled']}")
     assert any(e["kind"] == "tool_call" for e in r3["trace"]["events"]), "no tool call traced"
     print("\n✅ trace captures routing, cross-session recall, and MCP tool calls")

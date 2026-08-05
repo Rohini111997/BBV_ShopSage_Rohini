@@ -7,14 +7,19 @@ scores and generates an evaluation report.
 If LANGSMITH_TRACING=true and LANGSMITH_API_KEY are configured in .env, traces and
 evaluations are automatically sent to your LangSmith project dashboard.
 
+Writes to a temp copy of the shopper store, so committed data stays clean.
+
 Run from repo root:
     python tests/eval_suite.py
 """
 
 import json
 import os
+import shutil
 import sys
+import tempfile
 import time
+from pathlib import Path
 from typing import Dict, List
 
 from dotenv import load_dotenv
@@ -24,8 +29,20 @@ load_dotenv()
 # Ensure dependencies are present
 try:
     from src import memory
-    from src.Agent_3 import rag_agent
-    from src.observability import LANGSMITH_ENABLED, langsmith_status
+except Exception as e:
+    print(f"Error importing ShopSage agent modules: {e}")
+    sys.exit(1)
+
+# Redirect the shopper store to a temp copy BEFORE the agent loads it — the
+# eval cases write learned preferences, and those must not land in the
+# committed DataBase/shopper_profiles.json.
+_src = memory.PROFILES_PATH
+memory.PROFILES_PATH = Path(tempfile.mkdtemp()) / "shopper_profiles.json"
+shutil.copy(_src, memory.PROFILES_PATH)
+
+try:
+    from src.Agent_3 import rag_agent  # noqa: E402  (import after the store swap)
+    from src.observability import LANGSMITH_ENABLED, langsmith_status  # noqa: E402
 except Exception as e:
     print(f"Error importing ShopSage agent modules: {e}")
     sys.exit(1)
@@ -117,22 +134,41 @@ def evaluate_case(test_case: Dict) -> Dict:
     if tc_id == "TC-05":
         cust_id = test_case["step_1"]["customer_id"]
         rag_agent.set_shopper(cust_id)
+        start_time = time.time()
         # Turn 1: establish preference
         r1 = rag_agent.get_rag_product_recommendation(test_case["step_1"]["query"])
-        # Turn 2: recall preference unprompted
+        # Turn 2: fresh login, budget not mentioned — it must come back from memory
+        rag_agent.set_shopper(cust_id)
         r2 = rag_agent.get_rag_product_recommendation(test_case["step_2"]["query"])
+        elapsed_ms = int((time.time() - start_time) * 1000)
 
         events = r2.get("trace", {}).get("events", [])
         recall_event = next((e for e in events if e.get("kind") == "memory_recall"), {})
 
-        recalled = recall_event.get("budget_from_memory", False)
-        pass_test = bool(recalled)
+        # Assert on the recalled VALUE, not just the derived flag — a renamed
+        # slot silently zeroed this check once already.
+        recalled_budget = recall_event.get("recalled", {}).get("remembered_budget_inr")
+        expected_budget = test_case["step_2"]["expected_recall_budget"]
+
+        passed = True
+        reasons = []
+        if not recall_event.get("budget_from_memory"):
+            passed = False
+            reasons.append("trace did not flag budget_from_memory on turn 2")
+        if recalled_budget != expected_budget:
+            passed = False
+            reasons.append(
+                f"Recalled budget mismatch: expected INR {expected_budget}, "
+                f"got {recalled_budget}"
+            )
 
         return {
             "id": tc_id,
             "category": category,
-            "passed": pass_test,
-            "details": f"Memory recalled budget: {recalled}",
+            "passed": passed,
+            "latency_ms": elapsed_ms,
+            "details": (f"Memory recalled budget: INR {recalled_budget}"
+                        if passed else " | ".join(reasons)),
             "trace_id": r2.get("trace", {}).get("trace_id"),
         }
 

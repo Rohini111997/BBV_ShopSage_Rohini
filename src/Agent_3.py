@@ -651,7 +651,9 @@ PARSED UNDERSTANDING:
         recalled = {k: v for k, v in c.items() if before.get(k) != v}
         trace.event("memory_recall",
                     recalled=recalled,
-                    budget_from_memory=bool(c.get("budget_from_memory")),
+                    # Soft-budget rename: apply_profile_defaults backfills
+                    # remembered_budget_inr, never the old budget_from_memory flag.
+                    budget_from_memory=bool(c.get("remembered_budget_inr")),
                     learned_notes=[n["note"] for n in
                                    (self.profile or {}).get("learned_preferences", [])])
 
