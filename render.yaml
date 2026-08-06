@@ -1,0 +1,24 @@
+services:
+  - type: web
+    name: shopsage-backend
+    runtime: python
+    plan: free
+    buildCommand: pip install -r requirements.txt
+    # chroma_db/ isn't persisted on the free plan's ephemeral disk, so it's
+    # rebuilt fresh on every boot — takes ~10s for the 100-product catalog.
+    # Postgres (Neon) is separate and already persistent; no reload needed.
+    startCommand: python -m src.Ingest_Embedding && uvicorn backend.main:app --host 0.0.0.0 --port $PORT
+    healthCheckPath: /api/health
+    envVars:
+      - key: DATABASE_URL
+        sync: false
+      - key: GROQ_API_KEYS
+        sync: false
+      - key: GROQ_API_KEY
+        sync: false
+      - key: DEPLOYED_FRONTEND_ORIGINS
+        sync: false
+      - key: LANGSMITH_TRACING
+        value: "false"
+      - key: PYTHONIOENCODING
+        value: utf-8

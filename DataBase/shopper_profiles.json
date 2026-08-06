@@ -564,7 +564,26 @@
       "style_notes": "Mostly buys skirts and jeans for casual and formal occasions; favours denim and cotton fabrics, usually a-line fit",
       "budget_inr": 3000
     },
-    "learned_preferences": [],
+    "learned_preferences": [
+      {
+        "note": "For vacation",
+        "learned_at": "2026-08-05T14:56:15",
+        "source": "chat",
+        "budget_inr": null
+      },
+      {
+        "note": "Interested in fleur studio meadow wrap dress, prefers white",
+        "learned_at": "2026-08-05T14:56:30",
+        "source": "chat",
+        "budget_inr": null
+      },
+      {
+        "note": "For vacation, budget under ₹1500",
+        "learned_at": "2026-08-05T14:56:47",
+        "source": "chat",
+        "budget_inr": 1500
+      }
+    ],
     "loyalty": {
       "tier": "Gold",
       "points": 979,
@@ -3647,7 +3666,14 @@
       "style_notes": "Mostly buys shorts and trousers for casual and smart casual occasions; favours denim and cotton fabrics, usually regular fit",
       "budget_inr": 1500
     },
-    "learned_preferences": [],
+    "learned_preferences": [
+      {
+        "note": "For vacation",
+        "learned_at": "2026-08-05T15:39:33",
+        "source": "chat",
+        "budget_inr": null
+      }
+    ],
     "loyalty": {
       "tier": "Gold",
       "points": 979,
@@ -5055,6 +5081,27 @@
       "tier": "Bronze",
       "points": 0,
       "member_since": "2026-08-02",
+      "total_orders": 0
+    }
+  },
+  "CUST-0013": {
+    "customer_id": "CUST-0013",
+    "name": "Guest",
+    "phone_no": "",
+    "email": "",
+    "gender": null,
+    "age": null,
+    "preferences": {
+      "colour": [],
+      "size": {},
+      "style_notes": "",
+      "budget_inr": null
+    },
+    "learned_preferences": [],
+    "loyalty": {
+      "tier": "Bronze",
+      "points": 0,
+      "member_since": "2026-08-05",
       "total_orders": 0
     }
   }

@@ -7,8 +7,13 @@ root so the relative chroma_db/ path resolves consistently:
     uvicorn backend.main:app --reload --port 8000
 """
 
-from fastapi import FastAPI, HTTPException
+import os
+import time
+from collections import defaultdict, deque
+
+from fastapi import FastAPI, HTTPException, Request
 from fastapi.middleware.cors import CORSMiddleware
+from fastapi.responses import JSONResponse
 from pydantic import BaseModel
 
 from src import memory
@@ -17,13 +22,44 @@ from src.dashboard import session_store, full_summary
 
 app = FastAPI(title="ShopSage API")
 
-# Allow the Vite dev server (port 5173) to reach the backend
+# Allow the Vite dev server, plus the deployed frontend origin(s) — comma-
+# separated in DEPLOYED_FRONTEND_ORIGINS, e.g. https://shopsage.vercel.app
+_default_origins = ["http://localhost:5173", "http://localhost:3000"]
+_deployed_origins = [o.strip() for o in
+                      os.environ.get("DEPLOYED_FRONTEND_ORIGINS", "").split(",")
+                      if o.strip()]
 app.add_middleware(
     CORSMiddleware,
-    allow_origins=["http://localhost:5173", "http://localhost:3000"],
+    allow_origins=_default_origins + _deployed_origins,
     allow_methods=["*"],
     allow_headers=["*"],
 )
+
+# ── Per-IP rate limit on /api/chat ──────────────────────────────────────────
+# A public deployment shares one Groq quota across every visitor; this caps
+# how much of it any single visitor can burn. In-memory only — fine for a
+# single free-tier instance, not meant to survive a restart or scale out.
+_CHAT_LIMIT = int(os.environ.get("CHAT_RATE_LIMIT_PER_HOUR", "30"))
+_chat_hits: dict[str, deque] = defaultdict(deque)
+
+
+@app.middleware("http")
+async def rate_limit_chat(request: Request, call_next):
+    if request.url.path == "/api/chat" and request.method == "POST":
+        client_ip = request.headers.get("x-forwarded-for", "")
+        client_ip = client_ip.split(",")[0].strip() or (
+            request.client.host if request.client else "unknown")
+        now = time.monotonic()
+        hits = _chat_hits[client_ip]
+        while hits and now - hits[0] > 3600:
+            hits.popleft()
+        if len(hits) >= _CHAT_LIMIT:
+            return JSONResponse(
+                status_code=429,
+                content={"detail": f"Rate limit: max {_CHAT_LIMIT} messages/hour per visitor. Please try again later."},
+            )
+        hits.append(now)
+    return await call_next(request)
 
 
 class LoginRequest(BaseModel):

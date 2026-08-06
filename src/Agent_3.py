@@ -43,7 +43,6 @@ load_dotenv()
 
 from langchain_chroma import Chroma
 from langchain_core.messages import HumanMessage, SystemMessage
-from langchain_groq import ChatGroq
 from langchain_huggingface import HuggingFaceEmbeddings
 
 from mcp import ClientSession, StdioServerParameters
@@ -53,6 +52,7 @@ from langsmith import traceable
 
 from src.Ingest_Embedding import CHROMA_DIR, COLLECTION, EMBED_MODEL, ingest, load_catalog
 from src import memory
+from src.groq_router import GroqKeyRouter
 from src.observability import Trace, langsmith_status
 
 # Full catalog rows keyed by SKU — Chroma metadata only carries the fields
@@ -190,9 +190,10 @@ class RAG_Reco_Agent:
 
     def __init__(self, vectorstore, embeddings, mcp_client: RetailMCPClient):
 
-        # Initialize the LLM
-        self.llm = ChatGroq(
-             model="llama-3.3-70b-versatile",
+        # Initialize the LLM — rotates across GROQ_API_KEYS (comma-separated)
+        # if set, else falls back to a single GROQ_API_KEY
+        self.llm = GroqKeyRouter(
+            model="llama-3.3-70b-versatile",
             temperature=0.1,  # low temp: recommendations need consistency, not creativity
             max_tokens=1024   # Caps the response length
         )
@@ -333,7 +334,9 @@ Keep responses concise. Do not add disclaimers."""
         if metadata_filter:
             search_kwargs["filter"] = self._build_where(metadata_filter)
         retriever = self.vectorstore.as_retriever(search_kwargs=search_kwargs)
-        docs = retriever.invoke(query)
+        docs = retriever.invoke(
+            query, config={"run_name": "retrieve_catalog", "tags": [f"k={k}"]}
+        )
 
         if len(self._retrieval_cache) >= self._CACHE_MAX:   # simple FIFO cap
             self._retrieval_cache.pop(next(iter(self._retrieval_cache)))
@@ -544,7 +547,10 @@ CONVERSATION SO FAR:
 
 SHOPPER MESSAGE: "{shopper_query}" """
 
-        raw = self.llm.invoke([HumanMessage(content=extraction_prompt)]).content
+        raw = self.llm.invoke(
+            [HumanMessage(content=extraction_prompt)],
+            config={"run_name": "route_and_extract_slots", "tags": ["routing"]},
+        ).content
         raw = raw.replace("```json", "").replace("```", "").strip()
         try:
             c = json.loads(raw)
@@ -567,7 +573,7 @@ SHOPPER MESSAGE: "{shopper_query}" """
         return c
 
     def _generate(self, shopper_query, history_text, slots,
-                  context="", tool_result=None, rules=""):
+                  context="", tool_result=None, rules="", path="reply"):
         """Final grounded LLM call, shared by all paths."""
         prompt = f"""Continue this shopping conversation.
 
@@ -586,7 +592,10 @@ PARSED UNDERSTANDING:
         prompt += f"\nRules:\n{rules}"
 
         messages = [self.system_message, HumanMessage(content=prompt)]
-        return self.llm.invoke(messages).content
+        return self.llm.invoke(
+            messages,
+            config={"run_name": f"generate_reply:{path}", "tags": ["generation", path]},
+        ).content
 
     @traceable(run_type="chain", name="shopsage_turn")
     def get_rag_product_recommendation(self, shopper_query, history=None):
@@ -672,7 +681,8 @@ PARSED UNDERSTANDING:
                            "expected_delivery_date in 1-3 sentences, naming the "
                            "order ID\n"
                            "- If not found, say so and ask the shopper to "
-                           "double-check their customer ID / order ID"))
+                           "double-check their customer ID / order ID"),
+                    path="order_tracking")
             return {"reply": reply, "products": []}
 
         # ---- Build search inputs (all remaining paths use retrieval) --
@@ -764,7 +774,8 @@ PARSED UNDERSTANDING:
                            "- If checked=false, state which sizes/colors the "
                            "catalog offers for this product and say you could "
                            "not confirm live stock\n"
-                           "- 1-3 plain sentences"))
+                           "- 1-3 plain sentences"),
+                    path="inventory_check")
             products = self._products_from_docs([top_doc] if top_doc else [], limit=1)
             if c.get("for_child"):
                 products = [p for p in products if _CATALOG_BY_SKU.get(p["sku"], {}).get("age_appropriate")]
@@ -817,7 +828,8 @@ PARSED UNDERSTANDING:
                           "items outside the retrieved context")
         with trace.span("generate", path=c["query_type"]):
             reply = self._generate(
-                shopper_query, history_text, c, context=context, rules=rag_rules)
+                shopper_query, history_text, c, context=context, rules=rag_rules,
+                path=c["query_type"])
         limit = 3 if c["query_type"] == "new_search" else 1
         # Retrieve all candidate products from the relevant docs (no limit first)
         all_candidates = self._products_from_docs(relevant_docs, limit=len(relevant_docs))
